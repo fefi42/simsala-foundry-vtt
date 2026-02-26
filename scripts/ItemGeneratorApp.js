@@ -107,36 +107,61 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     let anySucceeded = false;
     let firstError = null;
 
-    for (let i = 0; i < groupNames.length; i++) {
-      const group = GROUPS[groupNames[i]];
-      const isLast = i === groupNames.length - 1;
-
-      this._setStatus(group.label);
-
-      const prompt  = group.buildPrompt(context, itemType);
-      const schema  = group.schema(itemType);
-      const keepAlive = isLast ? 0 : -1;
-
+    // Wave 1: identity alone — name/rarity feed into later prompts
+    if (groupNames.includes("identity")) {
+      this._setStatus(GROUPS.identity.label);
+      const prompt = GROUPS.identity.buildPrompt(context, itemType, {});
+      const schema = GROUPS.identity.schema(itemType);
       try {
         const { parsed } = await OllamaService.generate(
           [{ role: "user", content: prompt }],
           schema,
-          keepAlive,
+          -1,
         );
         if (parsed) {
-          const partial = group.mapResult(parsed, itemType);
-          merged = mergeDeep(merged, partial);
+          merged = mergeDeep(merged, GROUPS.identity.mapResult(parsed, itemType));
           anySucceeded = true;
         }
       } catch (err) {
-        console.warn(`[simsala] group "${groupNames[i]}" failed:`, err.message);
-        if (!firstError) firstError = err;
-        // On last group, make sure model is unloaded even on failure
-        if (isLast) {
-          try { await OllamaService.generate([], {}, 0); } catch { /* ignore */ }
+        console.warn(`[simsala] group "identity" failed:`, err.message);
+        firstError = err;
+      }
+    }
+
+    // Wave 2: remaining groups with identity output as prior context
+    const remainingNames = groupNames.filter(n => n !== "identity");
+    if (remainingNames.length > 0) {
+      this._setStatus("Generating details…");
+      const prior = merged;
+
+      const outcomes = await Promise.allSettled(
+        remainingNames.map(async name => {
+          const group = GROUPS[name];
+          const prompt = group.buildPrompt(context, itemType, prior);
+          const schema = group.schema(itemType);
+          const { parsed } = await OllamaService.generate(
+            [{ role: "user", content: prompt }],
+            schema,
+            -1,
+          );
+          return parsed ? group.mapResult(parsed, itemType, prior) : null;
+        })
+      );
+
+      for (let i = 0; i < outcomes.length; i++) {
+        const outcome = outcomes[i];
+        if (outcome.status === "fulfilled" && outcome.value) {
+          merged = mergeDeep(merged, outcome.value);
+          anySucceeded = true;
+        } else if (outcome.status === "rejected") {
+          console.warn(`[simsala] group "${remainingNames[i]}" failed:`, outcome.reason?.message);
+          if (!firstError) firstError = outcome.reason;
         }
       }
     }
+
+    // Unload model after all waves complete
+    try { await OllamaService.generate([], {}, 0); } catch { /* ignore */ }
 
     if (!anySucceeded) {
       throw firstError ?? new Error("All generation groups failed.");

@@ -1,5 +1,22 @@
 import { DND5E_ITEM_SCHEMA } from "../data/dnd5e-item-schema.js";
 
+/** DMG magic item price table (gp). Used instead of asking the LLM for price. */
+const DMG_BASE_PRICES = {
+  common:    100,
+  uncommon:  400,
+  rare:      4000,
+  veryRare:  40000,
+  legendary: 200000,
+  artifact:  0,
+};
+
+/** Returns price with ±50% random variation around the DMG baseline. */
+function rarityPrice(rarity) {
+  const base = DMG_BASE_PRICES[rarity];
+  if (!base) return { value: 0, denomination: "gp" };
+  return { value: Math.round(base * (0.75 + Math.random() * 0.75)), denomination: "gp" };
+}
+
 /** Which groups run for each item type, in order. */
 export const ITEM_TYPE_GROUPS = {
   weapon:     ["identity", "description", "damage", "properties", "physical"],
@@ -55,12 +72,12 @@ export const GROUPS = {
 
     mapResult(result, itemType) {
       const update = {
-        name: result.name,
         system: {
           rarity: result.rarity,
           type: { value: result.typeValue ?? "" },
         },
       };
+      if (result.name) update.name = result.name;
       if (itemType !== "loot" && result.attunement !== undefined) {
         update.system.attunement = result.attunement;
       }
@@ -84,16 +101,20 @@ export const GROUPS = {
       };
     },
 
-    buildPrompt(context, itemType) {
-      return [
+    buildPrompt(context, itemType, prior = {}) {
+      const lines = [
         `You are a D&D 5e assistant writing item flavor text.`,
         ``,
         `GM description: "${context}"`,
         `Item type: ${itemType}`,
+      ];
+      if (prior.name) lines.push(`Item name: "${prior.name}"`);
+      lines.push(
         ``,
         `Write 2–4 sentences in the style of a D&D sourcebook. Be evocative and specific. Wrap in a single <p> tag.`,
         `Return JSON: { "description": "<p>...</p>" }`,
-      ].join("\n");
+      );
+      return lines.join("\n");
     },
 
     mapResult(result) {
@@ -275,32 +296,32 @@ export const GROUPS = {
       return {
         type: "object",
         properties: {
-          price:        { type: "number" },
-          denomination: { type: "string", enum: DND5E_ITEM_SCHEMA.priceDenomination },
-          weight:       { type: "number" },
+          weight: { type: "number" },
         },
-        required: ["price", "denomination", "weight"],
+        required: ["weight"],
       };
     },
 
-    buildPrompt(context, itemType) {
-      return [
-        `You are a D&D 5e assistant. Determine the price and weight for a ${itemType}.`,
+    buildPrompt(context, itemType, prior = {}) {
+      const lines = [
+        `You are a D&D 5e assistant. Determine the weight in pounds for a ${itemType}.`,
         ``,
         `GM description: "${context}"`,
+      ];
+      if (prior.name) lines.push(`Item name: "${prior.name}"`);
+      lines.push(
         ``,
-        `Rarity pricing: common ~50gp, uncommon ~500gp, rare ~5000gp, very rare ~50000gp, legendary ~500000gp.`,
-        `Denominations: ${DND5E_ITEM_SCHEMA.priceDenomination.join(", ")}. Use gp for most items.`,
         `Typical weights: dagger 1lb, sword 2–4lb, armor 10–65lb, potion 0.5lb, wand 1lb, gem 0lb.`,
         ``,
-        `Return JSON: { "price": 5000, "denomination": "gp", "weight": 1 }`,
-      ].join("\n");
+        `Return JSON: { "weight": 1 }`,
+      );
+      return lines.join("\n");
     },
 
-    mapResult(result) {
+    mapResult(result, _itemType, prior = {}) {
       return {
         system: {
-          price:  { value: result.price ?? 0, denomination: result.denomination ?? "gp" },
+          price:  rarityPrice(prior.system?.rarity),
           weight: { value: result.weight ?? 0 },
         },
       };
