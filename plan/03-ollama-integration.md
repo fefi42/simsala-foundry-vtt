@@ -104,9 +104,15 @@ this.isGenerating = false;
 3. Call `OllamaService.generate(this.messages, itemJsonSchema)`
 4. On success:
    - Append assistant message to `this.messages`
-   - If `parsed` is valid: store as `this.lastResult`, render formatted preview, enable Apply
+   - If `parsed` is valid: run property validation (see below), store as `this.lastResult`, render formatted preview, enable Apply
    - If `parsed` is null (JSON parse failed): retry once by appending an error correction message and calling generate again
    - If second failure: render raw response with a warning, leave Apply disabled
+
+### Property Validation
+
+Validated in testing: the model correctly follows the JSON structure and uses valid enum values for rarity, attunement, etc. — but it does **not** self-enforce the `validFor` constraints on `system.properties`. For example, when generating a loot item described as a dagger, it returned `["mgc", "fin", "thr", "spc"]` — the last three are weapon-only properties not valid for loot.
+
+After parsing, strip any property values that are not in `DND5E_ITEM_SCHEMA.properties[key].validFor` for the item's type before storing as `lastResult`. Note the removed properties in the chat message so the GM is aware. Do not retry — this is an expected model limitation, not a failure.
 5. Re-enable send button, set status to `Idle`
 6. On error: display error message in chat, reset to `Idle`
 
