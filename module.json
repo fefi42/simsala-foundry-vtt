@@ -1,0 +1,19 @@
+{
+  "id": "simsala",
+  "title": "Simsala – AI Item Generator",
+  "description": "Generate D&D 5e item data using a locally running LLM via an iterative chat interface.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "simsala"
+    }
+  ],
+  "esmodules": ["scripts/main.js"],
+  "styles": ["styles/simsala.css"],
+  "languages": [],
+  "flags": {}
+}
