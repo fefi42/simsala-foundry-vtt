@@ -9,6 +9,7 @@ A Foundry VTT v13 module that allows a GM to generate item data using a locally 
 
 The module is designed to have zero performance impact during play. The LLM is only loaded into memory during active generation and unloaded immediately after.
 
+The module is designed for DnD 5e specifically.
 ---
 
 ## Scope (POC)
