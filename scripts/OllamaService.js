@@ -1,7 +1,7 @@
 import { getSettings } from "./settings.js";
 
 export class OllamaService {
-  static async generate(messages, format) {
+  static async generate(messages, format, keepAlive = 0) {
     const { ollamaUrl, modelName } = getSettings();
 
     let response;
@@ -14,7 +14,7 @@ export class OllamaService {
           messages,
           format,
           stream: false,
-          keep_alive: 0,
+          keep_alive: keepAlive,
         }),
       });
     } catch {

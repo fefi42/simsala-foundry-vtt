@@ -20,6 +20,12 @@ export const DND5E_ITEM_SCHEMA = {
   attunement: ["", "required", "optional"],
 
   /**
+   * system.mastery — weapon only
+   * Each weapon type has a canonical mastery (dagger→nick, longsword→sap, greatsword→cleave, etc.)
+   */
+  weaponMasteries: ["cleave", "graze", "nick", "push", "sap", "slow", "topple", "vex"],
+
+  /**
    * system.price.denomination
    */
   priceDenomination: ["cp", "sp", "ep", "gp", "pp"],
