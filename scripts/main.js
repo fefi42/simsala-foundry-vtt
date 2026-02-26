@@ -1,5 +1,11 @@
 import { ItemGeneratorApp } from "./ItemGeneratorApp.js";
+import { registerSettings } from "./settings.js";
+
 console.log("[simsala] main.js loaded");
+
+Hooks.once("init", () => {
+  registerSettings();
+});
 
 // Inject a button directly into the item sheet header
 Hooks.on("renderItemSheet5e", (app, html) => {

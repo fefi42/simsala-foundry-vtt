@@ -1,1 +1,153 @@
-/* Simsala – AI Item Generator */
+/* Simsala — AI Item Generator */
+
+.simsala-window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Status bar */
+.simsala-header {
+  padding: 4px 10px;
+  background: rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  font-size: 0.75rem;
+  color: #555;
+  flex-shrink: 0;
+}
+
+.simsala-status[data-status="generating"] { color: #a07000; font-style: italic; }
+.simsala-status[data-status="error"]      { color: #aa2222; }
+
+/* Chat history */
+.simsala-history {
+  flex: 1;
+  overflow-y: auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* All message text is selectable */
+.simsala-message,
+.simsala-message * {
+  user-select: text;
+  -webkit-user-select: text;
+  cursor: text;
+}
+
+.simsala-message {
+  max-width: 90%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.simsala-message p  { margin: 0; }
+
+/* User bubble — dark, matches Foundry button style */
+.simsala-message--user {
+  align-self: flex-end;
+  background: #4b4a44;
+  color: #f0ede0;
+}
+
+/* Assistant bubble — light parchment */
+.simsala-message--assistant {
+  align-self: flex-start;
+  background: #f5f0e8;
+  color: #191813;
+  border: 1px solid #c9c7b8;
+}
+
+.simsala-message--assistant pre {
+  margin: 0;
+  font-family: monospace;
+  font-size: 0.8rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+  color: #191813;
+}
+
+/* Error bubble */
+.simsala-message--error {
+  align-self: stretch;
+  background: #fff0f0;
+  border: 1px solid #e88;
+  color: #aa2222;
+}
+
+.simsala-message--error pre {
+  margin: 0;
+  font-size: 0.78rem;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* System note (e.g. "Applied to item") */
+.simsala-message--note {
+  align-self: center;
+  color: #777;
+  font-size: 0.78rem;
+  font-style: italic;
+  padding: 2px 0;
+}
+
+/* Copy button on assistant messages */
+.simsala-copy {
+  display: block;
+  margin-top: 6px;
+  padding: 2px 8px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.simsala-copy:hover { opacity: 1; }
+
+/* Property warning note inside assistant message */
+.simsala-note {
+  margin: 6px 0 0;
+  font-size: 0.75rem;
+  color: #a07000;
+}
+
+/* Input area */
+.simsala-input-area {
+  display: flex;
+  gap: 6px;
+  padding: 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
+
+.simsala-input {
+  flex: 1;
+  resize: none;
+  font-size: 0.85rem;
+  padding: 6px 8px;
+  border: 1px solid #999;
+  border-radius: 4px;
+  background: #fff;
+  color: #191813;
+  font-family: inherit;
+}
+
+.simsala-input::placeholder { color: #999; }
+
+.simsala-send {
+  align-self: flex-end;
+}
+
+/* Footer */
+.simsala-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 6px 8px;
+  border-top: 1px solid rgba(0, 0, 0, 0.15);
+  background: rgba(0, 0, 0, 0.05);
+  flex-shrink: 0;
+}
