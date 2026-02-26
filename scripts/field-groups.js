@@ -235,8 +235,8 @@ export const GROUPS = {
       return {
         type: "object",
         properties: {
-          max: { type: "string" },
-          per: { type: "string" },
+          max: { type: "integer" },
+          per: { type: "string", enum: ["sr", "lr", "day", "charges"] },
         },
         required: ["max", "per"],
       };
@@ -248,16 +248,21 @@ export const GROUPS = {
         ``,
         `GM description: "${context}"`,
         ``,
-        `Recovery options: "sr" (short rest), "lr" (long rest), "day" (dawn), "charges" (depleted permanently).`,
-        `Single-use items (potions, scrolls, food): max "1", per "charges".`,
-        `Multi-charge items (wands, rods): max "3"–"10", per "lr" or "day".`,
+        `max: an INTEGER — the number of uses. Never use words. Examples: 1, 3, 10.`,
+        `per: one of "sr" (short rest), "lr" (long rest), "day" (dawn), "charges" (item consumed permanently).`,
+        `Single-use items (potions, scrolls, food, poisons): max 1, per "charges".`,
+        `Multi-charge items (wands, rods): max 3–10, per "lr" or "day".`,
         ``,
-        `Return JSON: { "max": "3", "per": "lr" }`,
+        `Return JSON: { "max": 3, "per": "lr" }`,
       ].join("\n");
     },
 
     mapResult(result) {
-      return { system: { uses: { max: result.max ?? "1", per: result.per ?? "charges" } } };
+      const validPer = ["sr", "lr", "day", "charges"];
+      const maxNum = parseInt(result.max, 10);
+      const max = String(isFinite(maxNum) && maxNum > 0 ? maxNum : 1);
+      const per = validPer.includes(result.per) ? result.per : "charges";
+      return { system: { uses: { max, per } } };
     },
   },
 
