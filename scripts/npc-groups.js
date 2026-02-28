@@ -466,11 +466,11 @@ export const NPC_GROUPS = {
         `GM description: "${context}"`,
         `Creature: "${name}", CR ${cr}, ${size} ${type}`,
         ``,
-        `Write 3–5 sentences covering appearance, personality, and a hint of backstory.`,
-        `Use the style of a D&D Monster Manual entry.`,
-        `Wrap in <p> tags — one per paragraph, 2 paragraphs max.`,
+        `Write 2–3 short sentences covering appearance and personality.`,
+        `Use the style of a D&D Monster Manual entry. Keep it brief.`,
+        `Wrap in a single <p> tag.`,
         ``,
-        `Return JSON: { "biography": "<p>First paragraph about appearance.</p><p>Second paragraph about personality and lore.</p>" }`,
+        `Return JSON: { "biography": "<p>A brief description of the creature.</p>" }`,
       ].join("\n");
     },
 
