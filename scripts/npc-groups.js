@@ -35,7 +35,8 @@ const EXOTIC_LANGUAGES = [
 
 const ALL_LANGUAGES = [...STANDARD_LANGUAGES, ...EXOTIC_LANGUAGES];
 
-/** Parse a D&D dice formula like "8d8+16" and return the average (e.g. 52). */
+/** Deterministic HP calculation — avoids asking the LLM for both formula
+ *  and max HP, which often produces inconsistent pairs. */
 function computeHpAverage(formula) {
   const m = formula.match(/^(\d+)d(\d+)([+-]\d+)?$/);
   if (!m) return 1;

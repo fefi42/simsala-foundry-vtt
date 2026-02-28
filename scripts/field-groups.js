@@ -1,6 +1,7 @@
 import { DND5E_ITEM_SCHEMA } from "../data/dnd5e-item-schema.js";
 
-/** DMG magic item price table (gp). Used instead of asking the LLM for price. */
+/** DMG magic item price table — deterministic instead of LLM-generated
+ *  because small models produce wildly inconsistent pricing. */
 const DMG_BASE_PRICES = {
   common:    100,
   uncommon:  400,
@@ -17,7 +18,8 @@ function rarityPrice(rarity) {
   return { value: Math.round(base * (0.75 + Math.random() * 0.75)), denomination: "gp" };
 }
 
-/** Which groups run for each item type, in order. */
+/** Maps item type → applicable groups. Not all groups apply to all types
+ *  (e.g. weapons have damage but not defense, equipment has defense but not damage). */
 export const ITEM_TYPE_GROUPS = {
   weapon:     ["identity", "description", "damage", "properties", "physical"],
   equipment:  ["identity", "description", "defense", "properties", "physical"],

@@ -5,7 +5,12 @@ import { NPC_WAVES, NPC_GROUPS } from "./npc-groups.js";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
-/** Deep merge — arrays are always replaced, not merged by index. */
+/**
+ * Deep merge — arrays are always replaced, not merged by index.
+ * Array replacement is intentional: merging by index produces nonsensical
+ * results for fields like damage types or language lists where the full
+ * array is the intended value, not a partial update.
+ */
 function mergeDeep(target, source) {
   const result = { ...target };
   for (const [k, v] of Object.entries(source)) {
@@ -79,7 +84,9 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     this._setSendDisabled(true);
     this._appendMessage("user", text);
 
-    // For follow-up turns, include the previous result as context
+    // Follow-up turns include the previous result so the LLM can refine
+    // rather than regenerate from scratch. The full JSON is passed so the
+    // model sees exactly what it produced last time.
     const context = this.lastResult
       ? `${text}\n\nRefine the previous result:\n${JSON.stringify(this.lastResult, null, 2)}`
       : text;
@@ -96,9 +103,9 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
   }
 
   /**
-   * Resolve the wave pipeline and group registry for the current document type.
-   * Items: 2 waves (identity alone, then everything else parallel).
-   * NPCs:  5 waves (concept → mechanical → coreStats → [savesSkills | sensesLanguages] → description).
+   * Route to the correct pipeline by document type.
+   * Both items and NPCs use the same generate/merge/apply loop;
+   * only the wave definitions and group registries differ.
    */
   _getPipeline() {
     const docType = this.document.type;
@@ -142,7 +149,8 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
       const prior = merged;
 
       if (wave.length === 1) {
-        // Sequential — single group
+        // Single group — run sequentially with keep_alive: -1 to keep the
+        // model loaded in memory across waves (avoids ~5s reload per wave).
         const name = wave[0];
         const group = groups[name];
         this._setStatus(group.label);
@@ -187,7 +195,8 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
       }
     }
 
-    // Unload model
+    // Unload model from GPU memory after generation completes.
+    // keep_alive: 0 ensures zero memory impact during play.
     try { await OllamaService.generate([], {}, 0); } catch { /* ignore */ }
 
     if (!anySucceeded) {

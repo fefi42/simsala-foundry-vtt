@@ -7,6 +7,9 @@ Hooks.once("init", () => {
   registerSettings();
 });
 
+// Direct DOM injection instead of getHeaderControlsApplicationV2 hook
+// because the controls panel renders differently and loses data-action
+// on click events. See docs/foundry-integration.md.
 function injectButton(header, onClick) {
   if (!header || header.querySelector(".simsala-btn")) return;
   const btn = document.createElement("button");
@@ -15,6 +18,7 @@ function injectButton(header, onClick) {
   btn.innerHTML = '<i class="fas fa-wand-magic-sparkles"></i>';
   btn.dataset.tooltip = "Simsala";
   btn.addEventListener("click", onClick);
+  // Place before the toggle button so it's visible without expanding controls
   const toggleBtn = header.querySelector('[data-action="toggleControls"]');
   toggleBtn ? header.insertBefore(btn, toggleBtn) : header.appendChild(btn);
 }
