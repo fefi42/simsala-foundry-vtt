@@ -1,6 +1,7 @@
 import { OllamaService } from "./OllamaService.js";
 import { DND5E_ITEM_SCHEMA } from "../data/dnd5e-item-schema.js";
 import { ITEM_TYPE_GROUPS, GROUPS } from "./field-groups.js";
+import { NPC_WAVES, NPC_GROUPS } from "./npc-groups.js";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -94,86 +95,116 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     this._setSendDisabled(false);
   }
 
-  async _generate(context) {
-    const itemType = this.document.type;
-    const groupNames = ITEM_TYPE_GROUPS[itemType];
+  /**
+   * Resolve the wave pipeline and group registry for the current document type.
+   * Items: 2 waves (identity alone, then everything else parallel).
+   * NPCs:  5 waves (concept → mechanical → coreStats → [savesSkills | sensesLanguages] → description).
+   */
+  _getPipeline() {
+    const docType = this.document.type;
 
-    if (!groupNames) {
-      this._appendMessage("error", `Item type "${itemType}" is not supported. Supported types: ${Object.keys(ITEM_TYPE_GROUPS).join(", ")}.`);
+    // NPC actor
+    if (docType === "npc") {
+      return { waves: NPC_WAVES, groups: NPC_GROUPS };
+    }
+
+    // Item types
+    const groupNames = ITEM_TYPE_GROUPS[docType];
+    if (groupNames) {
+      return {
+        waves: [
+          ["identity"],
+          groupNames.filter(n => n !== "identity"),
+        ],
+        groups: GROUPS,
+      };
+    }
+
+    return null;
+  }
+
+  async _generate(context) {
+    const docType = this.document.type;
+    const pipeline = this._getPipeline();
+
+    if (!pipeline) {
+      this._appendMessage("error", `Type "${docType}" is not supported.`);
       return;
     }
 
+    const { waves, groups } = pipeline;
     let merged = {};
     let anySucceeded = false;
     let firstError = null;
 
-    // Wave 1: identity alone — name/rarity feed into later prompts
-    if (groupNames.includes("identity")) {
-      this._setStatus(GROUPS.identity.label);
-      const prompt = GROUPS.identity.buildPrompt(context, itemType, {});
-      const schema = GROUPS.identity.schema(itemType);
-      try {
-        const { parsed } = await OllamaService.generate(
-          [{ role: "user", content: prompt }],
-          schema,
-          -1,
-        );
-        if (parsed) {
-          merged = mergeDeep(merged, GROUPS.identity.mapResult(parsed, itemType));
-          anySucceeded = true;
-        }
-      } catch (err) {
-        console.warn(`[simsala] group "identity" failed:`, err.message);
-        firstError = err;
-      }
-    }
-
-    // Wave 2: remaining groups with identity output as prior context
-    const remainingNames = groupNames.filter(n => n !== "identity");
-    if (remainingNames.length > 0) {
-      this._setStatus("Generating details…");
+    for (const wave of waves) {
+      if (wave.length === 0) continue;
       const prior = merged;
 
-      const outcomes = await Promise.allSettled(
-        remainingNames.map(async name => {
-          const group = GROUPS[name];
-          const prompt = group.buildPrompt(context, itemType, prior);
-          const schema = group.schema(itemType);
+      if (wave.length === 1) {
+        // Sequential — single group
+        const name = wave[0];
+        const group = groups[name];
+        this._setStatus(group.label);
+        try {
+          const prompt = group.buildPrompt(context, docType, prior);
+          const schema = group.schema(docType);
           const { parsed } = await OllamaService.generate(
-            [{ role: "user", content: prompt }],
-            schema,
-            -1,
+            [{ role: "user", content: prompt }], schema, -1,
           );
-          return parsed ? group.mapResult(parsed, itemType, prior) : null;
-        })
-      );
-
-      for (let i = 0; i < outcomes.length; i++) {
-        const outcome = outcomes[i];
-        if (outcome.status === "fulfilled" && outcome.value) {
-          merged = mergeDeep(merged, outcome.value);
-          anySucceeded = true;
-        } else if (outcome.status === "rejected") {
-          console.warn(`[simsala] group "${remainingNames[i]}" failed:`, outcome.reason?.message);
-          if (!firstError) firstError = outcome.reason;
+          if (parsed) {
+            merged = mergeDeep(merged, group.mapResult(parsed, docType, prior));
+            anySucceeded = true;
+          }
+        } catch (err) {
+          console.warn(`[simsala] group "${name}" failed:`, err.message);
+          if (!firstError) firstError = err;
+        }
+      } else {
+        // Parallel — multiple groups
+        this._setStatus("Generating details…");
+        const outcomes = await Promise.allSettled(
+          wave.map(async name => {
+            const group = groups[name];
+            const prompt = group.buildPrompt(context, docType, prior);
+            const schema = group.schema(docType);
+            const { parsed } = await OllamaService.generate(
+              [{ role: "user", content: prompt }], schema, -1,
+            );
+            return parsed ? group.mapResult(parsed, docType, prior) : null;
+          })
+        );
+        for (let i = 0; i < outcomes.length; i++) {
+          const outcome = outcomes[i];
+          if (outcome.status === "fulfilled" && outcome.value) {
+            merged = mergeDeep(merged, outcome.value);
+            anySucceeded = true;
+          } else if (outcome.status === "rejected") {
+            console.warn(`[simsala] group "${wave[i]}" failed:`, outcome.reason?.message);
+            if (!firstError) firstError = outcome.reason;
+          }
         }
       }
     }
 
-    // Unload model after all waves complete
+    // Unload model
     try { await OllamaService.generate([], {}, 0); } catch { /* ignore */ }
 
     if (!anySucceeded) {
       throw firstError ?? new Error("All generation groups failed.");
     }
 
-    const { validated, removed } = this._validateProperties(merged);
-    this.lastResult = validated;
+    // Item-specific validation
+    if (ITEM_TYPE_GROUPS[docType]) {
+      const { validated, removed } = this._validateProperties(merged);
+      merged = validated;
+      if (removed.length) {
+        this._appendMessage("note", `⚠ Removed invalid properties for ${docType}: ${removed.join(", ")}`);
+      }
+    }
 
-    const note = removed.length
-      ? `⚠ Removed invalid properties for ${itemType}: ${removed.join(", ")}`
-      : "";
-    this._appendMessage("assistant", JSON.stringify(validated, null, 2), note);
+    this.lastResult = merged;
+    this._appendMessage("assistant", JSON.stringify(merged, null, 2));
     this.element.querySelector(".simsala-apply").disabled = false;
   }
 
@@ -199,7 +230,8 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
   _onApply() {
     if (!this.lastResult) return;
     this.document.update(this.lastResult);
-    this._appendMessage("note", "✓ Applied to item.");
+    const label = this.document.type === "npc" ? "NPC" : "item";
+    this._appendMessage("note", `✓ Applied to ${label}.`);
   }
 
   _setStatus(label, semanticState = "generating") {
