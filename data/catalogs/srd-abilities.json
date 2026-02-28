@@ -1,0 +1,128 @@
+{
+  "source": "dnd5e.monsterfeatures",
+  "groups": [
+    {
+      "id": "passive-defense",
+      "description": "Defensive passive traits — magic resistance, damage immunities, regeneration, condition resilience",
+      "items": [
+        { "name": "Magic Resistance", "summary": "Advantage on saves vs spells and magical effects" },
+        { "name": "Legendary Resistance", "summary": "3/day, choose to succeed on a failed save" },
+        { "name": "Regeneration", "summary": "Regain HP at start of turn unless specific damage received" },
+        { "name": "Incorporeal Movement", "summary": "Move through creatures and objects as difficult terrain" },
+        { "name": "Turn Resistance", "summary": "Advantage on saves against Turn Undead" },
+        { "name": "Immutable Form", "summary": "Immune to form-altering spells and effects" },
+        { "name": "Siege Monster", "summary": "Double damage to objects and structures" },
+        { "name": "Antimagic Susceptibility", "summary": "Incapacitated in antimagic field, dispel magic forces CON save" }
+      ]
+    },
+    {
+      "id": "passive-sensory",
+      "description": "Sensory and awareness traits — keen senses, blindsight abilities, detection",
+      "items": [
+        { "name": "Keen Sight", "summary": "Advantage on Perception checks using sight" },
+        { "name": "Keen Hearing", "summary": "Advantage on Perception checks using hearing" },
+        { "name": "Keen Smell", "summary": "Advantage on Perception checks using smell" },
+        { "name": "Keen Hearing and Sight", "summary": "Advantage on Perception checks using hearing or sight" },
+        { "name": "Echolocation", "summary": "Blindsight that doesn't work while deafened" },
+        { "name": "Devil's Sight", "summary": "See in magical darkness as if normal" },
+        { "name": "Web Sense", "summary": "Know exact location of creatures touching its web" }
+      ]
+    },
+    {
+      "id": "passive-movement",
+      "description": "Movement and terrain traits — climbing, swimming, phasing, web walking",
+      "items": [
+        { "name": "Spider Climb", "summary": "Climb difficult surfaces and upside down without checks" },
+        { "name": "Web Walker", "summary": "Ignore movement restrictions from webs" },
+        { "name": "Amphibious", "summary": "Breathe air and water" },
+        { "name": "Water Breathing", "summary": "Breathe only underwater" },
+        { "name": "Hold Breath", "summary": "Hold breath for extended period" },
+        { "name": "Standing Leap", "summary": "Long/high jump without running start" },
+        { "name": "Flyby", "summary": "No opportunity attacks when flying out of reach" },
+        { "name": "Tunneler", "summary": "Burrow through solid rock, leaving tunnel behind" }
+      ]
+    },
+    {
+      "id": "passive-combat",
+      "description": "Combat-enhancing passive traits — pack tactics, charges, ambush abilities",
+      "items": [
+        { "name": "Pack Tactics", "summary": "Advantage on attacks when ally is within 5ft of target" },
+        { "name": "Rampage", "summary": "Bonus action bite when reducing creature to 0 HP" },
+        { "name": "Relentless", "summary": "1/rest, drop to 1 HP instead of 0 if damage is below threshold" },
+        { "name": "Blood Frenzy", "summary": "Advantage on melee attacks against bloodied creatures" },
+        { "name": "Aggressive", "summary": "Bonus action to move up to speed toward hostile creature" },
+        { "name": "Charge", "summary": "Extra damage + prone on hit after 20ft straight-line move" },
+        { "name": "Trampling Charge", "summary": "Prone on hit after 20ft charge + bonus action stomp" },
+        { "name": "Reckless", "summary": "Advantage on melee attacks this turn, attacks against it have advantage" },
+        { "name": "Surprise Attack", "summary": "Extra 2d6 damage on first hit in combat if target is surprised" }
+      ]
+    },
+    {
+      "id": "passive-stealth",
+      "description": "Stealth and camouflage traits — blending in, ambush, invisibility",
+      "items": [
+        { "name": "False Appearance", "summary": "Indistinguishable from ordinary object while motionless" },
+        { "name": "Stone Camouflage", "summary": "Advantage on Stealth in rocky terrain" },
+        { "name": "Shadow Stealth", "summary": "Hide as bonus action in dim light or darkness" },
+        { "name": "Shapechanger", "summary": "Polymorph into beast/humanoid or back to true form" },
+        { "name": "Sunlight Sensitivity", "summary": "Disadvantage on attacks and Perception in sunlight" }
+      ]
+    },
+    {
+      "id": "action-breath",
+      "description": "Breath weapon attacks — cones and lines of elemental damage with recharge",
+      "items": [
+        { "name": "Fire Breath", "summary": "Recharge 5-6, cone/line of fire damage, DEX save" },
+        { "name": "Cold Breath", "summary": "Recharge 5-6, cone of cold damage, CON save" },
+        { "name": "Lightning Breath", "summary": "Recharge 5-6, line of lightning damage, DEX save" },
+        { "name": "Poison Breath", "summary": "Recharge 5-6, cone of poison damage, CON save" },
+        { "name": "Acid Breath", "summary": "Recharge 5-6, line of acid damage, DEX save" }
+      ]
+    },
+    {
+      "id": "action-special",
+      "description": "Special monster actions — frightful presence, swallow, grapple-based attacks, gaze",
+      "items": [
+        { "name": "Frightful Presence", "summary": "All creatures within range must WIS save or be frightened" },
+        { "name": "Swallow", "summary": "Grappled creature is swallowed, blinded/restrained, takes acid damage" },
+        { "name": "Constrict", "summary": "Melee attack that grapples and restrains on hit" },
+        { "name": "Engulf", "summary": "Move into creature's space, engulf and restrain, damage each turn" },
+        { "name": "Death Burst", "summary": "Explodes on death dealing damage in radius" },
+        { "name": "Teleport", "summary": "Magically teleport up to distance with equipment" },
+        { "name": "Change Shape", "summary": "Polymorph into humanoid/beast, statistics stay same" },
+        { "name": "Etherealness", "summary": "Enter/leave Ethereal Plane" }
+      ]
+    },
+    {
+      "id": "reaction-defensive",
+      "description": "Defensive reactions — parry, shield, damage reflection",
+      "items": [
+        { "name": "Parry", "summary": "Reaction, +AC to one melee attack against self" },
+        { "name": "Shield", "summary": "Reaction, +5 AC until start of next turn (spell)" }
+      ]
+    },
+    {
+      "id": "legendary-offense",
+      "description": "Offensive legendary actions — attacks, spells, and damaging abilities that cost legendary actions",
+      "items": [
+        { "name": "Tail Attack", "summary": "Cost 1, melee tail attack" },
+        { "name": "Wing Attack", "summary": "Cost 2, all creatures in 15ft DEX save or prone + fly half speed" },
+        { "name": "Claw Attack", "summary": "Cost 1, melee claw attack" },
+        { "name": "Bite Attack", "summary": "Cost 2, melee bite attack with extra damage" },
+        { "name": "Cantrip", "summary": "Cost 1, cast a cantrip" },
+        { "name": "Cast a Spell", "summary": "Cost 2-3, cast a spell using a spell slot" }
+      ]
+    },
+    {
+      "id": "legendary-utility",
+      "description": "Utility legendary actions — detection, movement, and tactical options",
+      "items": [
+        { "name": "Detect", "summary": "Cost 1, make a Perception check" },
+        { "name": "Teleport", "summary": "Cost 1, teleport up to 120ft to visible space" },
+        { "name": "Move", "summary": "Cost 1, move up to half speed without provoking" },
+        { "name": "Commanding Presence", "summary": "Cost 1, command an ally to use reaction to attack" },
+        { "name": "Frightening Gaze", "summary": "Cost 1, target one creature with frightening gaze, WIS save" }
+      ]
+    }
+  ]
+}

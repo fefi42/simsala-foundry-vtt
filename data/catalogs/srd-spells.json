@@ -1,0 +1,233 @@
+{
+  "source": "dnd5e.spells",
+  "groups": [
+    {
+      "id": "damage-fire",
+      "description": "Fire damage spells — burning, scorching, and explosive flame attacks",
+      "items": [
+        { "name": "Fire Bolt", "summary": "Cantrip, 1d10 fire, 120ft ranged attack, scales with level" },
+        { "name": "Burning Hands", "summary": "1st level, 3d6 fire, 15ft cone, DEX save" },
+        { "name": "Scorching Ray", "summary": "2nd level, 3 rays of 2d6 fire, 120ft ranged attacks" },
+        { "name": "Fireball", "summary": "3rd level, 8d6 fire, 20ft sphere at 150ft, DEX save" },
+        { "name": "Wall of Fire", "summary": "4th level, concentration, 5d8 fire, creates 60ft wall" },
+        { "name": "Flame Strike", "summary": "5th level, 4d6 fire + 4d6 radiant, 10ft radius 40ft high, DEX save" },
+        { "name": "Delayed Blast Fireball", "summary": "7th level, 12d6+ fire, 20ft sphere, damage grows per round" },
+        { "name": "Incendiary Cloud", "summary": "8th level, concentration, 10d8 fire, 20ft cloud, DEX save" },
+        { "name": "Meteor Swarm", "summary": "9th level, 40d6 fire+bludgeoning, four 40ft spheres, DEX save" },
+        { "name": "Produce Flame", "summary": "Cantrip, 1d8 fire, 30ft ranged attack, scales with level" },
+        { "name": "Heat Metal", "summary": "2nd level, concentration, 2d8 fire, targets worn/held metal" },
+        { "name": "Flaming Sphere", "summary": "2nd level, concentration, 2d6 fire, 5ft radius mobile sphere" },
+        { "name": "Fire Storm", "summary": "7th level, 7d10 fire, ten 10ft cubes, DEX save" }
+      ]
+    },
+    {
+      "id": "damage-cold",
+      "description": "Cold and ice damage spells — freezing, chilling attacks and walls of ice",
+      "items": [
+        { "name": "Ray of Frost", "summary": "Cantrip, 1d8 cold, 60ft ranged attack, slows target" },
+        { "name": "Ice Knife", "summary": "1st level, 1d10 piercing + 2d6 cold AoE, 60ft" },
+        { "name": "Sleet Storm", "summary": "3rd level, concentration, difficult terrain + prone, 40ft radius" },
+        { "name": "Ice Storm", "summary": "4th level, 2d8 bludgeoning + 4d6 cold, 20ft radius, DEX save" },
+        { "name": "Cone of Cold", "summary": "5th level, 8d8 cold, 60ft cone, CON save" },
+        { "name": "Wall of Ice", "summary": "6th level, concentration, 10d6 cold, creates ice panels" },
+        { "name": "Freezing Sphere", "summary": "6th level, 10d6 cold, 60ft radius, CON save" }
+      ]
+    },
+    {
+      "id": "damage-lightning-thunder",
+      "description": "Lightning and thunder damage spells — electrical strikes and sonic blasts",
+      "items": [
+        { "name": "Shocking Grasp", "summary": "Cantrip, 1d8 lightning, melee touch, advantage vs metal armor" },
+        { "name": "Thunderwave", "summary": "1st level, 2d8 thunder + push 10ft, 15ft cube, CON save" },
+        { "name": "Shatter", "summary": "2nd level, 3d8 thunder, 10ft sphere, CON save" },
+        { "name": "Call Lightning", "summary": "3rd level, concentration, 3d10 lightning, repeat each turn" },
+        { "name": "Lightning Bolt", "summary": "3rd level, 8d6 lightning, 100ft line, DEX save" },
+        { "name": "Chain Lightning", "summary": "6th level, 10d8 lightning, bounces to 3 targets, DEX save" },
+        { "name": "Storm of Vengeance", "summary": "9th level, concentration, multi-round storm, various damage" }
+      ]
+    },
+    {
+      "id": "damage-necrotic-poison",
+      "description": "Necrotic and poison damage spells — decay, draining life force, and toxic effects",
+      "items": [
+        { "name": "Chill Touch", "summary": "Cantrip, 1d10 necrotic, 120ft, prevents healing" },
+        { "name": "Poison Spray", "summary": "Cantrip, 1d12 poison, 10ft, CON save" },
+        { "name": "Ray of Sickness", "summary": "1st level, 2d8 poison + poisoned condition, 60ft" },
+        { "name": "Ray of Enfeeblement", "summary": "2nd level, concentration, halves STR weapon damage, 60ft" },
+        { "name": "Vampiric Touch", "summary": "3rd level, concentration, 3d6 necrotic, heal half, melee" },
+        { "name": "Blight", "summary": "4th level, 8d8 necrotic, 30ft, CON save" },
+        { "name": "Cloudkill", "summary": "5th level, concentration, 5d8 poison, 20ft cloud, CON save" },
+        { "name": "Circle of Death", "summary": "6th level, 8d6 necrotic, 60ft sphere, CON save" },
+        { "name": "Finger of Death", "summary": "7th level, 7d8+30 necrotic, 60ft, CON save" }
+      ]
+    },
+    {
+      "id": "damage-radiant-force",
+      "description": "Radiant and force damage spells — holy light, divine strikes, and raw magical force",
+      "items": [
+        { "name": "Sacred Flame", "summary": "Cantrip, 1d8 radiant, 60ft, DEX save, ignores cover" },
+        { "name": "Guiding Bolt", "summary": "1st level, 4d6 radiant, 120ft ranged attack, grants advantage" },
+        { "name": "Magic Missile", "summary": "1st level, 3×1d4+1 force, 120ft, auto-hit" },
+        { "name": "Spiritual Weapon", "summary": "2nd level, 1d8+mod force, bonus action attacks, 60ft" },
+        { "name": "Spirit Guardians", "summary": "3rd level, concentration, 3d8 radiant/necrotic, 15ft aura" },
+        { "name": "Moonbeam", "summary": "2nd level, concentration, 2d10 radiant, 5ft cylinder, CON save" },
+        { "name": "Sunbeam", "summary": "6th level, concentration, 6d8 radiant + blind, 60ft line" },
+        { "name": "Sunburst", "summary": "8th level, 12d6 radiant + blind, 60ft sphere, CON save" },
+        { "name": "Disintegrate", "summary": "6th level, 10d6+40 force, 60ft, DEX save, destroys on 0 HP" }
+      ]
+    },
+    {
+      "id": "damage-acid-psychic",
+      "description": "Acid and psychic damage spells — corrosive attacks and mind-affecting damage",
+      "items": [
+        { "name": "Acid Splash", "summary": "Cantrip, 1d6 acid, 60ft, DEX save, can target 2 adjacent" },
+        { "name": "Acid Arrow", "summary": "2nd level, 4d4 acid + 2d4 next turn, 90ft ranged attack" },
+        { "name": "Vitriolic Sphere", "summary": "4th level, 10d4 acid + 5d4 next turn, 20ft sphere" },
+        { "name": "Mind Spike", "summary": "2nd level, 3d8 psychic + tracking, 60ft, WIS save" },
+        { "name": "Phantasmal Killer", "summary": "4th level, concentration, 4d10 psychic/round, WIS save" }
+      ]
+    },
+    {
+      "id": "control-battlefield",
+      "description": "Battlefield control — difficult terrain, walls, zones that restrict movement and positioning",
+      "items": [
+        { "name": "Entangle", "summary": "1st level, concentration, restrained, 20ft square, STR save" },
+        { "name": "Grease", "summary": "1st level, prone on entry, 10ft square, DEX save" },
+        { "name": "Web", "summary": "2nd level, concentration, restrained, 20ft cube, DEX save" },
+        { "name": "Spike Growth", "summary": "2nd level, concentration, 2d4 per 5ft moved, 20ft radius" },
+        { "name": "Plant Growth", "summary": "3rd level, 1/4 movement speed, 100ft radius" },
+        { "name": "Slow", "summary": "3rd level, concentration, halves speed/actions, 40ft cube, WIS save" },
+        { "name": "Black Tentacles", "summary": "4th level, concentration, 3d6 bludgeoning + restrained, 20ft square" },
+        { "name": "Wall of Force", "summary": "5th level, concentration, impassable invisible wall, 100ft" },
+        { "name": "Wall of Stone", "summary": "5th level, concentration, creates permanent stone panels" },
+        { "name": "Forcecage", "summary": "7th level, 1 hour, imprisons in box/cage, no save" }
+      ]
+    },
+    {
+      "id": "control-debuff",
+      "description": "Debuff and crowd control spells — charm, fear, hold, stun, banish",
+      "items": [
+        { "name": "Command", "summary": "1st level, one-word command, 60ft, WIS save" },
+        { "name": "Charm Person", "summary": "1st level, charmed 1 hour, 30ft, WIS save" },
+        { "name": "Sleep", "summary": "1st level, 5d8 HP of creatures fall unconscious, 20ft radius" },
+        { "name": "Hold Person", "summary": "2nd level, concentration, paralyzed, 60ft, WIS save" },
+        { "name": "Blindness/Deafness", "summary": "2nd level, blinded or deafened, 30ft, CON save" },
+        { "name": "Suggestion", "summary": "2nd level, concentration, follow suggestion 8hr, 30ft, WIS save" },
+        { "name": "Fear", "summary": "3rd level, concentration, frightened + dash away, 30ft cone, WIS save" },
+        { "name": "Hypnotic Pattern", "summary": "3rd level, concentration, charmed+incapacitated, 30ft cube, WIS save" },
+        { "name": "Bestow Curse", "summary": "3rd level, concentration, various curse effects, touch, WIS save" },
+        { "name": "Confusion", "summary": "4th level, concentration, random actions, 10ft sphere, WIS save" },
+        { "name": "Banishment", "summary": "4th level, concentration, banish to demiplane, 60ft, CHA save" },
+        { "name": "Hold Monster", "summary": "5th level, concentration, paralyzed, 90ft, WIS save" },
+        { "name": "Dominate Person", "summary": "5th level, concentration, total control, 60ft, WIS save" },
+        { "name": "Dominate Monster", "summary": "8th level, concentration, control any creature, 60ft, WIS save" },
+        { "name": "Power Word Stun", "summary": "8th level, stunned if ≤150 HP, 60ft, no save" },
+        { "name": "Power Word Kill", "summary": "9th level, kill if ≤100 HP, 60ft, no save" }
+      ]
+    },
+    {
+      "id": "defense-protection",
+      "description": "Defensive and protective spells — shields, armor, wards, resistance, healing",
+      "items": [
+        { "name": "Shield", "summary": "1st level, reaction, +5 AC until next turn" },
+        { "name": "Mage Armor", "summary": "1st level, 8 hours, AC becomes 13+DEX" },
+        { "name": "Shield of Faith", "summary": "1st level, concentration, +2 AC, 60ft" },
+        { "name": "False Life", "summary": "1st level, 1d4+4 temp HP" },
+        { "name": "Protection from Evil and Good", "summary": "1st level, concentration, protection vs aberrations/celestials/etc." },
+        { "name": "Mirror Image", "summary": "2nd level, 3 duplicates absorb attacks, 1 minute" },
+        { "name": "Blur", "summary": "2nd level, concentration, attacks have disadvantage" },
+        { "name": "Misty Step", "summary": "2nd level, bonus action, teleport 30ft" },
+        { "name": "Counterspell", "summary": "3rd level, reaction, negate spell ≤3rd level auto, higher with check" },
+        { "name": "Dispel Magic", "summary": "3rd level, end one spell ≤3rd level auto, higher with check" },
+        { "name": "Protection from Energy", "summary": "3rd level, concentration, resistance to one damage type" },
+        { "name": "Fire Shield", "summary": "4th level, 10 min, resistance + 2d8 retaliatory damage" },
+        { "name": "Stoneskin", "summary": "4th level, concentration, resistance to nonmagical bludg/pierce/slash" },
+        { "name": "Greater Invisibility", "summary": "4th level, concentration, invisible even while attacking" },
+        { "name": "Globe of Invulnerability", "summary": "6th level, concentration, blocks spells ≤5th level" },
+        { "name": "Antimagic Field", "summary": "8th level, concentration, 10ft no-magic sphere" }
+      ]
+    },
+    {
+      "id": "healing-restoration",
+      "description": "Healing and restoration spells — hit point recovery, condition removal, resurrection",
+      "items": [
+        { "name": "Cure Wounds", "summary": "1st level, 1d8+mod healing, touch" },
+        { "name": "Healing Word", "summary": "1st level, bonus action, 1d4+mod healing, 60ft" },
+        { "name": "Lesser Restoration", "summary": "2nd level, end one disease or condition, touch" },
+        { "name": "Prayer of Healing", "summary": "2nd level, 10 min cast, 2d8+mod to 6 creatures" },
+        { "name": "Revivify", "summary": "3rd level, resurrect dead ≤1 min, 1 HP, touch" },
+        { "name": "Mass Healing Word", "summary": "3rd level, bonus action, 1d4+mod to 6 creatures, 60ft" },
+        { "name": "Death Ward", "summary": "4th level, 8 hours, drop to 1 HP instead of 0 once" },
+        { "name": "Greater Restoration", "summary": "5th level, remove one major condition/curse, touch" },
+        { "name": "Mass Cure Wounds", "summary": "5th level, 3d8+mod to 6 creatures, 30ft radius" },
+        { "name": "Heal", "summary": "6th level, 70 HP + end blind/deaf/disease, 60ft" },
+        { "name": "Regenerate", "summary": "7th level, 4d8+15 + 1 HP/round for 1 hour, touch" },
+        { "name": "Mass Heal", "summary": "9th level, 700 HP pool, 60ft" }
+      ]
+    },
+    {
+      "id": "summoning-conjuration",
+      "description": "Summoning and conjuration spells — calling creatures, creating objects and effects",
+      "items": [
+        { "name": "Find Familiar", "summary": "1st level, ritual, summon spirit as tiny beast" },
+        { "name": "Conjure Animals", "summary": "3rd level, concentration, summon CR2 beasts" },
+        { "name": "Conjure Minor Elementals", "summary": "4th level, concentration, summon elementals" },
+        { "name": "Conjure Elemental", "summary": "5th level, concentration, summon CR5 elemental" },
+        { "name": "Conjure Fey", "summary": "6th level, concentration, summon fey creature" },
+        { "name": "Conjure Celestial", "summary": "7th level, concentration, summon celestial" },
+        { "name": "Summon Dragon", "summary": "5th level, concentration, summon draconic spirit" },
+        { "name": "Animate Dead", "summary": "3rd level, raise skeleton/zombie from corpse" },
+        { "name": "Create Undead", "summary": "6th level, create ghouls from corpses" }
+      ]
+    },
+    {
+      "id": "utility-detection",
+      "description": "Utility and detection spells — divination, senses, communication, movement",
+      "items": [
+        { "name": "Detect Magic", "summary": "1st level, ritual, concentration, sense magic 30ft" },
+        { "name": "Detect Evil and Good", "summary": "1st level, concentration, sense creature types 30ft" },
+        { "name": "Identify", "summary": "1st level, ritual, learn item/spell properties, touch" },
+        { "name": "Comprehend Languages", "summary": "1st level, ritual, understand any language" },
+        { "name": "Darkvision", "summary": "2nd level, grant darkvision 60ft for 8 hours" },
+        { "name": "See Invisibility", "summary": "2nd level, see invisible/ethereal, 1 hour" },
+        { "name": "Clairvoyance", "summary": "3rd level, concentration, remote sensor 1 mile, 10 min" },
+        { "name": "Tongues", "summary": "3rd level, understand/speak any language, 1 hour" },
+        { "name": "Arcane Eye", "summary": "4th level, concentration, invisible flying eye, 30ft darkvision" },
+        { "name": "Scrying", "summary": "5th level, concentration, observe distant creature, WIS save" },
+        { "name": "True Seeing", "summary": "6th level, truesight 120ft, 1 hour, touch" },
+        { "name": "Teleport", "summary": "7th level, teleport up to 8 creatures to known location" },
+        { "name": "Plane Shift", "summary": "7th level, travel to other plane, touch, CHA save if unwilling" }
+      ]
+    },
+    {
+      "id": "buff-enhancement",
+      "description": "Buff and enhancement spells — strengthen allies, improve abilities, grant advantages",
+      "items": [
+        { "name": "Bless", "summary": "1st level, concentration, +1d4 to attacks/saves, 3 creatures" },
+        { "name": "Heroism", "summary": "1st level, concentration, temp HP each turn, immune to frightened" },
+        { "name": "Enhance Ability", "summary": "2nd level, concentration, advantage on one ability's checks" },
+        { "name": "Enlarge/Reduce", "summary": "2nd level, concentration, size change + damage bonus/penalty" },
+        { "name": "Haste", "summary": "3rd level, concentration, double speed, +2 AC, extra action" },
+        { "name": "Fly", "summary": "3rd level, concentration, 60ft fly speed, 10 min" },
+        { "name": "Freedom of Movement", "summary": "4th level, immune to paralyzed/restrained, ignore difficult terrain" },
+        { "name": "Polymorph", "summary": "4th level, concentration, transform into beast ≤CR, WIS save" },
+        { "name": "True Polymorph", "summary": "9th level, concentration, transform into any creature/object" }
+      ]
+    },
+    {
+      "id": "debuff-curse",
+      "description": "Curse and debuff spells — weaken enemies, impose disadvantages, drain abilities",
+      "items": [
+        { "name": "Bane", "summary": "1st level, concentration, -1d4 to attacks/saves, 3 creatures, CHA save" },
+        { "name": "Hex", "summary": "1st level, concentration, +1d6 necrotic per hit, disadvantage on one ability" },
+        { "name": "Faerie Fire", "summary": "1st level, concentration, outlined in light, attacks have advantage, 20ft cube" },
+        { "name": "Enthrall", "summary": "2nd level, concentration, disadvantage on Perception, WIS save" },
+        { "name": "Silence", "summary": "2nd level, concentration, no sound in 20ft sphere, blocks verbal spells" },
+        { "name": "Darkness", "summary": "2nd level, concentration, magical darkness 15ft sphere" },
+        { "name": "Contagion", "summary": "5th level, disease on touch, 3 failed CON saves to take effect" },
+        { "name": "Eyebite", "summary": "6th level, concentration, sleep/panic/sicken one target/turn" },
+        { "name": "Feeblemind", "summary": "8th level, INT/CHA become 1, can't cast spells, INT save" }
+      ]
+    }
+  ]
+}

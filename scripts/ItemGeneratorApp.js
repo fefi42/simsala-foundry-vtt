@@ -2,6 +2,7 @@ import { OllamaService } from "./OllamaService.js";
 import { DND5E_ITEM_SCHEMA } from "../data/dnd5e-item-schema.js";
 import { ITEM_TYPE_GROUPS, GROUPS } from "./field-groups.js";
 import { NPC_WAVES, NPC_GROUPS } from "./npc-groups.js";
+import { runCatalogSelection } from "./catalog-selection.js";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -25,12 +26,27 @@ function mergeDeep(target, source) {
   return result;
 }
 
+/**
+ * Separate embedded item data from actor update data.
+ * Groups can return { system: {...}, _embedded: { Item: [...] } } —
+ * the _embedded items are accumulated separately and created via
+ * createEmbeddedDocuments on apply, not merged into the actor update.
+ */
+function extractEmbedded(mapped) {
+  const embedded = mapped._embedded?.Item ?? [];
+  if (!embedded.length) return { actorUpdate: mapped, embedded: [] };
+  const actorUpdate = { ...mapped };
+  delete actorUpdate._embedded;
+  return { actorUpdate, embedded };
+}
+
 export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) {
   constructor(doc, options = {}) {
     super(options);
     this.document = doc;
     this.chatLog    = [];   // display entries — survives re-renders
     this.lastResult = null;
+    this.lastEmbeddedItems = [];
     this.isGenerating = false;
   }
 
@@ -61,7 +77,9 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     history.scrollTop = history.scrollHeight;
 
     // Restore button states
-    if (this.lastResult)   el.querySelector(".simsala-apply").disabled = false;
+    if (this.lastResult || this.lastEmbeddedItems.length) {
+      el.querySelector(".simsala-apply").disabled = false;
+    }
     if (this.isGenerating) this._setStatus("Generating…");
 
     // Event listeners
@@ -85,11 +103,17 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     this._appendMessage("user", text);
 
     // Follow-up turns include the previous result so the LLM can refine
-    // rather than regenerate from scratch. The full JSON is passed so the
-    // model sees exactly what it produced last time.
-    const context = this.lastResult
-      ? `${text}\n\nRefine the previous result:\n${JSON.stringify(this.lastResult, null, 2)}`
-      : text;
+    // rather than regenerate from scratch. Embedded item names are included
+    // so the LLM knows what abilities the NPC already has.
+    let context = text;
+    if (this.lastResult || this.lastEmbeddedItems.length) {
+      const prior = {};
+      if (this.lastResult) prior.actorData = this.lastResult;
+      if (this.lastEmbeddedItems.length) {
+        prior.abilities = this.lastEmbeddedItems.map(i => ({ type: i.type, name: i.name }));
+      }
+      context = `${text}\n\nRefine the previous result:\n${JSON.stringify(prior, null, 2)}`;
+    }
 
     try {
       await this._generate(context);
@@ -141,32 +165,63 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
     const { waves, groups } = pipeline;
     let merged = {};
+    let embeddedItems = [];
     let anySucceeded = false;
     let firstError = null;
 
     for (const wave of waves) {
       if (wave.length === 0) continue;
-      const prior = merged;
+
+      // Pass accumulated embedded item names so later wave prompts
+      // can reference what abilities the NPC already has.
+      const prior = { ...merged };
+      if (embeddedItems.length) {
+        prior._embeddedSummary = embeddedItems.map(i => `${i.name} (${i.type})`).join(", ");
+      }
 
       if (wave.length === 1) {
-        // Single group — run sequentially with keep_alive: -1 to keep the
-        // model loaded in memory across waves (avoids ~5s reload per wave).
         const name = wave[0];
         const group = groups[name];
         this._setStatus(group.label);
-        try {
-          const prompt = group.buildPrompt(context, docType, prior);
-          const schema = group.schema(docType);
-          const { parsed } = await OllamaService.generate(
-            [{ role: "user", content: prompt }], schema, -1,
-          );
-          if (parsed) {
-            merged = mergeDeep(merged, group.mapResult(parsed, docType, prior));
-            anySucceeded = true;
+
+        // The catalogSelection group runs its own multi-step LLM pipeline
+        // instead of the normal schema→prompt→generate→mapResult flow.
+        if (name === "catalogSelection") {
+          try {
+            const { actorUpdate, embeddedItems: catalogItems } = await runCatalogSelection(
+              context, prior, (label) => this._setStatus(label),
+            );
+            if (Object.keys(actorUpdate).length) {
+              merged = mergeDeep(merged, actorUpdate);
+            }
+            embeddedItems.push(...catalogItems);
+            if (catalogItems.length || Object.keys(actorUpdate).length) {
+              anySucceeded = true;
+            }
+          } catch (err) {
+            console.warn(`[simsala] catalog selection failed:`, err.message);
+            if (!firstError) firstError = err;
           }
-        } catch (err) {
-          console.warn(`[simsala] group "${name}" failed:`, err.message);
-          if (!firstError) firstError = err;
+        } else {
+          // Standard group — single LLM call with keep_alive: -1 to keep the
+          // model loaded in memory across waves (avoids ~5s reload per wave).
+          try {
+            const prompt = group.buildPrompt(context, docType, prior);
+            const schema = group.schema(docType);
+            const { parsed } = await OllamaService.generate(
+              [{ role: "user", content: prompt }], schema, -1,
+            );
+            if (parsed) {
+              const mapped = await group.mapResult(parsed, docType, prior);
+              const { actorUpdate, embedded } = extractEmbedded(mapped);
+              merged = mergeDeep(merged, actorUpdate);
+              embeddedItems.push(...embedded);
+              anySucceeded = true;
+            }
+          } catch (err) {
+            console.warn(`[simsala] group "${name}" failed:`, err.message);
+            if (!firstError) firstError = err;
+          }
         }
       } else {
         // Parallel — multiple groups
@@ -179,13 +234,15 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
             const { parsed } = await OllamaService.generate(
               [{ role: "user", content: prompt }], schema, -1,
             );
-            return parsed ? group.mapResult(parsed, docType, prior) : null;
+            return parsed ? await group.mapResult(parsed, docType, prior) : null;
           })
         );
         for (let i = 0; i < outcomes.length; i++) {
           const outcome = outcomes[i];
           if (outcome.status === "fulfilled" && outcome.value) {
-            merged = mergeDeep(merged, outcome.value);
+            const { actorUpdate, embedded } = extractEmbedded(outcome.value);
+            merged = mergeDeep(merged, actorUpdate);
+            embeddedItems.push(...embedded);
             anySucceeded = true;
           } else if (outcome.status === "rejected") {
             console.warn(`[simsala] group "${wave[i]}" failed:`, outcome.reason?.message);
@@ -213,7 +270,14 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     }
 
     this.lastResult = merged;
+    this.lastEmbeddedItems = embeddedItems;
+
+    // Display actor data as JSON, embedded items as a readable list
     this._appendMessage("assistant", JSON.stringify(merged, null, 2));
+    if (embeddedItems.length) {
+      const listing = embeddedItems.map(i => `  ${i.name} (${i.type})`).join("\n");
+      this._appendMessage("note", `Abilities:\n${listing}`);
+    }
     this.element.querySelector(".simsala-apply").disabled = false;
   }
 
@@ -236,9 +300,31 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     return { validated, removed };
   }
 
-  _onApply() {
-    if (!this.lastResult) return;
-    this.document.update(this.lastResult);
+  async _onApply() {
+    if (!this.lastResult && !this.lastEmbeddedItems.length) return;
+
+    // Apply actor-level field updates
+    if (this.lastResult && Object.keys(this.lastResult).length) {
+      await this.document.update(this.lastResult);
+    }
+
+    // Replace previously generated embedded items with the new set.
+    // The simsala.generated flag distinguishes our items from manually added ones.
+    if (this.lastEmbeddedItems.length) {
+      const oldIds = this.document.items
+        ?.filter(i => i.getFlag("simsala", "generated"))
+        .map(i => i.id) ?? [];
+      if (oldIds.length) {
+        await this.document.deleteEmbeddedDocuments("Item", oldIds);
+      }
+
+      const flagged = this.lastEmbeddedItems.map(item => ({
+        ...item,
+        flags: { ...item.flags, simsala: { generated: true } },
+      }));
+      await this.document.createEmbeddedDocuments("Item", flagged);
+    }
+
     const label = this.document.type === "npc" ? "NPC" : "item";
     this._appendMessage("note", `✓ Applied to ${label}.`);
   }

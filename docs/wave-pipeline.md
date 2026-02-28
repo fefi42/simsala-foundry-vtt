@@ -39,7 +39,7 @@ Which groups run depends on item type (e.g. weapons get `damage` but not `defens
 
 ## NPC Pipeline
 
-Five waves. NPCs have deep dependencies — you can't set HP without knowing size and CON, can't choose skills without knowing ability scores.
+Seven waves. NPCs have deep dependencies — you can't set HP without knowing size and CON, can't choose skills without knowing ability scores. Waves 6–7 produce embedded items rather than actor update fields.
 
 ```
 Wave 1: [concept]                        — name, CR, creature type
@@ -47,7 +47,17 @@ Wave 2: [mechanical]                     — size, immunities, movement
 Wave 3: [coreStats]                      — abilities, AC, HP
 Wave 4: [savesSkills, sensesLanguages]   — parallel, both depend on waves 1–3
 Wave 5: [description]                    — biography, needs full stat context
+Wave 6: [attacks]                        — generated natural weapons (embedded weapon items)
+Wave 7: [catalogSelection]              — abilities/spells from compendium (map-reduce pipeline)
 ```
+
+### Embedded Items vs Actor Updates
+
+Waves 1–5 return actor update objects merged via `mergeDeep()`. Waves 6–7 return `_embedded.Item` arrays — these are accumulated separately and applied via `createEmbeddedDocuments()` on apply. The `_embedded` key is extracted from `mapResult()` output before merging.
+
+### Catalog Selection (Wave 7)
+
+The `catalogSelection` group bypasses the normal schema→prompt→LLM→mapResult flow. Instead it delegates to `runCatalogSelection()` which runs a 3-step LLM pipeline internally (map → explore → reduce). See [catalog-system.md](catalog-system.md) for details.
 
 ## Deep Merge Strategy
 

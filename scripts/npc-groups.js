@@ -1,3 +1,5 @@
+import { runCatalogSelection } from "./catalog-selection.js";
+
 const CREATURE_TYPES = [
   "aberration", "beast", "celestial", "construct", "dragon", "elemental",
   "fey", "fiend", "giant", "humanoid", "monstrosity", "ooze", "plant", "undead",
@@ -57,6 +59,8 @@ export const NPC_WAVES = [
   ["coreStats"],
   ["savesSkills", "sensesLanguages"],
   ["description"],
+  ["attacks"],
+  ["catalogSelection"],
 ];
 
 // ---------------------------------------------------------------------------
@@ -478,6 +482,174 @@ export const NPC_GROUPS = {
           },
         },
       };
+    },
+  },
+
+  // ---- Wave 6 — Attacks ---------------------------------------------------
+  // Natural weapons are generated rather than catalog-sourced because their
+  // damage, reach, and extra effects vary too much by creature to standardize.
+
+  attacks: {
+    label: "Generating attacks…",
+
+    schema() {
+      return {
+        type: "object",
+        properties: {
+          hasMultiattack: { type: "boolean" },
+          multiattackDescription: { type: "string" },
+          attacks: {
+            type: "array",
+            items: {
+              type: "object",
+              properties: {
+                name: { type: "string" },
+                attackType: { type: "string", enum: ["melee", "ranged"] },
+                reach: { type: "integer" },
+                range: { type: "integer" },
+                rangeLong: { type: "integer" },
+                damageFormula: { type: "string" },
+                damageType: { type: "string", enum: DAMAGE_TYPES },
+                extraDamageFormula: { type: "string" },
+                extraDamageType: { type: "string", enum: [...DAMAGE_TYPES, ""] },
+                description: { type: "string" },
+              },
+              required: ["name", "attackType", "damageFormula", "damageType"],
+            },
+          },
+        },
+        required: ["hasMultiattack", "attacks"],
+      };
+    },
+
+    buildPrompt(context, _docType, prior = {}) {
+      const name = prior.name ?? "unnamed";
+      const cr = prior.system?.details?.cr ?? "unknown";
+      const type = prior.system?.details?.type?.value ?? "unknown";
+      const size = prior.system?.traits?.size ?? "med";
+
+      const abilities = prior.system?.abilities ?? {};
+      const str = abilities.str?.value ?? 10;
+      const dex = abilities.dex?.value ?? 10;
+
+      return [
+        `You are a D&D 5e assistant. Design the weapon attacks for an NPC.`,
+        ``,
+        `GM description: "${context}"`,
+        `Creature: "${name}", CR ${cr}, ${size} ${type}`,
+        `STR ${str}, DEX ${dex}`,
+        ``,
+        `Design 1–4 natural weapon attacks appropriate for this creature.`,
+        ``,
+        `attackType: "melee" or "ranged"`,
+        `reach: melee reach in feet (5 for Medium, 10 for Large, 15 for Huge/Gargantuan). 0 for ranged.`,
+        `range: ranged normal range in feet. 0 for melee.`,
+        `rangeLong: ranged long range in feet. 0 for melee.`,
+        `damageFormula: dice expression including ability modifier, e.g. "2d6+4"`,
+        `damageType: one of ${DAMAGE_TYPES.join(", ")}`,
+        `extraDamageFormula: additional damage on hit (e.g. "2d6" fire on a dragon bite). Empty string if none.`,
+        `extraDamageType: damage type for extra damage. Empty string if none.`,
+        `description: flavor text or special effect (e.g. "target is grappled, escape DC 15"). Empty string if none.`,
+        ``,
+        `CR damage benchmarks (total per hit, including modifier):`,
+        `CR 1: 1d8+2 (avg 6), CR 3: 1d10+3 (avg 8), CR 5: 2d8+4 (avg 13),`,
+        `CR 8: 2d10+5 (avg 16), CR 11: 2d10+6 (avg 17), CR 15: 2d12+7 (avg 20),`,
+        `CR 20: 3d10+8 (avg 24)`,
+        ``,
+        `hasMultiattack: true if the creature makes multiple attacks per turn (usually CR 3+).`,
+        `multiattackDescription: e.g. "The dragon makes three attacks: one with its bite and two with its claws." Empty string if no multiattack.`,
+        ``,
+        `Common attack patterns:`,
+        `- Beasts: Bite + Claw or Bite + Horns`,
+        `- Dragons: Bite + 2 Claws (+ Tail for ancient)`,
+        `- Humanoids: weapon attacks (Longsword, Longbow)`,
+        `- Giants: weapon + Rock (ranged)`,
+        ``,
+        `Return JSON: { "hasMultiattack": true, "multiattackDescription": "...", "attacks": [...] }`,
+      ].join("\n");
+    },
+
+    mapResult(result) {
+      const items = [];
+
+      // Multiattack description as a passive feat
+      if (result.hasMultiattack && result.multiattackDescription) {
+        items.push({
+          type: "feat",
+          name: "Multiattack",
+          system: {
+            type: { value: "monster" },
+            description: { value: `<p>${result.multiattackDescription}</p>` },
+          },
+        });
+      }
+
+      // Weapon items for each attack
+      for (const atk of result.attacks ?? []) {
+        const weapon = {
+          type: "weapon",
+          name: atk.name,
+          system: {
+            type: { value: "natural" },
+            damage: {
+              base: {
+                formula: atk.damageFormula,
+                types: [atk.damageType],
+              },
+            },
+            range: {
+              reach: atk.attackType === "melee" ? (atk.reach || 5) : null,
+              value: atk.attackType === "ranged" ? (atk.range || 80) : null,
+              long: atk.attackType === "ranged" ? (atk.rangeLong || 320) : null,
+              units: "ft",
+            },
+          },
+        };
+
+        // Extra damage and special effects go in the description
+        // to avoid modifying auto-created attack activities
+        const descParts = [];
+        if (atk.extraDamageFormula && atk.extraDamageType) {
+          descParts.push(`Plus ${atk.extraDamageFormula} ${atk.extraDamageType} damage.`);
+        }
+        if (atk.description) {
+          descParts.push(atk.description);
+        }
+        if (descParts.length) {
+          weapon.system.description = { value: `<p>${descParts.join(" ")}</p>` };
+        }
+
+        items.push(weapon);
+      }
+
+      return { _embedded: { Item: items } };
+    },
+  },
+
+  // ---- Wave 7 — Catalog Selection -----------------------------------------
+  // Uses the map-reduce pipeline to select abilities from the catalog.
+  // This is a single wave group but internally runs 3 LLM steps.
+
+  catalogSelection: {
+    label: "Selecting abilities…",
+
+    // Not used — the catalog selection pipeline handles its own LLM calls
+    schema() { return {}; },
+    buildPrompt() { return ""; },
+
+    /**
+     * Instead of the normal schema→prompt→LLM→mapResult flow, this group
+     * delegates entirely to the catalog selection pipeline. The pipeline
+     * manages its own multi-step LLM interaction and compendium lookups.
+     *
+     * Called directly by _generate() which passes the parsed LLM result
+     * (null here since we skip the normal LLM call) — so we use a custom
+     * generate method instead. See _generate() override below.
+     */
+    async mapResult(_parsed, _docType, _prior) {
+      // This should not be called through the normal path.
+      // See the custom handling in _generate().
+      return {};
     },
   },
 };
