@@ -35,6 +35,16 @@ const EXOTIC_LANGUAGES = [
 
 const ALL_LANGUAGES = [...STANDARD_LANGUAGES, ...EXOTIC_LANGUAGES];
 
+/** Parse a D&D dice formula like "8d8+16" and return the average (e.g. 52). */
+function computeHpAverage(formula) {
+  const m = formula.match(/^(\d+)d(\d+)([+-]\d+)?$/);
+  if (!m) return 1;
+  const count = parseInt(m[1], 10);
+  const die   = parseInt(m[2], 10);
+  const mod   = parseInt(m[3] ?? "0", 10);
+  return Math.floor(count * (die + 1) / 2 + mod);
+}
+
 // ---------------------------------------------------------------------------
 // Wave pipeline — each inner array is one wave. Single-element = sequential,
 // multi-element = parallel within the wave.
@@ -78,8 +88,23 @@ export const NPC_GROUPS = {
         ``,
         `GM description: "${context}"`,
         ``,
-        `Creature types: ${CREATURE_TYPES.join(", ")}`,
-        `CR ranges: 0 (commoner) to 30 (tarrasque). Most NPCs are CR 1–10.`,
+        `Creature type guide — pick the type that best fits:`,
+        `- aberration: mind flayers, beholders, aboleths — alien/psionic creatures from the Far Realm`,
+        `- beast: wolves, spiders, bears, hawks, giant animals — natural creatures, no magic`,
+        `- celestial: angels, unicorns, couatls — creatures from the Upper Planes`,
+        `- construct: golems, animated armor, shield guardians — magically created objects`,
+        `- dragon: dragons, drakes, wyverns, dragon turtles — draconic creatures`,
+        `- elemental: fire/water/earth/air elementals, genies, gargoyles, mephits`,
+        `- fey: pixies, sprites, satyrs, dryads, hags — creatures from the Feywild`,
+        `- fiend: demons, devils, yugoloths — creatures from the Lower Planes`,
+        `- giant: hill giants, frost giants, ogres, trolls, ettins`,
+        `- humanoid: humans, elves, dwarves, goblins, orcs, cultists, bandits, knights`,
+        `- monstrosity: owlbears, basilisks, manticores, minotaurs — unnatural but not magical creatures`,
+        `- ooze: gelatinous cubes, black puddings, gray oozes — amorphous creatures`,
+        `- plant: treants, blights, shambling mounds, myconids`,
+        `- undead: zombies, skeletons, vampires, liches, wraiths, ghosts, wights`,
+        ``,
+        `CR ranges: 0 (commoner) to 30 (tarrasque). Typical: goblin CR 1/4, ogre CR 2, young dragon CR 6–10, adult dragon CR 13–17, ancient dragon CR 20+, lich CR 21.`,
         `subtype is optional — use for race/category like "elf", "goblinoid", "shapechanger". Empty string if not relevant.`,
         ``,
         `IMPORTANT: If the description says "a cultist" or "an acolyte" (generic/indefinite), use a type name like "Blood Cultist" — NOT a personal name. Only invent a personal name if the GM asks for a specific named character.`,
@@ -192,10 +217,9 @@ export const NPC_GROUPS = {
           wis: { type: "integer" },
           cha: { type: "integer" },
           ac: { type: "integer" },
-          hpMax: { type: "integer" },
           hpFormula: { type: "string" },
         },
-        required: ["str", "dex", "con", "int", "wis", "cha", "ac", "hpMax", "hpFormula"],
+        required: ["str", "dex", "con", "int", "wis", "cha", "ac", "hpFormula"],
       };
     },
 
@@ -209,13 +233,13 @@ export const NPC_GROUPS = {
       const hitDie = hitDieMap[size] || "d8";
 
       return [
-        `You are a D&D 5e assistant. Determine ability scores, AC, and HP for an NPC.`,
+        `You are a D&D 5e assistant. Determine ability scores, AC, and HP formula for an NPC.`,
         ``,
         `GM description: "${context}"`,
         `Creature: "${name}", CR ${cr}, ${type}, size ${size}`,
         `Hit die for this size: ${hitDie}`,
         ``,
-        `CR benchmarks (approximate):`,
+        `CR benchmarks (approximate HP, AC, ability score range):`,
         `CR 0: HP 3, AC 10, scores 8–12`,
         `CR 1: HP 50, AC 13, scores 12–16`,
         `CR 3: HP 80, AC 13, scores 13–17`,
@@ -225,14 +249,22 @@ export const NPC_GROUPS = {
         `CR 15: HP 230, AC 18, scores 18–24`,
         `CR 20: HP 310, AC 19, scores 20–26`,
         ``,
-        `hpFormula: use the size's hit die. For Medium creature with 8 hit dice and CON +2: "8d8+16".`,
-        `hpMax: the average of the formula (round down). For "8d8+16": 8*4.5+16 = 52.`,
+        `hpFormula: use the size's hit die + CON modifier per die.`,
+        `Example: Medium creature, 8 hit dice, CON 14 (+2): "8d8+16" (8 dice × +2 CON = +16).`,
+        `Example: Large creature, 12 hit dice, CON 18 (+4): "12d10+48" (12 dice × +4 CON = +48).`,
+        `HP will be calculated automatically from the formula — only provide the formula.`,
         ``,
-        `Return JSON: { "str": 16, "dex": 14, "con": 14, "int": 10, "wis": 12, "cha": 8, "ac": 15, "hpMax": 52, "hpFormula": "8d8+16" }`,
+        `Return JSON: { "str": 16, "dex": 14, "con": 14, "int": 10, "wis": 12, "cha": 8, "ac": 15, "hpFormula": "8d8+16" }`,
       ].join("\n");
     },
 
     mapResult(result) {
+      // Fix formula missing leading dice count (e.g. "d8+8" → "1d8+8")
+      let formula = result.hpFormula ?? "1d8";
+      if (/^d\d/.test(formula)) formula = "1" + formula;
+
+      // Compute HP average from formula deterministically
+      const hpMax = computeHpAverage(formula);
       return {
         system: {
           abilities: {
@@ -245,7 +277,7 @@ export const NPC_GROUPS = {
           },
           attributes: {
             ac: { flat: result.ac ?? 10, calc: "natural" },
-            hp: { value: result.hpMax ?? 10, max: result.hpMax ?? 10, formula: result.hpFormula ?? "1d8" },
+            hp: { value: hpMax, max: hpMax, formula },
           },
         },
       };
@@ -372,7 +404,13 @@ export const NPC_GROUPS = {
       ].join("\n");
     },
 
-    mapResult(result) {
+    mapResult(result, _docType, prior = {}) {
+      // Beasts, oozes, and plants cannot speak
+      const noSpeech = ["beast", "ooze", "plant"];
+      const creatureType = prior.system?.details?.type?.value;
+      const languages = noSpeech.includes(creatureType) ? [] : (result.languages ?? ["common"]);
+      const custom = noSpeech.includes(creatureType) ? "" : (result.customLanguages ?? "");
+
       return {
         system: {
           attributes: {
@@ -387,8 +425,8 @@ export const NPC_GROUPS = {
           },
           traits: {
             languages: {
-              value: result.languages ?? ["common"],
-              custom: result.customLanguages ?? "",
+              value: languages,
+              custom,
             },
           },
         },
