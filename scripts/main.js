@@ -1,5 +1,4 @@
 import { ItemGeneratorApp } from "./ItemGeneratorApp.js";
-import { NpcGeneratorApp } from "./NpcGeneratorApp.js";
 import { registerSettings } from "./settings.js";
 
 console.log("[simsala] main.js loaded");
@@ -28,6 +27,6 @@ Hooks.on("renderItemSheet5e", (app) => {
 
 Hooks.on("renderNPCActorSheet", (app) => {
   injectButton(app.element.querySelector(".window-header"), () => {
-    new NpcGeneratorApp(app.document).render({ force: true });
+    new ItemGeneratorApp(app.document).render({ force: true });
   });
 });

@@ -20,9 +20,9 @@ function mergeDeep(target, source) {
 }
 
 export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) {
-  constructor(item, options = {}) {
+  constructor(doc, options = {}) {
     super(options);
-    this.item = item;
+    this.document = doc;
     this.chatLog    = [];   // display entries — survives re-renders
     this.lastResult = null;
     this.isGenerating = false;
@@ -39,7 +39,7 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
   };
 
   get title() {
-    return `Simsala — ${this.item.name}`;
+    return `Simsala — ${this.document.name}`;
   }
 
   async _prepareContext() { return {}; }
@@ -95,7 +95,7 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
   }
 
   async _generate(context) {
-    const itemType = this.item.type;
+    const itemType = this.document.type;
     const groupNames = ITEM_TYPE_GROUPS[itemType];
 
     if (!groupNames) {
@@ -180,7 +180,7 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
   _validateProperties(parsed) {
     if (!parsed.system?.properties) return { validated: parsed, removed: [] };
 
-    const itemType = this.item.type;
+    const itemType = this.document.type;
     const removed  = [];
     const propsRaw = parsed.system.properties;
     const propsArray = Array.isArray(propsRaw) ? propsRaw : Object.keys(propsRaw);
@@ -198,7 +198,7 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
   _onApply() {
     if (!this.lastResult) return;
-    this.item.update(this.lastResult);
+    this.document.update(this.lastResult);
     this._appendMessage("note", "✓ Applied to item.");
   }
 
