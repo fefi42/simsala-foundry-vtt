@@ -4,2260 +4,2260 @@
     "cr": 0,
     "type": "plant",
     "size": "Small",
-    "summary": "Rake. False Appearance"
+    "summary": "A small bush animated by magic, swaying and lashing with its branches. Weak but surprising."
   },
   {
     "name": "Baboon",
     "cr": 0,
     "type": "beast",
     "size": "Small",
-    "summary": "Bite. Pack Tactics"
+    "summary": "A small aggressive primate that fights in packs, biting and clawing."
   },
   {
     "name": "Badger",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Bite. Keen Smell"
+    "summary": "A small burrowing mammal with a keen nose and a nasty bite when cornered."
   },
   {
     "name": "Bat",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Bite. Echolocation, Keen Hearing"
+    "summary": "A tiny flying mammal that navigates by echolocation in total darkness."
   },
   {
     "name": "Cat",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Claws. Keen Smell"
+    "summary": "A small domesticated feline, stealthy and quick with sharp claws."
   },
   {
     "name": "Commoner",
     "cr": 0,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Club"
+    "summary": "An ordinary unarmed civilian \u2014 a farmer, merchant, or townsperson with a club."
   },
   {
     "name": "Crab",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Claw. Amphibious"
+    "summary": "A tiny amphibious crustacean with a single pinching claw."
   },
   {
     "name": "Deer",
     "cr": 0,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite"
+    "summary": "A gentle grazing herbivore that flees from danger."
   },
   {
     "name": "Eagle",
     "cr": 0,
     "type": "beast",
     "size": "Small",
-    "summary": "Talons. Keen Sight"
+    "summary": "A keen-eyed bird of prey that dives with sharp talons."
   },
   {
     "name": "Frog",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Amphibious, Standing Leap"
+    "summary": "A tiny amphibious creature, harmless and unremarkable."
   },
   {
     "name": "Giant Fire Beetle",
     "cr": 0,
     "type": "beast",
     "size": "Small",
-    "summary": "Bite. Illumination"
+    "summary": "A dog-sized beetle with glowing glands that shed dim light."
   },
   {
     "name": "Giant Fly",
     "cr": 0,
     "type": "beast",
     "size": "Large",
-    "summary": ""
+    "summary": "An oversized buzzing insect, large enough to serve as a mount."
   },
   {
     "name": "Goat",
     "cr": 0,
     "type": "beast",
     "size": "Medium",
-    "summary": "Ram. Charge, Sure-Footed"
+    "summary": "A sure-footed herd animal that charges with its horns."
   },
   {
     "name": "Hawk",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Talons. Keen Sight"
+    "summary": "A small raptor with keen eyesight, used as a hunting companion."
   },
   {
     "name": "Homunculus",
     "cr": 0,
     "type": "construct",
     "size": "Tiny",
-    "summary": "Bite. Telepathic Bond"
+    "summary": "A tiny winged construct created by a wizard to serve as a loyal familiar."
   },
   {
     "name": "Hyena",
     "cr": 0,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite. Pack Tactics"
+    "summary": "A scavenging pack predator with a powerful bite and cackling cry."
   },
   {
     "name": "Jackal",
     "cr": 0,
     "type": "beast",
     "size": "Small",
-    "summary": "Bite. Keen Hearing and Smell, Pack Tactics"
+    "summary": "A small canine scavenger that hunts in packs across deserts and plains."
   },
   {
     "name": "Lemure",
     "cr": 0,
     "type": "fiend",
     "size": "Medium",
-    "summary": "Fist. Devil's Sight, Hellish Rejuvenation"
+    "summary": "A wretched blob of molten flesh \u2014 the lowest form of devil, mindless and pathetic."
   },
   {
     "name": "Lizard",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Bite"
+    "summary": "A tiny reptile, harmless and common in warm climates."
   },
   {
     "name": "Octopus",
     "cr": 0,
     "type": "beast",
     "size": "Small",
-    "summary": "Tentacles. Hold Breath, Underwater Camouflage, Water Breathing, Ink Cloud"
+    "summary": "A small aquatic mollusk that squirts ink and grapples with tentacles."
   },
   {
     "name": "Owl",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Talons. Flyby, Keen Hearing and Sight"
+    "summary": "A silent nocturnal raptor with exceptional hearing and darkvision."
   },
   {
     "name": "Quipper",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Bite. Blood Frenzy, Water Breathing"
+    "summary": "A tiny carnivorous fish with razor-sharp teeth, dangerous only in swarms."
   },
   {
     "name": "Rat",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Bite. Keen Smell"
+    "summary": "A tiny rodent, individually harmless but a disease carrier in large numbers."
   },
   {
     "name": "Raven",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Beak. Mimicry"
+    "summary": "A clever black bird capable of mimicking simple sounds."
   },
   {
     "name": "Scorpion",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Sting"
+    "summary": "A tiny arachnid with a venomous stinger on its tail."
   },
   {
     "name": "Sea Horse",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Water Breathing"
+    "summary": "A tiny aquatic creature, fragile and ornamental."
   },
   {
     "name": "Shrieker",
     "cr": 0,
     "type": "plant",
     "size": "Medium",
-    "summary": "Shriek, False Appearance"
+    "summary": "A fungus that screams when disturbed, alerting nearby creatures."
   },
   {
     "name": "Spider",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Bite. Spider Climb, Web Sense, Web Walker"
+    "summary": "A tiny web-spinning arachnid with a mild venomous bite."
   },
   {
     "name": "Vulture",
     "cr": 0,
     "type": "beast",
     "size": "Medium",
-    "summary": "Beak. Keen Sight and Smell, Pack Tactics"
+    "summary": "A carrion-eating bird that circles overhead waiting for prey to weaken."
   },
   {
     "name": "Weasel",
     "cr": 0,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Bite. Keen Hearing and Smell"
+    "summary": "A tiny, quick predator with keen hearing and smell."
   },
   {
     "name": "Bandit",
     "cr": 0.125,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Scimitar, Light Crossbow, Leather Armor"
+    "summary": "A common highway robber in leather armor, armed with a scimitar and light crossbow."
   },
   {
     "name": "Blood Hawk",
     "cr": 0.125,
     "type": "beast",
     "size": "Small",
-    "summary": "Beak. Keen Sight, Pack Tactics"
+    "summary": "An aggressive bird of prey that attacks in flocks, drawn to the scent of blood."
   },
   {
     "name": "Camel",
     "cr": 0.125,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite"
+    "summary": "A large domesticated desert mount, hardy and bad-tempered."
   },
   {
     "name": "Cultist",
     "cr": 0.125,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Leather Armor, Scimitar. Dark Devotion"
+    "summary": "A fanatical worshiper in leather armor wielding a scimitar, devoted to dark powers."
   },
   {
     "name": "Flying Snake",
     "cr": 0.125,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Bite. Flyby"
+    "summary": "A tiny winged serpent with a venomous bite that glides through jungle canopies."
   },
   {
     "name": "Giant Crab",
     "cr": 0.125,
     "type": "beast",
     "size": "Medium",
-    "summary": "Claw. Amphibious"
+    "summary": "An oversized crustacean with powerful crushing pincers, found on beaches and reefs."
   },
   {
     "name": "Giant Rat",
     "cr": 0.125,
     "type": "beast",
     "size": "Small",
-    "summary": "Bite. Keen Smell, Pack Tactics"
+    "summary": "A dog-sized rat with a vicious bite, common in sewers and dungeons."
   },
   {
     "name": "Giant Rat (Diseased)",
     "cr": 0.125,
     "type": "beast",
     "size": "Small",
-    "summary": "Bite. Keen Smell, Pack Tactics"
+    "summary": "A filthy oversized rat carrying a weakening disease in its bite."
   },
   {
     "name": "Giant Weasel",
     "cr": 0.125,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite. Keen Hearing and Smell"
+    "summary": "A large, swift predator with keen senses, used as a mount by small folk."
   },
   {
     "name": "Guard",
     "cr": 0.125,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Chain Shirt, Shield, Spear"
+    "summary": "A trained city watchman in chain shirt with shield and spear."
   },
   {
     "name": "Kobold",
     "cr": 0.125,
     "type": "humanoid",
     "size": "Small",
-    "summary": "Dagger, Sling. Sunlight Sensitivity, Pack Tactics"
+    "summary": "A small reptilian humanoid that fights dirty with daggers and slings, relying on pack tactics."
   },
   {
     "name": "Mastiff",
     "cr": 0.125,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite. Keen Hearing and Smell"
+    "summary": "A large trained guard dog with a powerful bite."
   },
   {
     "name": "Merfolk",
     "cr": 0.125,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Spear. Amphibious"
+    "summary": "An aquatic humanoid with a fish tail, armed with a trident, dwelling in undersea communities."
   },
   {
     "name": "Mule",
     "cr": 0.125,
     "type": "beast",
     "size": "Medium",
-    "summary": "Hooves. Beast of Burden, Sure-Footed"
+    "summary": "A sturdy domesticated pack animal, strong but slow."
   },
   {
     "name": "Noble",
     "cr": 0.125,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Breastplate, Rapier. Parry"
+    "summary": "A wealthy aristocrat in a breastplate, carrying a rapier and skilled at parrying."
   },
   {
     "name": "Poisonous Snake",
     "cr": 0.125,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Bite"
+    "summary": "A tiny venomous serpent with a dangerous bite."
   },
   {
     "name": "Pony",
     "cr": 0.125,
     "type": "beast",
     "size": "Medium",
-    "summary": "Hooves"
+    "summary": "A small riding horse suitable for halflings and children."
   },
   {
     "name": "Stirge",
     "cr": 0.125,
     "type": "beast",
     "size": "Tiny",
-    "summary": "Blood Drain"
+    "summary": "A tiny blood-drinking insectoid that latches onto victims and drains their life."
   },
   {
     "name": "Tribal Warrior",
     "cr": 0.125,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Hide Armor, Spear. Pack Tactics"
+    "summary": "A primitive hunter in hide armor with a spear, fighting alongside packmates."
   },
   {
     "name": "Acolyte",
     "cr": 0.25,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Club. Spellcasting. 6 spells"
+    "summary": "A junior temple priest with minor divine magic \u2014 healing and sacred flame."
   },
   {
     "name": "Axe Beak",
     "cr": 0.25,
     "type": "beast",
     "size": "Large",
-    "summary": "Beak"
+    "summary": "A large flightless predatory bird with a massive sharp beak, aggressive and territorial."
   },
   {
     "name": "Blink Dog",
     "cr": 0.25,
     "type": "fey",
     "size": "Medium",
-    "summary": "Bite. Keen Hearing and Smell, Teleport"
+    "summary": "A fey canine that teleports short distances, intelligent and fiercely loyal."
   },
   {
     "name": "Boar",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Tusk. Charge, Relentless"
+    "summary": "A stocky wild pig that charges recklessly, fighting with relentless fury."
   },
   {
     "name": "Constrictor Snake",
     "cr": 0.25,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite, Constrict"
+    "summary": "A large snake that coils around prey and crushes it to death."
   },
   {
     "name": "Draft Horse",
     "cr": 0.25,
     "type": "beast",
     "size": "Large",
-    "summary": "Hooves"
+    "summary": "A large workhorse bred for pulling heavy loads."
   },
   {
     "name": "Dretch",
     "cr": 0.25,
     "type": "fiend",
     "size": "Small",
-    "summary": "Bite, Claws. Multiattack, Fetid Cloud"
+    "summary": "A small, wretched demon \u2014 stupid, cowardly, and stinking of filth."
   },
   {
     "name": "Drow",
     "cr": 0.25,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Shortsword, Hand Crossbow, Chain Shirt. Fey Ancestry, Innate Spellcasting, Sunlight Sensitivity. 3 spells"
+    "summary": "A dark elf warrior with innate shadow magic, armed with shortsword and hand crossbow."
   },
   {
     "name": "Elk",
     "cr": 0.25,
     "type": "beast",
     "size": "Large",
-    "summary": "Ram, Hooves. Charge"
+    "summary": "A large antlered herbivore that charges with its horns when threatened."
   },
   {
     "name": "Flying Sword",
     "cr": 0.25,
     "type": "construct",
     "size": "Small",
-    "summary": "Longsword. Antimagic Susceptibility, False Appearance"
+    "summary": "An animated blade that hovers and slashes on its own, guided by magic."
   },
   {
     "name": "Giant Badger",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite, Claws. Keen Smell, Multiattack"
+    "summary": "An oversized burrowing predator with a vicious multiattack of bite and claws."
   },
   {
     "name": "Giant Bat",
     "cr": 0.25,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite. Echolocation, Keen Hearing"
+    "summary": "A large cave-dwelling bat with echolocation and a nasty bite."
   },
   {
     "name": "Giant Centipede",
     "cr": 0.25,
     "type": "beast",
     "size": "Small",
-    "summary": "Bite"
+    "summary": "A small venomous arthropod that crawls on walls and ceilings."
   },
   {
     "name": "Giant Frog",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite. Amphibious, Standing Leap, Swallow"
+    "summary": "An oversized amphibian that swallows small prey whole with its sticky tongue."
   },
   {
     "name": "Giant Lizard",
     "cr": 0.25,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite"
+    "summary": "A large reptile used as a mount, able to climb walls and ceilings."
   },
   {
     "name": "Giant Owl",
     "cr": 0.25,
     "type": "beast",
     "size": "Large",
-    "summary": "Talons. Flyby, Keen Hearing and Sight"
+    "summary": "A huge intelligent owl that can speak and serves as a messenger of the fey."
   },
   {
     "name": "Giant Poisonous Snake",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite"
+    "summary": "A large venomous serpent with a deadly bite."
   },
   {
     "name": "Giant Wolf Spider",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite. Spider Climb, Web Sense, Web Walker"
+    "summary": "A large hunting spider that crawls on walls and delivers a paralyzing bite."
   },
   {
     "name": "Goblin",
     "cr": 0.25,
     "type": "humanoid",
     "size": "Small",
-    "summary": "Leather Armor, Shield, Scimitar, Shortbow. Nimble Escape"
+    "summary": "A small, cunning humanoid in leather armor with a scimitar and shortbow. Nimble and evasive."
   },
   {
     "name": "Grimlock",
     "cr": 0.25,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Spiked Bone Club. Blind Senses, Keen Hearing and Smell, Stone Camouflage"
+    "summary": "A blind, muscular subterranean humanoid that hunts by sound and smell."
   },
   {
     "name": "Panther",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite, Claw. Keen Smell, Pounce"
+    "summary": "A sleek big cat that pounces from hiding with teeth and claws."
   },
   {
     "name": "Pseudodragon",
     "cr": 0.25,
     "type": "dragon",
     "size": "Tiny",
-    "summary": "Bite, Sting. Keen Senses, Magic Resistance, Limited Telepathy"
+    "summary": "A tiny, cat-sized dragon with a venomous stinger tail, often a wizard's familiar."
   },
   {
     "name": "Riding Horse",
     "cr": 0.25,
     "type": "beast",
     "size": "Large",
-    "summary": "Hooves"
+    "summary": "A trained mount, fast and obedient."
   },
   {
     "name": "Skeleton",
     "cr": 0.25,
     "type": "undead",
     "size": "Medium",
-    "summary": "Shortbow, Shortsword"
+    "summary": "An animated human skeleton wielding a shortsword and shortbow \u2014 mindless undead fodder."
   },
   {
     "name": "Sprite",
     "cr": 0.25,
     "type": "fey",
     "size": "Tiny",
-    "summary": "Leather Armor (tiny), Shortbow, Longsword. Invisibility, Heart Sight"
+    "summary": "A tiny winged fey that fights with a miniature sword and bow, able to detect evil."
   },
   {
     "name": "Steam Mephit",
     "cr": 0.25,
     "type": "elemental",
     "size": "Small",
-    "summary": "Claws. Death Burst, Innate Spellcasting, Steam Breath. 1 spells"
+    "summary": "A small elemental creature of steam and heat that can cast blur and breathe scalding mist."
   },
   {
     "name": "Swarm of Bats",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bites. Swarm, Keen Hearing, Echolocation"
+    "summary": "A cloud of hundreds of bats filling the air with leathery wings and tiny bites."
   },
   {
     "name": "Swarm of Rats",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bites. Keen Smell, Swarm"
+    "summary": "A writhing carpet of rats that overwhelm prey through sheer numbers."
   },
   {
     "name": "Swarm of Ravens",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Beaks. Swarm"
+    "summary": "A flock of aggressive black birds that peck and claw in unison."
   },
   {
     "name": "Violet Fungus",
     "cr": 0.25,
     "type": "plant",
     "size": "Medium",
-    "summary": "Rotting Touch. Multiattack, False Appearance"
+    "summary": "A rotting purple mushroom that lashes out with necrotic tendrils at nearby creatures."
   },
   {
     "name": "Wolf",
     "cr": 0.25,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite. Keen Hearing and Smell, Pack Tactics"
+    "summary": "A pack predator that knocks prey prone and tears at them alongside allies."
   },
   {
     "name": "Zombie",
     "cr": 0.25,
     "type": "undead",
     "size": "Medium",
-    "summary": "Slam. Undead Fortitude"
+    "summary": "A shambling undead corpse, slow but tough, that claws at the living."
   },
   {
     "name": "Ape",
     "cr": 0.5,
     "type": "beast",
     "size": "Medium",
-    "summary": "Fist, Rock. Multiattack"
+    "summary": "A muscular primate that hurls rocks and pounds with its fists."
   },
   {
     "name": "Black Bear",
     "cr": 0.5,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite, Claws. Keen Smell, Multiattack"
+    "summary": "A stocky forest bear that bites and claws when provoked."
   },
   {
     "name": "Cockatrice",
     "cr": 0.5,
     "type": "monstrosity",
     "size": "Small",
-    "summary": "Bite"
+    "summary": "A small rooster-lizard hybrid whose bite can turn flesh to stone."
   },
   {
     "name": "Crocodile",
     "cr": 0.5,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite. Hold Breath"
+    "summary": "A large aquatic reptile that lurks in shallow water and death-rolls its prey."
   },
   {
     "name": "Darkmantle",
     "cr": 0.5,
     "type": "monstrosity",
     "size": "Small",
-    "summary": "Crush. Echolocation, False Appearance, Darkness Aura"
+    "summary": "A cave-dwelling creature that drops from ceilings, engulfing heads in magical darkness."
   },
   {
     "name": "Deep Gnome",
     "cr": 0.5,
     "type": "humanoid",
     "size": "Small",
-    "summary": "Chain Shirt, War Pick, Poisoned Dart. Stone Camouflage, Gnome Cunning, Innate Spellcasting. 4 spells"
+    "summary": "A stealthy subterranean gnome in chain armor with war pick and innate stone magic."
   },
   {
     "name": "Dust Mephit",
     "cr": 0.5,
     "type": "elemental",
     "size": "Small",
-    "summary": "Claws. Death Burst, Innate Spellcasting, Blinding Breath. 1 spells"
+    "summary": "A small elemental of choking dust that can cast sleep and exhale blinding clouds."
   },
   {
     "name": "Giant Goat",
     "cr": 0.5,
     "type": "beast",
     "size": "Large",
-    "summary": "Ram. Charge, Sure-Footed"
+    "summary": "An oversized mountain goat that charges with devastating horns."
   },
   {
     "name": "Giant Sea Horse",
     "cr": 0.5,
     "type": "beast",
     "size": "Large",
-    "summary": "Ram. Charge, Water Breathing"
+    "summary": "A large aquatic mount with a ramming charge attack."
   },
   {
     "name": "Giant Wasp",
     "cr": 0.5,
     "type": "beast",
     "size": "Medium",
-    "summary": "Sting"
+    "summary": "An oversized stinging insect with a paralyzing venomous sting."
   },
   {
     "name": "Gnoll",
     "cr": 0.5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Hide Armor, Shield, Bite, Spear, Longbow. Rampage"
+    "summary": "A savage hyena-headed humanoid raider in hide armor with spear and longbow."
   },
   {
     "name": "Gray Ooze",
     "cr": 0.5,
     "type": "ooze",
     "size": "Medium",
-    "summary": "Pseudopod. Amorphous, Corrode Metal, False Appearance"
+    "summary": "A puddle of living acid that corrodes metal and dissolves flesh on contact."
   },
   {
     "name": "Hobgoblin",
     "cr": 0.5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Longsword, Longbow, Chain Mail, Shield. Martial Advantage"
+    "summary": "A disciplined goblinoid soldier in chain mail with longsword, longbow, and shield."
   },
   {
     "name": "Ice Mephit",
     "cr": 0.5,
     "type": "elemental",
     "size": "Small",
-    "summary": "Claws. Death Burst, False Appearance, Innate Spellcasting, Frost Breath. 1 spells"
+    "summary": "A small elemental of ice that breathes freezing cones and casts fog cloud."
   },
   {
     "name": "Lizardfolk",
     "cr": 0.5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Bite, Heavy Club, Javelin, Spiked Shield, Shield. Hold Breath, Multiattack"
+    "summary": "A reptilian tribal warrior with a bite, club, javelin, and spiked shield."
   },
   {
     "name": "Magma Mephit",
     "cr": 0.5,
     "type": "elemental",
     "size": "Small",
-    "summary": "Claws. Innate Spellcasting, Death Burst, False Appearance, Fire Breath. 1 spells"
+    "summary": "A small elemental of molten rock that breathes fire and casts heat metal."
   },
   {
     "name": "Magmin",
     "cr": 0.5,
     "type": "elemental",
     "size": "Small",
-    "summary": "Touch. Death Burst, Ignited Illumination"
+    "summary": "A small living ember that ignites everything it touches and explodes when killed."
   },
   {
     "name": "Orc",
     "cr": 0.5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Hide Armor, Greataxe, Javelin. Aggressive"
+    "summary": "A brutal, aggressive humanoid in hide armor wielding a greataxe. Charges into melee."
   },
   {
     "name": "Reef Shark",
     "cr": 0.5,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bite. Pack Tactics, Water Breathing"
+    "summary": "A medium ocean predator that attacks in packs when blood is in the water."
   },
   {
     "name": "Rust Monster",
     "cr": 0.5,
     "type": "monstrosity",
     "size": "Medium",
-    "summary": "Bite. Iron Scent, Rust Metal, Antennae"
+    "summary": "An insectoid creature that corrodes and devours metal on contact with its antennae."
   },
   {
     "name": "Sahuagin",
     "cr": 0.5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Spear, Bite, Claws. Blood Frenzy, Limited Amphibiousness, Multiattack, Shark Telepathy"
+    "summary": "A vicious aquatic humanoid with claws, bite, and spear. Frenzied by the scent of blood."
   },
   {
     "name": "Satyr",
     "cr": 0.5,
     "type": "fey",
     "size": "Medium",
-    "summary": "Shortbow, Shortsword, Leather Armor, Ram. Magic Resistance"
+    "summary": "A mischievous goat-legged fey that fights with ram horns and a shortsword."
   },
   {
     "name": "Scout",
     "cr": 0.5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Leather Armor, Shortsword, Longbow. Keen Hearing and Sight, Multiattack"
+    "summary": "A skilled wilderness tracker in leather armor with shortsword and longbow."
   },
   {
     "name": "Shadow",
     "cr": 0.5,
     "type": "undead",
     "size": "Medium",
-    "summary": "Strength Drain. Amorphous, Shadow Stealth, Sunlight Weakness"
+    "summary": "An incorporeal undead that drains strength with its touch, hiding in darkness."
   },
   {
     "name": "Swarm of Beetles",
     "cr": 0.5,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bites. Swarm"
+    "summary": "A carpet of thousands of biting beetles that crawl over everything."
   },
   {
     "name": "Swarm of Centipedes",
     "cr": 0.5,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bites. Swarm"
+    "summary": "A mass of venomous centipedes that swarm over prey."
   },
   {
     "name": "Swarm of Insects",
     "cr": 0.5,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bites. Swarm"
+    "summary": "A buzzing cloud of biting insects that fill the air."
   },
   {
     "name": "Swarm of Spiders",
     "cr": 0.5,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bites. Swarm, Spider Climb, Web Sense, Web Walker"
+    "summary": "A crawling mass of tiny spiders that overwhelm prey with countless bites."
   },
   {
     "name": "Swarm of Wasps",
     "cr": 0.5,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bites. Swarm"
+    "summary": "A furious cloud of stinging wasps that pursue aggressors relentlessly."
   },
   {
     "name": "Thug",
     "cr": 0.5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Leather Armor, Heavy Crossbow, Mace. Pack Tactics, Multiattack"
+    "summary": "A street enforcer in leather armor with a mace and heavy crossbow, using pack tactics."
   },
   {
     "name": "Warhorse",
     "cr": 0.5,
     "type": "beast",
     "size": "Large",
-    "summary": "Hooves. Trampling Charge"
+    "summary": "A trained battle mount with hooves and a trampling charge."
   },
   {
     "name": "Warhorse Skeleton",
     "cr": 0.5,
     "type": "undead",
     "size": "Large",
-    "summary": "Hooves"
+    "summary": "An undead skeletal horse, tireless and fearless in battle."
   },
   {
     "name": "Worg",
     "cr": 0.5,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite. Keen Hearing and Smell"
+    "summary": "A large, evil wolf-like predator, intelligent enough to serve as a goblin mount."
   },
   {
     "name": "Animated Armor",
     "cr": 1,
     "type": "construct",
     "size": "Medium",
-    "summary": "Slam. Antimagic Susceptibility, False Appearance, Multiattack"
+    "summary": "A suit of plate armor animated by magic, attacking with its gauntlets on command."
   },
   {
     "name": "Brass Dragon Wyrmling",
     "cr": 1,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Breath Weapons"
+    "summary": "A young brass dragon, playful and talkative, with a line of fire breath."
   },
   {
     "name": "Brown Bear",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite, Claws. Keen Smell, Multiattack"
+    "summary": "A large, powerful forest bear with a vicious multiattack of bite and claws."
   },
   {
     "name": "Bugbear",
     "cr": 1,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Morningstar, Hide Armor, Shield, Javelin. Surprise Attack, Brute"
+    "summary": "A large, stealthy goblinoid brute in hide armor with morningstar. Ambushes with devastating surprise attacks."
   },
   {
     "name": "Copper Dragon Wyrmling",
     "cr": 1,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Breath Weapons"
+    "summary": "A young copper dragon, witty and prankish, with a line of acid breath."
   },
   {
     "name": "Death Dog",
     "cr": 1,
     "type": "monstrosity",
     "size": "Medium",
-    "summary": "Bite. Two-Headed, Multiattack"
+    "summary": "A two-headed hound whose bites carry a rotting disease."
   },
   {
     "name": "Dire Wolf",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite. Keen Hearing and Smell, Pack Tactics"
+    "summary": "A massive prehistoric wolf that hunts in packs and knocks prey prone."
   },
   {
     "name": "Dryad",
     "cr": 1,
     "type": "fey",
     "size": "Medium",
-    "summary": "Club. Innate Spellcasting, Magic Resistance, Speak with Beasts and Plants, Tree Stride, Fey Charm. 6 spells"
+    "summary": "A beautiful tree-bound fey that charms intruders and speaks with plants and animals."
   },
   {
     "name": "Duergar",
     "cr": 1,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Scale Mail, Shield, War Pick, Javelin. Duergar Resilience, Sunlight Sensitivity, Enlarge, Invisibility"
+    "summary": "A grim, gray-skinned dwarf in scale mail that can magically enlarge and turn invisible."
   },
   {
     "name": "Ghoul",
     "cr": 1,
     "type": "undead",
     "size": "Medium",
-    "summary": "Bite, Claws"
+    "summary": "A hunched, ravenous undead that paralyzes victims with its claws before devouring them."
   },
   {
     "name": "Giant Eagle",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Beak, Talons. Keen Sight, Multiattack"
+    "summary": "A huge intelligent eagle that speaks and fights with beak and talons."
   },
   {
     "name": "Giant Hyena",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite. Rampage"
+    "summary": "An oversized hyena with a bone-crushing bite that fights with pack fury."
   },
   {
     "name": "Giant Octopus",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Tentacles. Hold Breath, Underwater Camouflage, Water Breathing, Ink Cloud"
+    "summary": "A large tentacled sea predator that grapples prey and blinds with ink."
   },
   {
     "name": "Giant Spider",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite. Spider Climb, Web Sense, Web Walker, Web"
+    "summary": "A large web-spinning predator with a venomous bite and wall-climbing ability."
   },
   {
     "name": "Giant Toad",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite. Amphibious, Standing Leap, Swallow"
+    "summary": "An oversized amphibian that swallows prey whole."
   },
   {
     "name": "Giant Vulture",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Beak, Talons. Keen Sight and Smell, Pack Tactics, Multiattack"
+    "summary": "A huge carrion bird, intelligent enough to understand speech and coordinate attacks."
   },
   {
     "name": "Harpy",
     "cr": 1,
     "type": "monstrosity",
     "size": "Medium",
-    "summary": "Claws, Club. Multiattack, Luring Song"
+    "summary": "A winged humanoid with a magically alluring song that lures victims to their death."
   },
   {
     "name": "Hippogriff",
     "cr": 1,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Beak, Claws. Keen Sight, Multiattack"
+    "summary": "A majestic flying beast with the head of an eagle and body of a horse."
   },
   {
     "name": "Imp",
     "cr": 1,
     "type": "fiend",
     "size": "Tiny",
-    "summary": "Sting (Bite in Beast Form). Shapechanger, Devil's Sight, Magic Resistance, Invisibility"
+    "summary": "A tiny devil that shapeshifts into a rat, raven, or spider. Venomous sting and invisibility."
   },
   {
     "name": "Lion",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite, Claw. Keen Smell, Pack Tactics, Pounce, Running Leap"
+    "summary": "A powerful big cat that pounces on prey and tears with teeth and claws."
   },
   {
     "name": "Quasit",
     "cr": 1,
     "type": "fiend",
     "size": "Tiny",
-    "summary": "Claw (Bite in Beast Form). Invisibility, Shapechanger, Magic Resistance, Scare"
+    "summary": "A tiny chaotic demon familiar that shapeshifts and attacks with venomous claws."
   },
   {
     "name": "Specter",
     "cr": 1,
     "type": "undead",
     "size": "Medium",
-    "summary": "Life Drain. Incorporeal Movement, Sunlight Sensitivity"
+    "summary": "A translucent undead spirit that drains life force with its touch."
   },
   {
     "name": "Spy",
     "cr": 1,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Shortsword, Hand Crossbow. Cunning Action, Sneak Attack, Multiattack"
+    "summary": "A cunning infiltrator with a shortsword and hand crossbow, skilled in deception and stealth."
   },
   {
     "name": "Swarm of Quippers",
     "cr": 1,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bites. Blood Frenzy, Swarm, Water Breathing"
+    "summary": "A churning school of razor-toothed fish that strips flesh in seconds."
   },
   {
     "name": "Tiger",
     "cr": 1,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite, Claw. Keen Smell, Pounce"
+    "summary": "A large, stealthy jungle predator that pounces and mauls with claws and fangs."
   },
   {
     "name": "Ankheg",
     "cr": 2,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite. Acid Spray"
+    "summary": "A giant burrowing insect that erupts from the ground and sprays acid."
   },
   {
     "name": "Awakened Tree",
     "cr": 2,
     "type": "plant",
     "size": "Huge",
-    "summary": "Slam. False Appearance"
+    "summary": "A massive tree animated by magic that slams with its branches."
   },
   {
     "name": "Azer",
     "cr": 2,
     "type": "elemental",
     "size": "Medium",
-    "summary": "Shield, Warhammer. Heated Body, Heated Weapons, Illumination"
+    "summary": "A dwarf-like elemental of living bronze and fire, wielding a heated warhammer."
   },
   {
     "name": "Bandit Captain",
     "cr": 2,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Studded Leather Armor, Scimitar, Dagger. Multiattack, Parry"
+    "summary": "A cunning outlaw leader in studded leather, fighting with scimitar and dagger. Commands through charisma and combat skill."
   },
   {
     "name": "Berserker",
     "cr": 2,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Hide Armor, Greataxe. Reckless"
+    "summary": "A frenzied warrior in hide armor swinging a greataxe with reckless abandon."
   },
   {
     "name": "Black Dragon Wyrmling",
     "cr": 2,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Acid Breath, Amphibious"
+    "summary": "A young black dragon, cruel and sadistic, with a line of acid breath."
   },
   {
     "name": "Bronze Dragon Wyrmling",
     "cr": 2,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Amphibious, Breath Weapons"
+    "summary": "A young bronze dragon, curious and honorable, with a line of lightning breath."
   },
   {
     "name": "Centaur",
     "cr": 2,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Pike, Hooves, Longbow. Multiattack, Charge"
+    "summary": "A half-human, half-horse warrior that charges with hooves and strikes with pike and longbow."
   },
   {
     "name": "Cult Fanatic",
     "cr": 2,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Leather Armor, Dagger. Dark Devotion, Spellcasting, Multiattack. 8 spells"
+    "summary": "A zealous cult leader in leather armor with dagger, wielding divine magic to inspire and smite."
   },
   {
     "name": "Druid",
     "cr": 2,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Quarterstaff. Spellcasting. 9 spells"
+    "summary": "A nature priest wielding a quarterstaff and a wide array of druidic spells."
   },
   {
     "name": "Ettercap",
     "cr": 2,
     "type": "monstrosity",
     "size": "Medium",
-    "summary": "Bite, Claws. Spider Climb, Web Sense, Web Walker, Multiattack, Web"
+    "summary": "A hunched, spider-like humanoid that spins webs and ambushes with poisonous claws."
   },
   {
     "name": "Gargoyle",
     "cr": 2,
     "type": "elemental",
     "size": "Medium",
-    "summary": "Bite, Claws. False Appearance, Multiattack"
+    "summary": "A winged stone predator that lurks motionless on buildings before diving to attack with claws and bite."
   },
   {
     "name": "Gelatinous Cube",
     "cr": 2,
     "type": "ooze",
     "size": "Large",
-    "summary": "Pseudopod. Ooze Cube, Transparent, Engulf"
+    "summary": "A transparent 10-foot cube of living acid that engulfs and dissolves anything in its path."
   },
   {
     "name": "Ghast",
     "cr": 2,
     "type": "undead",
     "size": "Medium",
-    "summary": "Bite, Claws. Stench, Turn Defiance"
+    "summary": "A more powerful ghoul that emits a nauseating stench and paralyzes with its claws."
   },
   {
     "name": "Giant Boar",
     "cr": 2,
     "type": "beast",
     "size": "Large",
-    "summary": "Tusk. Charge, Relentless"
+    "summary": "A massive wild pig that charges relentlessly, fighting through mortal wounds."
   },
   {
     "name": "Giant Constrictor Snake",
     "cr": 2,
     "type": "beast",
     "size": "Huge",
-    "summary": "Bite, Constrict"
+    "summary": "A huge snake that coils around and crushes large prey."
   },
   {
     "name": "Giant Elk",
     "cr": 2,
     "type": "beast",
     "size": "Huge",
-    "summary": "Hooves, Ram. Charge"
+    "summary": "A majestic, enormous elk revered by forest folk, with a devastating antler charge."
   },
   {
     "name": "Gibbering Mouther",
     "cr": 2,
     "type": "aberration",
     "size": "Medium",
-    "summary": "Bites. Aberrant Ground, Gibbering, Multiattack, Blinding Spittle"
+    "summary": "A writhing blob covered in babbling mouths and eyes that warps the ground around it."
   },
   {
     "name": "Green Dragon Wyrmling",
     "cr": 2,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Poison Breath, Amphibious"
+    "summary": "A young green dragon, manipulative and cunning, with a cone of poison breath."
   },
   {
     "name": "Grick",
     "cr": 2,
     "type": "monstrosity",
     "size": "Medium",
-    "summary": "Tentacles, Beak. Stone Camouflage, Multiattack"
+    "summary": "A worm-like ambush predator with rubbery flesh and a beak surrounded by tentacles."
   },
   {
     "name": "Griffon",
     "cr": 2,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Beak, Claws. Keen Sight, Multiattack"
+    "summary": "A fierce flying predator with an eagle's head and a lion's body, fiercely territorial."
   },
   {
     "name": "Hunter Shark",
     "cr": 2,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite. Blood Frenzy, Water Breathing"
+    "summary": "A large aggressive ocean predator with a frenzy for blood."
   },
   {
     "name": "Merrow",
     "cr": 2,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite, Claws, Harpoon. Amphibious, Multiattack"
+    "summary": "A corrupted aquatic ogre with a harpoon and devastating claws."
   },
   {
     "name": "Mimic",
     "cr": 2,
     "type": "monstrosity",
     "size": "Medium",
-    "summary": "Pseudopod, Bite. Shapechanger, Adhesive (Object Form Only), False Appearance (Object Form Only), Grappler"
+    "summary": "A shapeshifter that disguises itself as a chest or door, grappling prey with adhesive pseudopods."
   },
   {
     "name": "Minotaur Skeleton",
     "cr": 2,
     "type": "undead",
     "size": "Large",
-    "summary": "Greataxe, Gore. Charge"
+    "summary": "An undead skeletal minotaur that charges and gores with its horns."
   },
   {
     "name": "Ochre Jelly",
     "cr": 2,
     "type": "ooze",
     "size": "Large",
-    "summary": "Pseudopod. Amorphous, Spider Climb, Split"
+    "summary": "A large blob of corrosive ooze that splits in two when struck by lightning or slashing."
   },
   {
     "name": "Ogre",
     "cr": 2,
     "type": "giant",
     "size": "Large",
-    "summary": "Greatclub, Javelin, Hide Armor"
+    "summary": "A dim-witted, hulking brute that smashes with a greatclub and hurls javelins."
   },
   {
     "name": "Ogre Zombie",
     "cr": 2,
     "type": "undead",
     "size": "Large",
-    "summary": "Morningstar. Undead Fortitude"
+    "summary": "An undead ogre, even more mindless than in life, but nearly impossible to drop."
   },
   {
     "name": "Pegasus",
     "cr": 2,
     "type": "celestial",
     "size": "Large",
-    "summary": "Hooves"
+    "summary": "A celestial winged horse, noble and loyal, serving only the pure-hearted."
   },
   {
     "name": "Plesiosaurus",
     "cr": 2,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite. Hold Breath"
+    "summary": "A large aquatic dinosaur with a long neck and powerful bite."
   },
   {
     "name": "Polar Bear",
     "cr": 2,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite, Claws. Keen Smell, Multiattack"
+    "summary": "A large arctic predator with a vicious multiattack of bite and claws."
   },
   {
     "name": "Priest",
     "cr": 2,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Mace, Chain Shirt. Spellcasting, Divine Eminence. 10 spells"
+    "summary": "A temple cleric in chain shirt with mace and a deep repertoire of divine magic."
   },
   {
     "name": "Rhinoceros",
     "cr": 2,
     "type": "beast",
     "size": "Large",
-    "summary": "Gore. Charge"
+    "summary": "A massive thick-skinned beast that charges with a devastating horn."
   },
   {
     "name": "Rug of Smothering",
     "cr": 2,
     "type": "construct",
     "size": "Large",
-    "summary": "Smother. Antimagic Susceptibility, Damage Transfer, False Appearance"
+    "summary": "An animated carpet that wraps around victims, smothering and blinding them."
   },
   {
     "name": "Saber-Toothed Tiger",
     "cr": 2,
     "type": "beast",
     "size": "Large",
-    "summary": "Bite, Claw. Keen Smell, Pounce"
+    "summary": "A large prehistoric cat with enormous fangs that pounces and mauls."
   },
   {
     "name": "Sea Hag",
     "cr": 2,
     "type": "fey",
     "size": "Medium",
-    "summary": "Claws. Amphibious, Horrific Appearance, Death Glare, Illusory Appearance"
+    "summary": "A hideous aquatic fey whose horrifying appearance can frighten creatures to death."
   },
   {
     "name": "Silver Dragon Wyrmling",
     "cr": 2,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Breath Weapons"
+    "summary": "A young silver dragon, kind and protective, with a cone of cold breath."
   },
   {
     "name": "Swarm of Poisonous Snakes",
     "cr": 2,
     "type": "beast",
     "size": "Medium",
-    "summary": "Bites. Swarm"
+    "summary": "A writhing mass of venomous serpents that bite everything nearby."
   },
   {
     "name": "Wererat",
     "cr": 2,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Bite (Rat or Hybrid Form Only), Hand Crossbow (Humanoid or Hybrid Form Only), Shortsword (Humanoid or Hybrid Form Only). Shapechanger, Keen Smell, Multiattack (Humanoid or Hybrid Form Only)"
+    "summary": "A shapeshifting humanoid that transforms into a giant rat, sneaky and disease-carrying."
   },
   {
     "name": "White Dragon Wyrmling",
     "cr": 2,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Cold Breath"
+    "summary": "A young white dragon, savage and primal, with a cone of cold breath."
   },
   {
     "name": "Will-o'-Wisp",
     "cr": 2,
     "type": "undead",
     "size": "Tiny",
-    "summary": "Shock. Consume Life, Ephemeral, Incorporeal Movement, Variable Illumination, Invisibility"
+    "summary": "A glowing orb of light that lures travelers into bogs and feeds on their dying moments."
   },
   {
     "name": "Basilisk",
     "cr": 3,
     "type": "monstrosity",
     "size": "Medium",
-    "summary": "Bite. Petrifying Gaze"
+    "summary": "A multi-legged reptile whose gaze turns creatures to stone."
   },
   {
     "name": "Bearded Devil",
     "cr": 3,
     "type": "fiend",
     "size": "Medium",
-    "summary": "Beard, Glaive. Devil's Sight, Magic Resistance, Steadfast, Multiattack"
+    "summary": "A spined, bearded fiend wielding a barbed glaive that causes bleeding wounds."
   },
   {
     "name": "Blue Dragon Wyrmling",
     "cr": 3,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Lightning Breath"
+    "summary": "A young blue dragon, proud and territorial, with a line of lightning breath."
   },
   {
     "name": "Doppelganger",
     "cr": 3,
     "type": "monstrosity",
     "size": "Medium",
-    "summary": "Slam. Ambusher, Surprise Attack, Multiattack, Read Thoughts, Shapechanger"
+    "summary": "A faceless shapeshifter that reads minds and perfectly imitates any humanoid."
   },
   {
     "name": "Giant Scorpion",
     "cr": 3,
     "type": "beast",
     "size": "Large",
-    "summary": "Claw, Sting. Multiattack"
+    "summary": "A horse-sized scorpion with crushing claws and a paralyzing venomous stinger."
   },
   {
     "name": "Gold Dragon Wyrmling",
     "cr": 3,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Amphibious, Breath Weapons"
+    "summary": "A young gold dragon, wise and just, with a cone of fire breath."
   },
   {
     "name": "Green Hag",
     "cr": 3,
     "type": "fey",
     "size": "Medium",
-    "summary": "Claws. Amphibious, Innate Spellcasting, Mimicry, Illusory Appearance, Invisible Passage. 3 spells"
+    "summary": "A cunning, illusionist swamp witch who mimics voices and turns invisible."
   },
   {
     "name": "Hell Hound",
     "cr": 3,
     "type": "fiend",
     "size": "Medium",
-    "summary": "Bite. Keen Hearing and Smell, Pack Tactics, Fire Breath"
+    "summary": "A fiery, evil hound that breathes cones of fire and tracks by scent."
   },
   {
     "name": "Killer Whale",
     "cr": 3,
     "type": "beast",
     "size": "Huge",
-    "summary": "Bite. Echolocation, Hold Breath, Keen Hearing"
+    "summary": "A huge, intelligent ocean predator that hunts in coordinated pods."
   },
   {
     "name": "Knight",
     "cr": 3,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Plate Armor, Greatsword, Heavy Crossbow. Multiattack, Leadership, Parry, Brave"
+    "summary": "A heavily armored warrior in plate with greatsword and heavy crossbow. Inspires allies with Leadership and parries attacks."
   },
   {
     "name": "Manticore",
     "cr": 3,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite, Claw, Tail Spike. Tail Spike Regrowth, Multiattack"
+    "summary": "A winged lion with a human face and a spiked tail that flings volleys of tail spikes."
   },
   {
     "name": "Minotaur",
     "cr": 3,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Greataxe, Gore. Charge, Labyrinthine Recall, Reckless"
+    "summary": "A bull-headed brute that charges through labyrinthine corridors, goring with its horns and chopping with a greataxe."
   },
   {
     "name": "Mummy",
     "cr": 3,
     "type": "undead",
     "size": "Medium",
-    "summary": "Rotting Fist. Multiattack, Dreadful Glare"
+    "summary": "A bandage-wrapped undead guardian that spreads a rotting curse with its fists."
   },
   {
     "name": "Nightmare",
     "cr": 3,
     "type": "fiend",
     "size": "Large",
-    "summary": "Hooves. Confer Fire Resistance, Illumination, Ethereal Stride"
+    "summary": "A fiery demonic horse that flies and gallops between planes, leaving hoofprints of flame."
   },
   {
     "name": "Owlbear",
     "cr": 3,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Beak, Claws. Keen Sight and Smell, Multiattack"
+    "summary": "A ferocious hybrid of owl and bear that mauls prey with beak and claws."
   },
   {
     "name": "Phase Spider",
     "cr": 3,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite. Ethereal Jaunt, Spider Climb, Web Walker"
+    "summary": "A giant spider that shifts between the Ethereal and Material Planes to ambush prey."
   },
   {
     "name": "Veteran",
     "cr": 3,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Splint Armor, Longsword, Shortsword, Heavy Crossbow. Multiattack"
+    "summary": "A battle-hardened soldier in splint armor with longsword, shortsword, and heavy crossbow."
   },
   {
     "name": "Werewolf",
     "cr": 3,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Bite (Wolf or Hybrid Form Only), Spear (Humanoid Form Only), Claws (Hybrid Form Only). Multiattack (Humanoid or Hybrid Form Only), Shapechanger, Keen Hearing and Smell"
+    "summary": "A shapeshifting humanoid cursed to transform into a savage wolf hybrid under the moon."
   },
   {
     "name": "Wight",
     "cr": 3,
     "type": "undead",
     "size": "Medium",
-    "summary": "Studded Leather Armor, Longbow, Longsword, Life Drain. Sunlight Sensitivity, Multiattack"
+    "summary": "An undead warrior in rusted armor that drains life with its sword and raises the slain."
   },
   {
     "name": "Winter Wolf",
     "cr": 3,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite. Keen Hearing and Smell, Pack Tactics, Snow Camouflage, Cold Breath"
+    "summary": "A huge, intelligent white wolf that breathes cones of freezing cold."
   },
   {
     "name": "Black Pudding",
     "cr": 4,
     "type": "ooze",
     "size": "Large",
-    "summary": "Pseudopod. Amorphous, Corrosive Form, Spider Climb, Split"
+    "summary": "A massive blob of living acid that dissolves metal and flesh, splitting when struck."
   },
   {
     "name": "Chuul",
     "cr": 4,
     "type": "aberration",
     "size": "Large",
-    "summary": "Pincer. Tentacles, Amphibious, Multiattack, Sense Magic"
+    "summary": "A lobster-like aberration that grapples prey and paralyzes them with face tentacles."
   },
   {
     "name": "Couatl",
     "cr": 4,
     "type": "celestial",
     "size": "Medium",
-    "summary": "Bite, Constrict. Change Shape, Innate Spellcasting, Magic Weapons, Shielded Mind. 13 spells"
+    "summary": "A radiant feathered serpent \u2014 a celestial guardian with healing magic, shapechanging, and divine detection."
   },
   {
     "name": "Elephant",
     "cr": 4,
     "type": "beast",
     "size": "Huge",
-    "summary": "Gore, Stomp. Trampling Charge"
+    "summary": "A massive, thick-skinned beast that tramples foes under its enormous feet."
   },
   {
     "name": "Ettin",
     "cr": 4,
     "type": "giant",
     "size": "Large",
-    "summary": "Battleaxe, Morningstar. Two Heads, Wakeful, Multiattack"
+    "summary": "A two-headed giant, each head arguing with the other. Swings a battleaxe and morningstar."
   },
   {
     "name": "Ghost",
     "cr": 4,
     "type": "undead",
     "size": "Medium",
-    "summary": "Withering Touch. Ethereal Sight, Incorporeal Movement, Etherealness, Horrifying Visage, Possession"
+    "summary": "A translucent spirit bound to the mortal world, possessing the living and aging them with its horrifying visage."
   },
   {
     "name": "Lamia",
     "cr": 4,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Claws, Dagger. Innate Spellcasting, Multiattack, Intoxicating Touch. 7 spells"
+    "summary": "A lion-bodied, human-torso'd monstrosity that charms and corrupts with her intoxicating touch."
   },
   {
     "name": "Red Dragon Wyrmling",
     "cr": 4,
     "type": "dragon",
     "size": "Medium",
-    "summary": "Bite. Fire Breath"
+    "summary": "A young red dragon, aggressive and greedy, with a cone of fire breath."
   },
   {
     "name": "Succubus/Incubus",
     "cr": 4,
     "type": "fiend",
     "size": "Medium",
-    "summary": "Claw (Fiend Form Only). Telepathic Bond, Shapechanger, Charm, Draining Kiss, Etherealness"
+    "summary": "A shapeshifting fiend that charms and drains life through a deadly kiss."
   },
   {
     "name": "Wereboar",
     "cr": 4,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Tusks (Boar or Hybrid Form Only), Maul (Humanoid or Hybrid Form Only). Charge (Boar or Hybrid Form Only), Multiattack (Humanoid or Hybrid Form Only), Relentless, Shapechanger"
+    "summary": "A shapeshifting humanoid that transforms into a savage boar hybrid, charging with tusks."
   },
   {
     "name": "Weretiger",
     "cr": 4,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Bite (Tiger or Hybrid Form Only), Claw (Tiger or Hybrid Form Only), Scimitar (Humanoid or Hybrid Form Only), Longbow (Humanoid or Hybrid Form Only). Shapechanger, Keen Hearing and Smell, Pounce (Tiger or Hybrid Form Only), Multiattack (Humanoid or Hybrid Form Only)"
+    "summary": "A shapeshifting humanoid that transforms into a tiger hybrid, striking with feline grace."
   },
   {
     "name": "Air Elemental",
     "cr": 5,
     "type": "elemental",
     "size": "Large",
-    "summary": "Slam. Air Form, Multiattack, Whirlwind"
+    "summary": "A living whirlwind that batters foes and can hurl creatures with its vortex."
   },
   {
     "name": "Barbed Devil",
     "cr": 5,
     "type": "fiend",
     "size": "Medium",
-    "summary": "Claw, Tail, Hurl Flame. Barbed Hide, Devil's Sight, Magic Resistance, Multiattack"
+    "summary": "A tall fiend covered in sharp barbs that hurl flame and grapple prey painfully."
   },
   {
     "name": "Bulette",
     "cr": 5,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite. Standing Leap, Deadly leap"
+    "summary": "A massive armored land predator that burrows underground and leaps to ambush prey."
   },
   {
     "name": "Earth Elemental",
     "cr": 5,
     "type": "elemental",
     "size": "Large",
-    "summary": "Slam. Earth Glide, Siege Monster, Multiattack"
+    "summary": "A hulking mass of stone and earth that slams foes and glides through solid ground."
   },
   {
     "name": "Fire Elemental",
     "cr": 5,
     "type": "elemental",
     "size": "Large",
-    "summary": "Touch. Fire Form, Illumination, Water Susceptibility, Multiattack"
+    "summary": "A roaring pillar of flame that ignites everything it touches."
   },
   {
     "name": "Flesh Golem",
     "cr": 5,
     "type": "construct",
     "size": "Medium",
-    "summary": "Slam. Berserk, Aversion of Fire, Immutable Form, Lightning Absorption, Magic Resistance, Magic Weapons, Multiattack"
+    "summary": "A stitched-together construct of corpse parts, immune to most magic, that flies into berserk rages."
   },
   {
     "name": "Giant Crocodile",
     "cr": 5,
     "type": "beast",
     "size": "Huge",
-    "summary": "Bite, Tail. Hold Breath, Multiattack"
+    "summary": "A massive armored reptile that grapples and death-rolls prey in rivers and swamps."
   },
   {
     "name": "Giant Shark",
     "cr": 5,
     "type": "beast",
     "size": "Huge",
-    "summary": "Bite. Blood Frenzy, Water Breathing"
+    "summary": "An enormous ocean predator with a frenzy-inducing bite."
   },
   {
     "name": "Gladiator",
     "cr": 5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Studded Leather Armor, Shield, Spear, Shield Bash. Brave, Brute, Multiattack, Parry"
+    "summary": "A champion arena fighter in studded leather with shield and spear. Fights with brutal efficiency, parrying and bashing."
   },
   {
     "name": "Gorgon",
     "cr": 5,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Gore, Hooves. Trampling Charge, Petrifying Breath"
+    "summary": "An iron-plated bull that breathes petrifying gas, turning victims to stone."
   },
   {
     "name": "Half-Red Dragon Veteran",
     "cr": 5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Plate Armor, Longsword, Shortsword, Heavy Crossbow. Multiattack, Fire Breath"
+    "summary": "A battle-scarred soldier with red dragon blood, wielding longsword, shortsword, and fire breath."
   },
   {
     "name": "Hill Giant",
     "cr": 5,
     "type": "giant",
     "size": "Huge",
-    "summary": "Greatclub, Rock. Multiattack"
+    "summary": "A gluttonous, dim-witted giant that hurls boulders and smashes with a greatclub."
   },
   {
     "name": "Night Hag",
     "cr": 5,
     "type": "fiend",
     "size": "Medium",
-    "summary": "Claws (Hag Form Only). Innate Spellcasting, Magic Resistance, Change Shape, Etherealness, Nightmare Haunting. 5 spells"
+    "summary": "A fiendish crone that haunts dreams, drains souls with her heartstone, and turns ethereal."
   },
   {
     "name": "Otyugh",
     "cr": 5,
     "type": "aberration",
     "size": "Large",
-    "summary": "Bite, Tentacle. Limited Telepathy, Tentacle Slam, Multiattack"
+    "summary": "A garbage-eating aberration lurking in refuse piles, lashing with diseased tentacles."
   },
   {
     "name": "Roper",
     "cr": 5,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite, Tendril. False Appearance, Grasping Tendrils, Spider Climb, Reel, Multiattack"
+    "summary": "A stalactite-like predator that dangles sticky tendrils to snare and reel in prey."
   },
   {
     "name": "Salamander",
     "cr": 5,
     "type": "elemental",
     "size": "Large",
-    "summary": "Tail, Spear. Heated Body, Heated Weapons, Multiattack"
+    "summary": "A serpentine fire elemental wreathed in flames, wielding a heated spear in scorching coils."
   },
   {
     "name": "Shambling Mound",
     "cr": 5,
     "type": "plant",
     "size": "Large",
-    "summary": "Slam. Lightning Absorption, Multiattack, Engulf"
+    "summary": "A massive heap of rotting vegetation that engulfs and suffocates prey, absorbing lightning."
   },
   {
     "name": "Triceratops",
     "cr": 5,
     "type": "beast",
     "size": "Huge",
-    "summary": "Gore, Stomp. Trampling Charge"
+    "summary": "A massive armored dinosaur with three horns that charges with devastating force."
   },
   {
     "name": "Troll",
     "cr": 5,
     "type": "giant",
     "size": "Large",
-    "summary": "Bite, Claw. Keen Smell, Multiattack, Regeneration"
+    "summary": "A lanky, regenerating giant that tears with claws and fangs. Only fire and acid stop its healing."
   },
   {
     "name": "Unicorn",
     "cr": 5,
     "type": "celestial",
     "size": "Large",
-    "summary": "Hooves, Horn. Charge, Innate Spellcasting, Magic Resistance, Magic Weapons, Multiattack, Healing Touch, Teleport, Legendary Actions, Hooves, Shimmering Shield, Heal Self. 6 spells"
+    "summary": "A radiant celestial horse with a healing horn, teleportation, and powerful protective magic."
   },
   {
     "name": "Vampire Spawn",
     "cr": 5,
     "type": "undead",
     "size": "Medium",
-    "summary": "Bite, Claws. Multiattack, Regeneration, Spider Climb, Vampire Weaknesses"
+    "summary": "A feral, subservient vampire that grapples prey and drains blood with its bite."
   },
   {
     "name": "Water Elemental",
     "cr": 5,
     "type": "elemental",
     "size": "Large",
-    "summary": "Slam. Freeze, Water Form, Multiattack, Whelm"
+    "summary": "A living wave that engulfs and drowns foes, crashing with tremendous force."
   },
   {
     "name": "Werebear",
     "cr": 5,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Bite (Bear or Hybrid Form Only), Claw (Bear or Hybrid Form Only), Greataxe (Humanoid or Hybrid Form Only). Shapechanger, Keen Smell, Multiattack"
+    "summary": "A shapeshifting humanoid that transforms into a massive bear, typically good-natured and protective."
   },
   {
     "name": "Wraith",
     "cr": 5,
     "type": "undead",
     "size": "Medium",
-    "summary": "Life Drain. Create Specter, Incorporeal Movement, Sunlight Sensitivity"
+    "summary": "A malevolent incorporeal undead that drains life force and creates specters from the slain."
   },
   {
     "name": "Xorn",
     "cr": 5,
     "type": "elemental",
     "size": "Medium",
-    "summary": "Bite, Claw. Earth Glide, Multiattack, Stone Camouflage, Treasure Sense"
+    "summary": "A three-armed, three-legged earth elemental that burrows through stone and devours gems and metal."
   },
   {
     "name": "Chimera",
     "cr": 6,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite, Claws, Horns. Fire Breath, Multiattack"
+    "summary": "A three-headed hybrid of dragon, lion, and goat that breathes fire and attacks with all three heads."
   },
   {
     "name": "Drider",
     "cr": 6,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite, Longsword, Longbow. Fey Ancestry, Innate Spellcasting, Spider Climb, Sunlight Sensitivity, Web Walker, Multiattack. 3 spells"
+    "summary": "A drow cursed into a spider-centaur form, wielding a longbow and innate dark magic."
   },
   {
     "name": "Invisible Stalker",
     "cr": 6,
     "type": "elemental",
     "size": "Medium",
-    "summary": "Slam. Faultless Tracker, Invisibility, Multiattack"
+    "summary": "An air elemental bound to servitude, relentlessly tracking targets while permanently invisible."
   },
   {
     "name": "Mage",
     "cr": 6,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Dagger. Spellcasting. 16 spells"
+    "summary": "A scholarly spellcaster wielding a dagger and a vast arsenal of arcane magic including fireball and cone of cold."
   },
   {
     "name": "Mammoth",
     "cr": 6,
     "type": "beast",
     "size": "Huge",
-    "summary": "Gore, Stomp. Trampling Charge"
+    "summary": "A colossal woolly elephant that tramples foes beneath its massive feet and tusks."
   },
   {
     "name": "Medusa",
     "cr": 6,
     "type": "monstrosity",
     "size": "Medium",
-    "summary": "Snake Hair, Shortsword, Longbow. Petrifying Gaze, Multiattack"
+    "summary": "A snake-haired humanoid whose gaze turns creatures to stone, wielding a shortsword and longbow."
   },
   {
     "name": "Vrock",
     "cr": 6,
     "type": "fiend",
     "size": "Large",
-    "summary": "Beak, Talons. Magic Resistance, Multiattack, Spores, Stunning Screech"
+    "summary": "A vulture-headed demon that shrieks stunningly and releases clouds of toxic spores."
   },
   {
     "name": "Wyvern",
     "cr": 6,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claws, Stinger. Multiattack"
+    "summary": "A dragon-like flying predator with a venomous stinger tail but no breath weapon."
   },
   {
     "name": "Young Brass Dragon",
     "cr": 6,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Breath Weapons, Multiattack"
+    "summary": "A chatty young dragon of the desert that breathes fire and sleep-inducing gas."
   },
   {
     "name": "Young White Dragon",
     "cr": 6,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Cold Breath, Ice Walk, Multiattack"
+    "summary": "A savage young dragon of the arctic that breathes devastating cones of cold."
   },
   {
     "name": "Giant Ape",
     "cr": 7,
     "type": "beast",
     "size": "Huge",
-    "summary": "Fist, Rock. Multiattack"
+    "summary": "A massive primate that hurls boulders and pounds foes with enormous fists."
   },
   {
     "name": "Oni",
     "cr": 7,
     "type": "giant",
     "size": "Large",
-    "summary": "Chain Mail, Glaive, Claw (Oni Form Only). Innate Spellcasting, Multiattack, Regeneration, Magic Weapons, Change Shape. 6 spells"
+    "summary": "A shape-shifting ogre mage that flies, turns invisible, and wields a glaive with dark magic."
   },
   {
     "name": "Shield Guardian",
     "cr": 7,
     "type": "construct",
     "size": "Large",
-    "summary": "Fist. Bound, Regeneration, Spell Storing, Multiattack, Shield"
+    "summary": "A towering construct bound to an amulet-bearer, shielding them and storing spells."
   },
   {
     "name": "Stone Giant",
     "cr": 7,
     "type": "giant",
     "size": "Huge",
-    "summary": "Greatclub, Rock. Multiattack, Rock Catching, Stone Camouflage"
+    "summary": "A reclusive mountain giant that hurls boulders with deadly precision and catches them in return."
   },
   {
     "name": "Young Black Dragon",
     "cr": 7,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Acid Breath, Amphibious, Multiattack"
+    "summary": "A cruel young dragon of swamps and marshes that breathes a line of dissolving acid."
   },
   {
     "name": "Young Copper Dragon",
     "cr": 7,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Multiattack, Breath Weapons"
+    "summary": "A playful, riddle-loving young dragon that breathes acid and slowing gas."
   },
   {
     "name": "Assassin",
     "cr": 8,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Studded Leather Armor, Shortsword, Light Crossbow. Assassinate, Evasion, Sneak Attack, Multiattack"
+    "summary": "A deadly professional killer in studded leather with shortsword and poisoned crossbow. Strikes from stealth for devastating damage."
   },
   {
     "name": "Chain Devil",
     "cr": 8,
     "type": "fiend",
     "size": "Medium",
-    "summary": "Chain. Unnerving Mask, Devil's Sight, Magic Resistance, Multiattack, Animate Chains"
+    "summary": "A fiend wrapped in animated chains that lash out to grapple and tear at multiple foes."
   },
   {
     "name": "Cloaker",
     "cr": 8,
     "type": "aberration",
     "size": "Large",
-    "summary": "Bite, Tail. Damage Transfer, False Appearance, Light Sensitivity, Multiattack, Moan, Phantasms"
+    "summary": "A ray-shaped aberration that wraps around prey like a living cloak, biting and wailing."
   },
   {
     "name": "Frost Giant",
     "cr": 8,
     "type": "giant",
     "size": "Huge",
-    "summary": "Rock, Patchwork Armor, Greataxe. Multiattack"
+    "summary": "A blue-skinned giant of the frozen wastes that hurls boulders and swings a greataxe."
   },
   {
     "name": "Hezrou",
     "cr": 8,
     "type": "fiend",
     "size": "Large",
-    "summary": "Bite, Claws. Magic Resistance, Stench, Multiattack"
+    "summary": "A massive, toad-like demon surrounded by nauseating stench, grappling with claws and fangs."
   },
   {
     "name": "Hydra",
     "cr": 8,
     "type": "monstrosity",
     "size": "Huge",
-    "summary": "Bite. Hold Breath, Multiple Heads, Reactive Heads, Wakeful, Multiattack"
+    "summary": "A multi-headed reptilian beast \u2014 cut off one head and two more grow back."
   },
   {
     "name": "Spirit Naga",
     "cr": 8,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite. Rejuvenation, Spellcasting. 13 spells"
+    "summary": "An immortal serpent spellcaster that reforms days after death, wielding potent arcane and divine magic."
   },
   {
     "name": "Tyrannosaurus Rex",
     "cr": 8,
     "type": "beast",
     "size": "Huge",
-    "summary": "Bite, Tail. Multiattack"
+    "summary": "A colossal apex predator with an enormous crushing bite that swallows prey."
   },
   {
     "name": "Young Bronze Dragon",
     "cr": 8,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Amphibious, Multiattack, Breath Weapons"
+    "summary": "An honorable young dragon of coastlines that breathes lightning and repulsion energy."
   },
   {
     "name": "Young Green Dragon",
     "cr": 8,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Amphibious, Multiattack, Poison Breath"
+    "summary": "A manipulative young dragon of forests that breathes a cone of deadly poison."
   },
   {
     "name": "Bone Devil",
     "cr": 9,
     "type": "fiend",
     "size": "Large",
-    "summary": "Claw, Sting. Devil Sight, Magic Resistance, Multiattack"
+    "summary": "A skeletal fiend with a scorpion-like poisonous tail and a hooked polearm."
   },
   {
     "name": "Clay Golem",
     "cr": 9,
     "type": "construct",
     "size": "Large",
-    "summary": "Slam. Haste, Magic Resistance, Berserk, Immutable Form, Magic Weapons, Acid Absorption, Multiattack"
+    "summary": "A massive clay construct immune to most magic, whose fists inflict cursed wounds that resist healing."
   },
   {
     "name": "Cloud Giant",
     "cr": 9,
     "type": "giant",
     "size": "Huge",
-    "summary": "Morningstar, Rock. Keen Smell, Innate Spellcasting, Multiattack. 9 spells"
+    "summary": "A regal giant dwelling in sky castles, hurling boulders and striking with a morningstar."
   },
   {
     "name": "Fire Giant",
     "cr": 9,
     "type": "giant",
     "size": "Huge",
-    "summary": "Plate Armor, Greatsword, Rock. Multiattack"
+    "summary": "A militaristic giant of volcanic forges that hurls boulders and smashes with a greatsword."
   },
   {
     "name": "Glabrezu",
     "cr": 9,
     "type": "fiend",
     "size": "Large",
-    "summary": "Pincer, Fist. Innate Spellcasting, Magic Resistance, Multiattack. 6 spells"
+    "summary": "A towering four-armed demon with massive pincers that tempts mortals with wishes and illusions."
   },
   {
     "name": "Treant",
     "cr": 9,
     "type": "plant",
     "size": "Huge",
-    "summary": "Rock, Slam. Animate Trees, False Appearance, Multiattack, Siege Monster"
+    "summary": "An ancient, enormous walking tree that animates other trees and slams with its branches."
   },
   {
     "name": "Young Blue Dragon",
     "cr": 9,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Lightning Breath, Multiattack"
+    "summary": "A proud young dragon of deserts that breathes devastating lines of lightning."
   },
   {
     "name": "Young Silver Dragon",
     "cr": 9,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Multiattack, Breath Weapons"
+    "summary": "A noble young dragon that breathes cold and paralyzing gas, often befriending humanoids."
   },
   {
     "name": "Aboleth",
     "cr": 10,
     "type": "aberration",
     "size": "Large",
-    "summary": "Tentacle, Tail. Enslave, Detect, Tail Swipe, Psychic Drain, Mucous Cloud, Probing Telepathy, Amphibious, Multiattack, Legendary Actions"
+    "summary": "An ancient aquatic aberration with psychic powers that enslaves minds and reshapes flesh."
   },
   {
     "name": "Deva",
     "cr": 10,
     "type": "celestial",
     "size": "Medium",
-    "summary": "Mace. Angelic Weapons, Change Shape, Healing Touch, Innate Spellcasting, Magic Resistance, Multiattack. 3 spells"
+    "summary": "A celestial angelic warrior with a glowing mace, healing touch, and powerful divine magic."
   },
   {
     "name": "Guardian Naga",
     "cr": 10,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Bite, Spit Poison. Rejuvenation, Spellcasting. 15 spells"
+    "summary": "A benevolent serpent guardian with potent divine spellcasting that protects sacred sites."
   },
   {
     "name": "Stone Golem",
     "cr": 10,
     "type": "construct",
     "size": "Large",
-    "summary": "Slam. Immutable Form, Magic Resistance, Magic Weapons, Multiattack, Slow"
+    "summary": "A massive stone construct immune to most magic, whose fists slow victims magically."
   },
   {
     "name": "Young Gold Dragon",
     "cr": 10,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Amphibious, Multiattack, Breath Weapons"
+    "summary": "A wise young dragon that breathes fire and weakening gas, championing justice."
   },
   {
     "name": "Young Red Dragon",
     "cr": 10,
     "type": "dragon",
     "size": "Large",
-    "summary": "Bite, Claw. Fire Breath, Multiattack"
+    "summary": "A greedy, aggressive young dragon that breathes devastating cones of fire."
   },
   {
     "name": "Behir",
     "cr": 11,
     "type": "monstrosity",
     "size": "Huge",
-    "summary": "Bite, Constrict. Multiattack, Lightning Breath, Swallow"
+    "summary": "A massive twelve-legged serpentine predator that breathes lightning and swallows prey whole."
   },
   {
     "name": "Djinni",
     "cr": 11,
     "type": "elemental",
     "size": "Large",
-    "summary": "Scimitar. Elemental Demise, Innate Spellcasting, Multiattack, Create Whirlwind. 12 spells"
+    "summary": "A noble air genie that commands winds, creates illusions, and grants wishes to mortals."
   },
   {
     "name": "Efreeti",
     "cr": 11,
     "type": "elemental",
     "size": "Large",
-    "summary": "Scimitar, Hurl Flame. Elemental Demise, Innate Spellcasting, Multiattack. 9 spells"
+    "summary": "A proud fire genie of blazing power that hurls flame and grants twisted wishes."
   },
   {
     "name": "Gynosphinx",
     "cr": 11,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Claw. Inscrutable, Magic Weapons, Spellcasting, Multiattack, Claw Attack, Teleport, Cast a Spell. 15 spells"
+    "summary": "A winged lion with a woman's face, posing deadly riddles and wielding time-warping magic."
   },
   {
     "name": "Horned Devil",
     "cr": 11,
     "type": "fiend",
     "size": "Large",
-    "summary": "Fork, Tail, Hurl Flame. Devil's Sight, Magic Resistance, Multiattack"
+    "summary": "A winged, horned fiend wielding a barbed chain whip that burns and wounds."
   },
   {
     "name": "Remorhaz",
     "cr": 11,
     "type": "monstrosity",
     "size": "Huge",
-    "summary": "Bite, Swallow. Heated Body"
+    "summary": "A massive arctic centipede that generates intense internal heat, melting weapons and swallowing prey."
   },
   {
     "name": "Roc",
     "cr": 11,
     "type": "monstrosity",
     "size": "Gargantuan",
-    "summary": "Beak, Talons. Keen Sight, Multiattack"
+    "summary": "A gargantuan bird of prey large enough to carry elephants, nesting on remote mountaintops."
   },
   {
     "name": "Archmage",
     "cr": 12,
     "type": "humanoid",
     "size": "Medium",
-    "summary": "Dagger. Spellcasting, Magic Resistance. 27 spells"
+    "summary": "A supremely powerful wizard wielding a dagger and mastery of arcane magic up to 9th level, protected by magic resistance."
   },
   {
     "name": "Erinyes",
     "cr": 12,
     "type": "fiend",
     "size": "Medium",
-    "summary": "Longsword, Plate Armor, Longbow. Hellish Weapons, Parry, Magic Resistance, Multiattack"
+    "summary": "A fallen angel turned devil, flying on black wings and wielding a poisoned longsword and longbow with deadly precision."
   },
   {
     "name": "Adult Brass Dragon",
     "cr": 13,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Detect, Frightful Presence, Legendary Actions, Legendary Resistance, Multiattack, Breath Weapons"
+    "summary": "A gregarious desert dragon that breathes fire and sleep-inducing gas, fond of conversation."
   },
   {
     "name": "Adult White Dragon",
     "cr": 13,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Cold Breath, Detect, Frightful Presence, Ice Walk, Legendary Actions, Legendary Resistance, Multiattack"
+    "summary": "A savage arctic dragon that breathes devastating cones of cold, the most bestial of chromatics."
   },
   {
     "name": "Nalfeshnee",
     "cr": 13,
     "type": "fiend",
     "size": "Large",
-    "summary": "Bite, Claw. Magic Resistance, Multiattack, Horror Nimbus, Teleport"
+    "summary": "A grotesque pig-faced demon that flies on undersized wings and blasts foes with unholy light."
   },
   {
     "name": "Rakshasa",
     "cr": 13,
     "type": "fiend",
     "size": "Medium",
-    "summary": "Claw. Limited Magic Immunity, Innate Spellcasting, Multiattack. 13 spells"
+    "summary": "A tiger-headed fiend disguised as a noble, immune to low-level magic and wielding powerful illusions."
   },
   {
     "name": "Storm Giant",
     "cr": 13,
     "type": "giant",
     "size": "Huge",
-    "summary": "Scale Mail, Greatsword, Lightning Strike, Rock. Amphibious, Innate Spellcasting, Multiattack. 6 spells"
+    "summary": "A towering giant of sea and sky that hurls lightning bolts and wields a greatsword."
   },
   {
     "name": "Vampire",
     "cr": 13,
     "type": "undead",
     "size": "Medium",
-    "summary": "Unarmed Strike (Vampire Form Only), Bite (Bat or Vampire Form Only). Shapechanger, Legendary Resistance, Misty Escape, Regeneration, Spider Climb, Vampire Weaknesses, Multiattack (Vampire Form Only), Charm, Children of the Night, Legendary Actions, Move, Unarmed Strike, Bite"
+    "summary": "A charismatic undead lord that charms, bites, and drains life, commanding the night with shapeshifting and mist form."
   },
   {
     "name": "Adult Black Dragon",
     "cr": 14,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Multiattack, Frightful Presence, Amphibious, Legendary Resistance, Acid Breath, Legendary Actions, Detect"
+    "summary": "A cruel, scheming dragon of fetid swamps that breathes a devastating line of acid."
   },
   {
     "name": "Adult Copper Dragon",
     "cr": 14,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Legendary Actions, Detect, Breath Weapons"
+    "summary": "A witty, prankish mountain dragon that breathes acid and slowing gas."
   },
   {
     "name": "Ice Devil",
     "cr": 14,
     "type": "fiend",
     "size": "Large",
-    "summary": "Bite, Tail, Claws. Devil's Sight, Magic Resistance, Wall of Ice, Multiattack"
+    "summary": "A towering insectoid devil of frozen hells that wields a frigid spear and commands walls of ice."
   },
   {
     "name": "Adult Bronze Dragon",
     "cr": 15,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Change Shape, Legendary Actions, Detect, Breath Weapons"
+    "summary": "An honorable coastal dragon that breathes lightning and repulsion energy, often aiding mortals."
   },
   {
     "name": "Adult Green Dragon",
     "cr": 15,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Poison Breath, Legendary Actions, Detect"
+    "summary": "A cunning, manipulative forest dragon that breathes deadly poison gas and excels at deception."
   },
   {
     "name": "Mummy Lord",
     "cr": 15,
     "type": "undead",
     "size": "Medium",
-    "summary": "Rotting Fist. Blinding Dust, Blasphemous Word, Channel Negative Energy, Magic Resistance, Rejuvenation, Spellcasting, Multiattack, Dreadful Glare, Legendary Actions, Attack, Whirlwind of Sand. 15 spells"
+    "summary": "An ancient undead pharaoh with devastating divine magic, cursed fists, and legendary resistance."
   },
   {
     "name": "Purple Worm",
     "cr": 15,
     "type": "monstrosity",
     "size": "Gargantuan",
-    "summary": "Bite, Tail Stinger. Tunneler, Multiattack"
+    "summary": "A gargantuan burrowing worm that swallows prey whole and stings with a venomous tail."
   },
   {
     "name": "Adult Blue Dragon",
     "cr": 16,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Detect, Frightful Presence, Legendary Actions, Legendary Resistance, Lightning Breath, Multiattack"
+    "summary": "A proud, territorial desert dragon that breathes devastating lines of lightning and burrows through sand."
   },
   {
     "name": "Adult Silver Dragon",
     "cr": 16,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Change Shape, Legendary Actions, Detect, Breath Weapons"
+    "summary": "A noble, shapechanging dragon that breathes cold and paralyzing gas, a steadfast ally of humanoids."
   },
   {
     "name": "Iron Golem",
     "cr": 16,
     "type": "construct",
     "size": "Large",
-    "summary": "Slam, Sword. Fire Absorption, Immutable Form, Magic Resistance, Magic Weapons, Multiattack, Poison Breath"
+    "summary": "A massive iron construct that breathes poison gas and strikes with devastating fists. Nearly indestructible."
   },
   {
     "name": "Marilith",
     "cr": 16,
     "type": "fiend",
     "size": "Large",
-    "summary": "Longsword, Tail. Magic Resistance, Magic Weapons, Reactive, Multiattack, Teleport, Parry"
+    "summary": "A six-armed serpentine demon wielding six swords simultaneously with terrifying speed and skill."
   },
   {
     "name": "Planetar",
     "cr": 16,
     "type": "celestial",
     "size": "Large",
-    "summary": "Greatsword. Angelic Weapons, Divine Awareness, Innate Spellcasting, Magic Resistance, Multiattack, Healing Touch. 9 spells"
+    "summary": "A towering angelic warrior with a flaming greatsword, radiant damage, and powerful divine magic."
   },
   {
     "name": "Adult Gold Dragon",
     "cr": 17,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Change Shape, Legendary Actions, Detect, Breath Weapons"
+    "summary": "A wise, just dragon that breathes fire and weakening gas, often ruling as a benevolent protector."
   },
   {
     "name": "Adult Red Dragon",
     "cr": 17,
     "type": "dragon",
     "size": "Huge",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Fire Breath, Legendary Actions, Detect"
+    "summary": "A greedy, tyrannical dragon \u2014 the most powerful and feared of the chromatics, breathing devastating fire."
   },
   {
     "name": "Androsphinx",
     "cr": 17,
     "type": "monstrosity",
     "size": "Large",
-    "summary": "Claw. Inscrutable, Magic Weapons, Spellcasting, Multiattack, Roar, Claw Attack, Teleport, Cast a Spell. 15 spells"
+    "summary": "A winged lion with a man's face whose roar can teleport, frighten, or paralyze. Wields powerful divine magic."
   },
   {
     "name": "Dragon Turtle",
     "cr": 17,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail. Amphibious, Multiattack, Steam Breath"
+    "summary": "A gargantuan armored sea creature with a dragon's head that breathes scalding steam."
   },
   {
     "name": "Balor",
     "cr": 19,
     "type": "fiend",
     "size": "Huge",
-    "summary": "Longsword, Whip. Death Throes, Fire Aura, Magic Resistance, Magic Weapons, Multiattack, Teleport"
+    "summary": "The mightiest demon \u2014 a towering fiend of flame wielding a lightning whip and longsword, exploding on death."
   },
   {
     "name": "Ancient Brass Dragon",
     "cr": 20,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Breath Weapons, Change Shape, Legendary Actions, Detect"
+    "summary": "An ancient desert dragon, endlessly talkative and wise, breathing fire and sleep-inducing gas. A legendary creature."
   },
   {
     "name": "Ancient White Dragon",
     "cr": 20,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Cold Breath, Detect, Frightful Presence, Ice Walk, Legendary Actions, Legendary Resistance, Multiattack"
+    "summary": "An ancient arctic predator, the most feral of the chromatic dragons. Breathes devastating cones of cold and commands icy terrain."
   },
   {
     "name": "Pit Fiend",
     "cr": 20,
     "type": "fiend",
     "size": "Large",
-    "summary": "Bite, Claw, Mace, Tail. Fear Aura, Magic Resistance, Magic Weapons, Innate Spellcasting, Multiattack. 4 spells"
+    "summary": "The supreme devil general \u2014 a towering winged fiend wielding a flaming mace and commanding infernal legions."
   },
   {
     "name": "Ancient Black Dragon",
     "cr": 21,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Acid Breath, Legendary Actions, Detect"
+    "summary": "An ancient swamp-dwelling dragon of extreme cruelty, breathing devastating lines of acid."
   },
   {
     "name": "Ancient Copper Dragon",
     "cr": 21,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Actions, Legendary Resistance, Frightful Presence, Change Shape, Multiattack, Detect, Breath Weapons"
+    "summary": "An ancient mountain dragon, a legendary prankster and riddler, breathing acid and slowing gas."
   },
   {
     "name": "Lich",
     "cr": 21,
     "type": "undead",
     "size": "Medium",
-    "summary": "Paralyzing Touch. Cantrip, Paralyzing Touch, Frightening Gaze, Disrupt Life, Legendary Resistance, Rejuvenation, Spellcasting, Turn Resistance, Legendary Actions. 26 spells"
+    "summary": "An undead archmage who achieved immortality through a phylactery, wielding devastating arcane magic up to 9th level."
   },
   {
     "name": "Solar",
     "cr": 21,
     "type": "celestial",
     "size": "Large",
-    "summary": "Greatsword, Slaying Longbow. Angelic Weapons, Divine Awareness, Flying Sword, Healing Touch, Innate Spellcasting, Magic Resistance, Multiattack, Legendary Actions, Teleport, Searing Burst, Blinding Gaze. 7 spells"
+    "summary": "The greatest of angels \u2014 a towering celestial warrior with a slaying longbow, flying greatsword, and divine magic."
   },
   {
     "name": "Ancient Bronze Dragon",
     "cr": 22,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Breath Weapons, Change Shape, Legendary Actions, Detect"
+    "summary": "An ancient coastal dragon of great honor, breathing lightning and repulsion energy. Allies with mortals against evil."
   },
   {
     "name": "Ancient Green Dragon",
     "cr": 22,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Poison Breath, Legendary Actions, Detect"
+    "summary": "An ancient forest dragon and master manipulator, breathing deadly poison and spinning centuries-long schemes."
   },
   {
     "name": "Ancient Blue Dragon",
     "cr": 23,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Legendary Actions, Detect, Frightful Presence, Lightning Breath"
+    "summary": "An ancient desert dragon of immense pride, breathing devastating lightning and commanding vast territories."
   },
   {
     "name": "Ancient Silver Dragon",
     "cr": 23,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Breath Weapons, Change Shape, Legendary Actions, Detect"
+    "summary": "An ancient shapechanging dragon that befriends humanoids, breathing cold and paralyzing gas. Among the noblest of dragons."
   },
   {
     "name": "Kraken",
     "cr": 23,
     "type": "monstrosity",
     "size": "Gargantuan",
-    "summary": "Bite, Tentacle. Amphibious, Freedom of Movement, Siege Monster, Multiattack, Fling, Lightning Storm, Legendary Actions, Tentacle Attack or Fling, Lightning Storm, Ink Cloud"
+    "summary": "A gargantuan tentacled sea god that creates storms, destroys ships, and drags prey into the crushing depths."
   },
   {
     "name": "Ancient Gold Dragon",
     "cr": 24,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Breath Weapons, Legendary Actions, Detect, Change Shape"
+    "summary": "The wisest and most powerful metallic dragon, breathing fire and weakening gas. A legendary champion of justice."
   },
   {
     "name": "Ancient Red Dragon",
     "cr": 24,
     "type": "dragon",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Frightful Presence, Fire Breath, Legendary Resistance, Multiattack, Legendary Actions, Detect"
+    "summary": "The mightiest of all chromatic dragons \u2014 a gargantuan tyrant of fire, greed, and destruction."
   },
   {
     "name": "Tarrasque",
     "cr": 30,
     "type": "monstrosity",
     "size": "Gargantuan",
-    "summary": "Bite, Claw, Horns, Tail, Swallow. Legendary Resistance, Magic Resistance, Reflective Carapace, Siege Monster, Multiattack, Frightful Presence, Legendary Actions, Attack, Move, Chomp"
+    "summary": "The ultimate monster \u2014 a gargantuan, nearly indestructible engine of destruction that devours everything in its path."
   }
 ]

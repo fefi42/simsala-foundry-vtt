@@ -24,14 +24,66 @@ export async function loadCreatureIndex() {
 
 /**
  * Format the creature index as a text list for the LLM prompt.
+ * Format: "- Name — CR X, type: Y, size: Z\n  Description"
  */
 function formatCreatureList(creatures) {
   return creatures
-    .map(c => `- ${c.name} (CR ${c.cr}, ${c.type}, ${c.size}): ${c.summary}`)
+    .map(c => `- ${c.name} — CR ${c.cr}, type: ${c.type}, size: ${c.size}\n  ${c.summary}`)
     .join("\n");
 }
 
-// --- Step 1: Pick base creature ---
+// --- Step 1a: Classify creature type ---
+
+const CREATURE_TYPES = [
+  "aberration", "beast", "celestial", "construct", "dragon",
+  "elemental", "fey", "fiend", "giant", "humanoid",
+  "monstrosity", "ooze", "plant", "undead",
+];
+
+const TYPE_SCHEMA = {
+  type: "object",
+  properties: {
+    type: { type: "string", enum: CREATURE_TYPES },
+    reason: { type: "string" },
+  },
+  required: ["type"],
+};
+
+async function classifyCreatureType(description) {
+  const typeList = CREATURE_TYPES.map(t => `- ${t}`).join("\n");
+
+  const prompt = `You are a D&D 5e assistant. What creature type best fits this description?
+
+GM description: "${description}"
+
+Available creature types:
+${typeList}
+
+Rules:
+- Any person, soldier, guard, bandit, mage, priest, or named human/elf/dwarf/etc. is "humanoid"
+- Only pick "dragon" if the description explicitly mentions a dragon or drake
+- Only pick "undead" if the description mentions undead, skeleton, zombie, vampire, ghost, etc.
+- Only pick "beast" for natural animals (wolf, bear, horse, etc.)
+- When in doubt, pick "humanoid" — most NPCs are humanoids
+
+Return JSON: { "type": "humanoid", "reason": "it is a human soldier" }`;
+
+  const { parsed } = await OllamaService.generate(
+    [{ role: "user", content: prompt }],
+    TYPE_SCHEMA,
+    -1,
+  );
+
+  if (!parsed?.type || !CREATURE_TYPES.includes(parsed.type)) {
+    console.warn(`[simsala] Type classification failed, defaulting to humanoid`);
+    return "humanoid";
+  }
+
+  console.log(`[simsala] Classified as: ${parsed.type} (${parsed.reason})`);
+  return parsed.type;
+}
+
+// --- Step 1b: Pick base creature from filtered list ---
 
 const PICK_SCHEMA = {
   type: "object",
@@ -42,22 +94,27 @@ const PICK_SCHEMA = {
   required: ["creature"],
 };
 
-async function pickBaseCreature(description) {
+async function pickBaseCreature(description, creatureType) {
   if (!creatureIndex?.length) {
     throw new Error("Creature index not loaded.");
   }
 
-  const creatureList = formatCreatureList(creatureIndex);
+  const filtered = creatureIndex.filter(c => c.type === creatureType);
+  if (!filtered.length) {
+    throw new Error(`No creatures of type "${creatureType}" in index.`);
+  }
 
-  const prompt = `You are a D&D 5e assistant. Pick the SRD creature that best matches the GM's description.
+  const creatureList = formatCreatureList(filtered);
+
+  const prompt = `You are a D&D 5e assistant. Pick the creature that best serves as a base for the GM's description.
 
 GM description: "${description}"
 
-Available creatures:
+Available ${creatureType} creatures (CR = challenge rating / power level):
 ${creatureList}
 
-Pick the creature whose role, combat style, and CR best fit the description.
-The creature will be re-flavored (renamed, new biography, minor item swaps) to match.
+The chosen creature's stats will be kept as-is — only the name, biography, and 0-2 items will change.
+Pick the creature whose combat role and CR best match the description.
 
 Return JSON: { "creature": "Exact Name", "reason": "why this is the best match" }`;
 
@@ -71,12 +128,20 @@ Return JSON: { "creature": "Exact Name", "reason": "why this is the best match" 
     throw new Error("LLM did not return a creature pick.");
   }
 
-  // Find the creature in the index (case-insensitive)
-  const match = creatureIndex.find(
+  // Find in filtered list (case-insensitive)
+  const match = filtered.find(
     c => c.name.toLowerCase() === parsed.creature.toLowerCase().trim(),
   );
 
   if (!match) {
+    // Fall back to full index in case of minor type mismatch
+    const fallback = creatureIndex.find(
+      c => c.name.toLowerCase() === parsed.creature.toLowerCase().trim(),
+    );
+    if (fallback) {
+      console.warn(`[simsala] LLM picked "${fallback.name}" (${fallback.type}) outside filtered type "${creatureType}"`);
+      return fallback;
+    }
     throw new Error(`LLM picked "${parsed.creature}" which is not in the creature index.`);
   }
 
@@ -218,9 +283,13 @@ async function applyModifications(baseData, reflavor) {
  * @returns {{ actorUpdate: object, embeddedItems: object[] }}
  */
 export async function generateNpc(description, setStatus) {
-  // Step 1: Pick base creature
+  // Step 1a: Classify creature type
+  setStatus("Classifying creature type…");
+  const creatureType = await classifyCreatureType(description);
+
+  // Step 1b: Pick base creature from filtered list
   setStatus("Picking base creature…");
-  const picked = await pickBaseCreature(description);
+  const picked = await pickBaseCreature(description, creatureType);
 
   // Step 2: Load from compendium
   setStatus(`Loading ${picked.name}…`);
