@@ -21,7 +21,7 @@ export class CatalogRegistry {
     this._catalogs = [];
     this._indexCache.clear();
 
-    const catalogFiles = ["srd-spells.json", "srd-abilities.json"];
+    const catalogFiles = ["srd-spells.json", "srd-abilities.json", "srd-equipment.json"];
 
     for (const file of catalogFiles) {
       try {

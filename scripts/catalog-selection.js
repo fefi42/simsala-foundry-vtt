@@ -37,14 +37,32 @@ function buildNpcContext(context, prior) {
   ].join("\n");
 }
 
+// Equipment group IDs — injected programmatically for humanoids so the LLM
+// only needs to decide on abilities/spells (it's unreliable at picking equipment).
+const EQUIPMENT_GROUP_IDS = new Set([
+  "weapon-simple-melee", "weapon-simple-ranged",
+  "weapon-martial-melee", "weapon-martial-ranged",
+  "armor-light", "armor-medium", "armor-heavy", "shield",
+]);
+
 /**
  * Step 1 — Map: select which catalog groups to explore.
+ *
+ * For humanoids, equipment groups are always injected (the LLM only picks
+ * abilities/spells). For other creature types, equipment is excluded entirely.
  */
 async function selectGroups(context, prior) {
   const groupIndex = CatalogRegistry.getGroupIndex();
   if (!groupIndex.length) return [];
 
-  const groupList = groupIndex
+  const creatureType = prior?.system?.details?.type?.value;
+  const isHumanoid = creatureType === "humanoid";
+
+  // Split groups: equipment handled programmatically, rest by LLM
+  const llmGroups = groupIndex.filter(g => !EQUIPMENT_GROUP_IDS.has(g.id));
+  const equipGroups = groupIndex.filter(g => EQUIPMENT_GROUP_IDS.has(g.id));
+
+  const groupList = llmGroups
     .map(g => `- ${g.id}: ${g.description} (${g.itemCount} items)`)
     .join("\n");
 
@@ -92,11 +110,18 @@ async function selectGroups(context, prior) {
     [{ role: "user", content: prompt }], schema, -1,
   );
 
-  if (!parsed?.selectedGroups) return [];
+  // Filter LLM picks to valid non-equipment group IDs
+  const validIds = new Set(llmGroups.map(g => g.id));
+  const llmPicks = (parsed?.selectedGroups ?? []).filter(g => validIds.has(g.groupId));
 
-  // Filter to only valid group IDs
-  const validIds = new Set(groupIndex.map(g => g.id));
-  return parsed.selectedGroups.filter(g => validIds.has(g.groupId));
+  // For humanoids: always inject all equipment groups so the explore step
+  // can pick the right weapons and armor for their role.
+  if (isHumanoid && equipGroups.length) {
+    const equipPicks = equipGroups.map(g => ({ groupId: g.id, refinement: "" }));
+    return [...equipPicks, ...llmPicks];
+  }
+
+  return llmPicks;
 }
 
 /**
@@ -254,6 +279,8 @@ export async function runCatalogSelection(context, prior, setStatus) {
   setStatus("Selecting ability groups…");
   const selectedGroups = await selectGroups(context, prior);
 
+  console.log(`[simsala] Selected groups:`, selectedGroups.map(g => g.groupId));
+
   if (!selectedGroups.length) {
     return { actorUpdate: {}, embeddedItems: [] };
   }
@@ -261,33 +288,77 @@ export async function runCatalogSelection(context, prior, setStatus) {
   // Resolve group data (items with names/summaries)
   const groupIds = selectedGroups.map(g => g.groupId);
   const groups = CatalogRegistry.getGroups(groupIds);
+  console.log(`[simsala] Resolved ${groups.length} of ${groupIds.length} group(s) from catalog`);
 
   // Step 2 — Explore: parallel candidate selection per group
   setStatus("Exploring abilities…");
   const exploreResults = await Promise.allSettled(
     selectedGroups.map(sel => {
       const group = groups.find(g => g.id === sel.groupId);
-      if (!group) return Promise.resolve([]);
+      if (!group) {
+        console.warn(`[simsala] Group "${sel.groupId}" not found in loaded catalogs — skipped`);
+        return Promise.resolve([]);
+      }
       return exploreCandidates(group, sel.refinement, context, prior);
     })
   );
 
-  const allCandidates = [];
+  // Split candidates: equipment (handled directly) vs abilities (go through reduce step)
+  const equipCandidates = [];
+  const abilityCandidates = [];
   for (const result of exploreResults) {
     if (result.status === "fulfilled" && result.value) {
-      allCandidates.push(...result.value);
+      for (const c of result.value) {
+        if (EQUIPMENT_GROUP_IDS.has(c.groupId)) {
+          equipCandidates.push(c);
+        } else {
+          abilityCandidates.push(c);
+        }
+      }
     }
   }
 
-  if (!allCandidates.length) {
+  console.log(`[simsala] Equipment candidates:`, equipCandidates.map(c => `${c.name} (${c.groupId})`));
+  console.log(`[simsala] Ability candidates:`, abilityCandidates.map(c => `${c.name} (${c.groupId})`));
+
+  if (!equipCandidates.length && !abilityCandidates.length) {
     return { actorUpdate: {}, embeddedItems: [] };
   }
 
-  // Step 3 — Reduce: final assembly
-  setStatus("Assembling abilities…");
-  const selection = await assembleSelection(allCandidates, context, prior);
+  // Equipment: take the #1 pick from each equipment group.
+  // The explore step already ranks items for this NPC, so first = best.
+  const equipPicks = [];
+  const seenEquipGroups = new Set();
+  for (const c of equipCandidates) {
+    if (!seenEquipGroups.has(c.groupId)) {
+      seenEquipGroups.add(c.groupId);
+      equipPicks.push(c);
+    }
+  }
 
-  if (!selection?.selected?.length) {
+  console.log(`[simsala] Equipment picks (top-1 per group):`, equipPicks.map(c => `${c.name} (${c.groupId})`));
+
+  // Abilities: run through the LLM reduce step
+  let selection = { selected: [], spellcastingAbility: "", spellcastingLevel: 0,
+    legendaryActionCount: 0, legendaryResistanceCount: 0 };
+  if (abilityCandidates.length) {
+    setStatus("Assembling abilities…");
+    selection = await assembleSelection(abilityCandidates, context, prior) ?? selection;
+    console.log(`[simsala] Ability selection:`, selection?.selected?.map(s => `${s.name} [${s.mode}]`));
+  }
+
+  // Combine: equipment picks + ability selection
+  const allSelected = [
+    ...equipPicks.map(c => ({ name: c.name, mode: "", source: c.source })),
+    ...(selection.selected ?? []).map(s => {
+      const candidate = abilityCandidates.find(c => c.name.toLowerCase() === s.name.toLowerCase());
+      return candidate ? { name: s.name, mode: s.mode, source: candidate.source } : null;
+    }).filter(Boolean),
+  ];
+
+  console.log(`[simsala] Combined selection:`, allSelected.map(s => `${s.name} [${s.mode || "equip"}]`));
+
+  if (!allSelected.length) {
     return { actorUpdate: {}, embeddedItems: [] };
   }
 
@@ -296,13 +367,9 @@ export async function runCatalogSelection(context, prior, setStatus) {
 
   // Group selected items by their compendium source for batch resolution
   const bySource = new Map();
-  for (const sel of selection.selected) {
-    // Find which candidate (and thus which source) this name came from
-    const candidate = allCandidates.find(c => c.name.toLowerCase() === sel.name.toLowerCase());
-    if (!candidate) continue;
-    const source = candidate.source;
-    if (!bySource.has(source)) bySource.set(source, []);
-    bySource.get(source).push({ name: sel.name, mode: sel.mode });
+  for (const sel of allSelected) {
+    if (!bySource.has(sel.source)) bySource.set(sel.source, []);
+    bySource.get(sel.source).push({ name: sel.name, mode: sel.mode });
   }
 
   const embeddedItems = [];
@@ -321,6 +388,9 @@ export async function runCatalogSelection(context, prior, setStatus) {
       embeddedItems.push(itemData);
     }
   }
+
+  console.log(`[simsala] Resolved ${embeddedItems.length} item(s) from compendium:`,
+    embeddedItems.map(i => `${i.name} (${i.type})`));
 
   // Build actor update for spellcasting and legendary resources
   const actorUpdate = {};

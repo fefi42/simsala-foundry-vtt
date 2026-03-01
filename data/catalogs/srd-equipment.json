@@ -1,0 +1,101 @@
+{
+  "source": "dnd5e.items",
+  "groups": [
+    {
+      "id": "weapon-simple-melee",
+      "description": "Simple melee weapons — basic arms any creature can wield (clubs, daggers, spears)",
+      "items": [
+        { "name": "Club", "summary": "1d4 bludgeoning, light" },
+        { "name": "Dagger", "summary": "1d4 piercing, finesse, light, thrown 20/60" },
+        { "name": "Greatclub", "summary": "1d8 bludgeoning, two-handed" },
+        { "name": "Handaxe", "summary": "1d6 slashing, light, thrown 20/60" },
+        { "name": "Javelin", "summary": "1d6 piercing, thrown 30/120" },
+        { "name": "Light Hammer", "summary": "1d4 bludgeoning, light, thrown 20/60" },
+        { "name": "Mace", "summary": "1d6 bludgeoning" },
+        { "name": "Quarterstaff", "summary": "1d6 bludgeoning, versatile 1d8" },
+        { "name": "Sickle", "summary": "1d4 slashing, light" },
+        { "name": "Spear", "summary": "1d6 piercing, thrown 20/60, versatile 1d8" }
+      ]
+    },
+    {
+      "id": "weapon-simple-ranged",
+      "description": "Simple ranged weapons — basic ranged arms (crossbows, bows, slings)",
+      "items": [
+        { "name": "Dart", "summary": "1d4 piercing, finesse, thrown 20/60" },
+        { "name": "Light Crossbow", "summary": "1d8 piercing, range 80/320, loading, two-handed" },
+        { "name": "Shortbow", "summary": "1d6 piercing, range 80/320, two-handed" },
+        { "name": "Sling", "summary": "1d4 bludgeoning, range 30/120" }
+      ]
+    },
+    {
+      "id": "weapon-martial-melee",
+      "description": "Martial melee weapons — advanced weapons requiring military training (swords, axes, polearms)",
+      "items": [
+        { "name": "Battleaxe", "summary": "1d8 slashing, versatile 1d10" },
+        { "name": "Flail", "summary": "1d8 bludgeoning" },
+        { "name": "Glaive", "summary": "1d10 slashing, heavy, reach, two-handed" },
+        { "name": "Greataxe", "summary": "1d12 slashing, heavy, two-handed" },
+        { "name": "Greatsword", "summary": "2d6 slashing, heavy, two-handed" },
+        { "name": "Halberd", "summary": "1d10 slashing, heavy, reach, two-handed" },
+        { "name": "Lance", "summary": "1d12 piercing, reach, special (disadvantage within 5ft)" },
+        { "name": "Longsword", "summary": "1d8 slashing, versatile 1d10" },
+        { "name": "Maul", "summary": "2d6 bludgeoning, heavy, two-handed" },
+        { "name": "Morningstar", "summary": "1d8 piercing" },
+        { "name": "Pike", "summary": "1d10 piercing, heavy, reach, two-handed" },
+        { "name": "Rapier", "summary": "1d8 piercing, finesse" },
+        { "name": "Scimitar", "summary": "1d6 slashing, finesse, light" },
+        { "name": "Shortsword", "summary": "1d6 piercing, finesse, light" },
+        { "name": "Trident", "summary": "1d6 piercing, thrown 20/60, versatile 1d8" },
+        { "name": "War Pick", "summary": "1d8 piercing" },
+        { "name": "Warhammer", "summary": "1d8 bludgeoning, versatile 1d10" },
+        { "name": "Whip", "summary": "1d4 slashing, finesse, reach" }
+      ]
+    },
+    {
+      "id": "weapon-martial-ranged",
+      "description": "Martial ranged weapons — advanced ranged weapons for trained soldiers and hunters",
+      "items": [
+        { "name": "Hand Crossbow", "summary": "1d6 piercing, range 30/120, light, loading" },
+        { "name": "Heavy Crossbow", "summary": "1d10 piercing, range 100/400, heavy, loading, two-handed" },
+        { "name": "Longbow", "summary": "1d8 piercing, range 150/600, heavy, two-handed" }
+      ]
+    },
+    {
+      "id": "armor-light",
+      "description": "Light armor — minimal protection for agile or stealthy humanoids",
+      "items": [
+        { "name": "Padded Armor", "summary": "AC 11 + DEX, disadvantage on Stealth" },
+        { "name": "Leather Armor", "summary": "AC 11 + DEX" },
+        { "name": "Studded Leather Armor", "summary": "AC 12 + DEX" }
+      ]
+    },
+    {
+      "id": "armor-medium",
+      "description": "Medium armor — balanced protection allowing some agility",
+      "items": [
+        { "name": "Hide Armor", "summary": "AC 12 + DEX (max 2)" },
+        { "name": "Chain Shirt", "summary": "AC 13 + DEX (max 2)" },
+        { "name": "Scale Mail", "summary": "AC 14 + DEX (max 2), disadvantage on Stealth" },
+        { "name": "Breastplate", "summary": "AC 14 + DEX (max 2)" },
+        { "name": "Half Plate Armor", "summary": "AC 15 + DEX (max 2), disadvantage on Stealth" }
+      ]
+    },
+    {
+      "id": "armor-heavy",
+      "description": "Heavy armor — maximum protection for knights and heavily armored soldiers",
+      "items": [
+        { "name": "Ring Mail", "summary": "AC 14, disadvantage on Stealth" },
+        { "name": "Chain Mail", "summary": "AC 16, STR 13 required, disadvantage on Stealth" },
+        { "name": "Splint Armor", "summary": "AC 17, STR 15 required, disadvantage on Stealth" },
+        { "name": "Plate Armor", "summary": "AC 18, STR 15 required, disadvantage on Stealth" }
+      ]
+    },
+    {
+      "id": "shield",
+      "description": "Shields — +2 AC bonus, requires one free hand",
+      "items": [
+        { "name": "Shield", "summary": "+2 AC, 6 lbs, requires one free hand" }
+      ]
+    }
+  ]
+}

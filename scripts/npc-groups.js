@@ -1,4 +1,5 @@
 import { runCatalogSelection } from "./catalog-selection.js";
+import { buildDamageFormula } from "./damage-calc.js";
 
 const CREATURE_TYPES = [
   "aberration", "beast", "celestial", "construct", "dragon", "elemental",
@@ -263,13 +264,18 @@ export const NPC_GROUPS = {
       ].join("\n");
     },
 
-    mapResult(result) {
+    mapResult(result, _docType, prior) {
       // Fix formula missing leading dice count (e.g. "d8+8" → "1d8+8")
       let formula = result.hpFormula ?? "1d8";
       if (/^d\d/.test(formula)) formula = "1" + formula;
 
       // Compute HP average from formula deterministically
       const hpMax = computeHpAverage(formula);
+
+      // Humanoids get AC from equipped armor (calc "default"); others use natural armor
+      const creatureType = prior?.system?.details?.type?.value;
+      const acCalc = creatureType === "humanoid" ? "default" : "natural";
+
       return {
         system: {
           abilities: {
@@ -281,7 +287,7 @@ export const NPC_GROUPS = {
             cha: { value: result.cha ?? 10 },
           },
           attributes: {
-            ac: { flat: result.ac ?? 10, calc: "natural" },
+            ac: { flat: result.ac ?? 10, calc: acCalc },
             hp: { value: hpMax, max: hpMax, formula },
           },
         },
@@ -492,6 +498,11 @@ export const NPC_GROUPS = {
   attacks: {
     label: "Generating attacks…",
 
+    // Humanoids get real weapons from the equipment catalog in wave 7 instead
+    shouldRun(prior) {
+      return prior?.system?.details?.type?.value !== "humanoid";
+    },
+
     schema() {
       return {
         type: "object",
@@ -508,13 +519,15 @@ export const NPC_GROUPS = {
                 reach: { type: "integer" },
                 range: { type: "integer" },
                 rangeLong: { type: "integer" },
-                damageFormula: { type: "string" },
+                targetAvgDamage: { type: "integer" },
+                dieSides: { type: "integer", enum: [4, 6, 8, 10, 12] },
                 damageType: { type: "string", enum: DAMAGE_TYPES },
-                extraDamageFormula: { type: "string" },
+                extraTargetAvg: { type: "integer" },
+                extraDieSides: { type: "integer", enum: [4, 6, 8, 10, 12] },
                 extraDamageType: { type: "string", enum: [...DAMAGE_TYPES, ""] },
                 description: { type: "string" },
               },
-              required: ["name", "attackType", "damageFormula", "damageType"],
+              required: ["name", "attackType", "targetAvgDamage", "dieSides", "damageType"],
             },
           },
         },
@@ -533,28 +546,32 @@ export const NPC_GROUPS = {
       const dex = abilities.dex?.value ?? 10;
 
       return [
-        `You are a D&D 5e assistant. Design the weapon attacks for an NPC.`,
+        `You are a D&D 5e assistant. Design the natural weapon attacks for an NPC.`,
         ``,
         `GM description: "${context}"`,
         `Creature: "${name}", CR ${cr}, ${size} ${type}`,
         `STR ${str}, DEX ${dex}`,
         ``,
         `Design 1–4 natural weapon attacks appropriate for this creature.`,
+        `These are natural attacks like Bite, Claw, Tail, Slam, Gore, Tentacle, Sting — NOT manufactured weapons.`,
         ``,
         `attackType: "melee" or "ranged"`,
         `reach: melee reach in feet (5 for Medium, 10 for Large, 15 for Huge/Gargantuan). 0 for ranged.`,
         `range: ranged normal range in feet. 0 for melee.`,
         `rangeLong: ranged long range in feet. 0 for melee.`,
-        `damageFormula: dice expression including ability modifier, e.g. "2d6+4"`,
+        `targetAvgDamage: the average damage this attack should deal per hit (integer, see benchmarks below)`,
+        `dieSides: preferred die size for damage roll`,
+        `  Tiny: 4, Small: 6, Medium: 8, Large: 10, Huge/Gargantuan: 12`,
         `damageType: one of ${DAMAGE_TYPES.join(", ")}`,
-        `extraDamageFormula: additional damage on hit (e.g. "2d6" fire on a dragon bite). Empty string if none.`,
-        `extraDamageType: damage type for extra damage. Empty string if none.`,
-        `description: flavor text or special effect (e.g. "target is grappled, escape DC 15"). Empty string if none.`,
+        `extraTargetAvg: average bonus damage on hit (e.g. 7 for fire on a dragon bite). 0 if none.`,
+        `extraDieSides: die size for bonus damage. 6 if none.`,
+        `extraDamageType: damage type for bonus damage. Empty string if none.`,
+        `description: special effect (e.g. "target is grappled, escape DC 15"). Empty string if none.`,
         ``,
-        `CR damage benchmarks (total per hit, including modifier):`,
-        `CR 1: 1d8+2 (avg 6), CR 3: 1d10+3 (avg 8), CR 5: 2d8+4 (avg 13),`,
-        `CR 8: 2d10+5 (avg 16), CR 11: 2d10+6 (avg 17), CR 15: 2d12+7 (avg 20),`,
-        `CR 20: 3d10+8 (avg 24)`,
+        `CR average damage per hit benchmarks:`,
+        `CR 1: avg 6, CR 3: avg 8, CR 5: avg 13,`,
+        `CR 8: avg 16, CR 11: avg 17, CR 15: avg 20,`,
+        `CR 20: avg 24`,
         ``,
         `hasMultiattack: true if the creature makes multiple attacks per turn (usually CR 3+).`,
         `multiattackDescription: e.g. "The dragon makes three attacks: one with its bite and two with its claws." Empty string if no multiattack.`,
@@ -562,8 +579,9 @@ export const NPC_GROUPS = {
         `Common attack patterns:`,
         `- Beasts: Bite + Claw or Bite + Horns`,
         `- Dragons: Bite + 2 Claws (+ Tail for ancient)`,
-        `- Humanoids: weapon attacks (Longsword, Longbow)`,
-        `- Giants: weapon + Rock (ranged)`,
+        `- Giants: Slam or Fist + Rock (ranged)`,
+        `- Elementals: Slam, Engulf, Touch`,
+        `- Monstrosities: Bite + Claw/Tentacle/Sting`,
         ``,
         `Return JSON: { "hasMultiattack": true, "multiattackDescription": "...", "attacks": [...] }`,
       ].join("\n");
@@ -586,6 +604,8 @@ export const NPC_GROUPS = {
 
       // Weapon items for each attack
       for (const atk of result.attacks ?? []) {
+        const formula = buildDamageFormula(atk.targetAvgDamage ?? 4, atk.dieSides ?? 8);
+
         const weapon = {
           type: "weapon",
           name: atk.name,
@@ -593,7 +613,7 @@ export const NPC_GROUPS = {
             type: { value: "natural" },
             damage: {
               base: {
-                formula: atk.damageFormula,
+                formula,
                 types: [atk.damageType],
               },
             },
@@ -609,8 +629,9 @@ export const NPC_GROUPS = {
         // Extra damage and special effects go in the description
         // to avoid modifying auto-created attack activities
         const descParts = [];
-        if (atk.extraDamageFormula && atk.extraDamageType) {
-          descParts.push(`Plus ${atk.extraDamageFormula} ${atk.extraDamageType} damage.`);
+        if (atk.extraTargetAvg && atk.extraDamageType) {
+          const extraFormula = buildDamageFormula(atk.extraTargetAvg, atk.extraDieSides ?? 6);
+          descParts.push(`Plus ${extraFormula} ${atk.extraDamageType} damage.`);
         }
         if (atk.description) {
           descParts.push(atk.description);

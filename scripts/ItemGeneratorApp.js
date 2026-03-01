@@ -182,6 +182,10 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
       if (wave.length === 1) {
         const name = wave[0];
         const group = groups[name];
+
+        // Skip groups that don't apply to this creature type (e.g. attacks for humanoids)
+        if (group.shouldRun && !group.shouldRun(prior)) continue;
+
         this._setStatus(group.label);
 
         // The catalogSelection group runs its own multi-step LLM pipeline
