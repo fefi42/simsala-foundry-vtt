@@ -1,6 +1,7 @@
 import { ItemGeneratorApp } from "./ItemGeneratorApp.js";
 import { registerSettings } from "./settings.js";
 import { CatalogRegistry } from "./catalog.js";
+import { loadCreatureIndex } from "./npc-generation.js";
 
 console.log("[simsala] main.js loaded");
 
@@ -8,9 +9,10 @@ Hooks.once("init", () => {
   registerSettings();
 });
 
-// Load catalog configs after the game is fully ready (compendiums available)
+// Load catalog configs and creature index after the game is fully ready
 Hooks.once("ready", async () => {
   await CatalogRegistry.loadAll();
+  await loadCreatureIndex();
 });
 
 // Direct DOM injection instead of getHeaderControlsApplicationV2 hook

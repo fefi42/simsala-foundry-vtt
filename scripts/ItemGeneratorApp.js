@@ -1,8 +1,7 @@
 import { OllamaService } from "./OllamaService.js";
 import { DND5E_ITEM_SCHEMA } from "../data/dnd5e-item-schema.js";
 import { ITEM_TYPE_GROUPS, GROUPS } from "./field-groups.js";
-import { NPC_WAVES, NPC_GROUPS } from "./npc-groups.js";
-import { runCatalogSelection } from "./catalog-selection.js";
+import { generateNpc } from "./npc-generation.js";
 
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
@@ -128,16 +127,13 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
 
   /**
    * Route to the correct pipeline by document type.
-   * Both items and NPCs use the same generate/merge/apply loop;
-   * only the wave definitions and group registries differ.
+   * Items use the wave pipeline; NPCs use the base-creature pipeline.
    */
   _getPipeline() {
     const docType = this.document.type;
 
-    // NPC actor
-    if (docType === "npc") {
-      return { waves: NPC_WAVES, groups: NPC_GROUPS };
-    }
+    // NPC actor — handled by generateNpc(), no wave pipeline
+    if (docType === "npc") return "npc";
 
     // Item types
     const groupNames = ITEM_TYPE_GROUPS[docType];
@@ -163,6 +159,13 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
       return;
     }
 
+    // NPC generation — base-creature pipeline
+    if (pipeline === "npc") {
+      await this._generateNpc(context);
+      return;
+    }
+
+    // Item generation — wave pipeline
     const { waves, groups } = pipeline;
     let merged = {};
     let embeddedItems = [];
@@ -172,8 +175,6 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     for (const wave of waves) {
       if (wave.length === 0) continue;
 
-      // Pass accumulated embedded item names so later wave prompts
-      // can reference what abilities the NPC already has.
       const prior = { ...merged };
       if (embeddedItems.length) {
         prior._embeddedSummary = embeddedItems.map(i => `${i.name} (${i.type})`).join(", ");
@@ -183,49 +184,26 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
         const name = wave[0];
         const group = groups[name];
 
-        // Skip groups that don't apply to this creature type (e.g. attacks for humanoids)
         if (group.shouldRun && !group.shouldRun(prior)) continue;
 
         this._setStatus(group.label);
 
-        // The catalogSelection group runs its own multi-step LLM pipeline
-        // instead of the normal schema→prompt→generate→mapResult flow.
-        if (name === "catalogSelection") {
-          try {
-            const { actorUpdate, embeddedItems: catalogItems } = await runCatalogSelection(
-              context, prior, (label) => this._setStatus(label),
-            );
-            if (Object.keys(actorUpdate).length) {
-              merged = mergeDeep(merged, actorUpdate);
-            }
-            embeddedItems.push(...catalogItems);
-            if (catalogItems.length || Object.keys(actorUpdate).length) {
-              anySucceeded = true;
-            }
-          } catch (err) {
-            console.warn(`[simsala] catalog selection failed:`, err.message);
-            if (!firstError) firstError = err;
+        try {
+          const prompt = group.buildPrompt(context, docType, prior);
+          const schema = group.schema(docType);
+          const { parsed } = await OllamaService.generate(
+            [{ role: "user", content: prompt }], schema, -1,
+          );
+          if (parsed) {
+            const mapped = await group.mapResult(parsed, docType, prior);
+            const { actorUpdate, embedded } = extractEmbedded(mapped);
+            merged = mergeDeep(merged, actorUpdate);
+            embeddedItems.push(...embedded);
+            anySucceeded = true;
           }
-        } else {
-          // Standard group — single LLM call with keep_alive: -1 to keep the
-          // model loaded in memory across waves (avoids ~5s reload per wave).
-          try {
-            const prompt = group.buildPrompt(context, docType, prior);
-            const schema = group.schema(docType);
-            const { parsed } = await OllamaService.generate(
-              [{ role: "user", content: prompt }], schema, -1,
-            );
-            if (parsed) {
-              const mapped = await group.mapResult(parsed, docType, prior);
-              const { actorUpdate, embedded } = extractEmbedded(mapped);
-              merged = mergeDeep(merged, actorUpdate);
-              embeddedItems.push(...embedded);
-              anySucceeded = true;
-            }
-          } catch (err) {
-            console.warn(`[simsala] group "${name}" failed:`, err.message);
-            if (!firstError) firstError = err;
-          }
+        } catch (err) {
+          console.warn(`[simsala] group "${name}" failed:`, err.message);
+          if (!firstError) firstError = err;
         }
       } else {
         // Parallel — multiple groups
@@ -257,7 +235,6 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     }
 
     // Unload model from GPU memory after generation completes.
-    // keep_alive: 0 ensures zero memory impact during play.
     try { await OllamaService.generate([], {}, 0); } catch { /* ignore */ }
 
     if (!anySucceeded) {
@@ -276,11 +253,34 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     this.lastResult = merged;
     this.lastEmbeddedItems = embeddedItems;
 
-    // Display actor data as JSON, embedded items as a readable list
     this._appendMessage("assistant", JSON.stringify(merged, null, 2));
     if (embeddedItems.length) {
       const listing = embeddedItems.map(i => `  ${i.name} (${i.type})`).join("\n");
       this._appendMessage("note", `Abilities:\n${listing}`);
+    }
+    this.element.querySelector(".simsala-apply").disabled = false;
+  }
+
+  /**
+   * NPC generation — base-creature pipeline.
+   * Picks an SRD creature, loads it, re-flavors via LLM, applies item swaps.
+   */
+  async _generateNpc(context) {
+    const result = await generateNpc(
+      context,
+      (label) => this._setStatus(label),
+    );
+
+    this.lastResult = result.actorUpdate;
+    this.lastEmbeddedItems = result.embeddedItems;
+
+    // Display summary
+    const summary = `Based on: ${result.baseName}\n${result.reason ?? ""}`;
+    this._appendMessage("note", summary);
+    this._appendMessage("assistant", JSON.stringify(result.actorUpdate, null, 2));
+    if (result.embeddedItems.length) {
+      const listing = result.embeddedItems.map(i => `  ${i.name} (${i.type})`).join("\n");
+      this._appendMessage("note", `Items:\n${listing}`);
     }
     this.element.querySelector(".simsala-apply").disabled = false;
   }

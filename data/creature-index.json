@@ -1,0 +1,2263 @@
+[
+  {
+    "name": "Awakened Shrub",
+    "cr": 0,
+    "type": "plant",
+    "size": "Small",
+    "summary": "Rake. False Appearance"
+  },
+  {
+    "name": "Baboon",
+    "cr": 0,
+    "type": "beast",
+    "size": "Small",
+    "summary": "Bite. Pack Tactics"
+  },
+  {
+    "name": "Badger",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Bite. Keen Smell"
+  },
+  {
+    "name": "Bat",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Bite. Echolocation, Keen Hearing"
+  },
+  {
+    "name": "Cat",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Claws. Keen Smell"
+  },
+  {
+    "name": "Commoner",
+    "cr": 0,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Club"
+  },
+  {
+    "name": "Crab",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Claw. Amphibious"
+  },
+  {
+    "name": "Deer",
+    "cr": 0,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite"
+  },
+  {
+    "name": "Eagle",
+    "cr": 0,
+    "type": "beast",
+    "size": "Small",
+    "summary": "Talons. Keen Sight"
+  },
+  {
+    "name": "Frog",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Amphibious, Standing Leap"
+  },
+  {
+    "name": "Giant Fire Beetle",
+    "cr": 0,
+    "type": "beast",
+    "size": "Small",
+    "summary": "Bite. Illumination"
+  },
+  {
+    "name": "Giant Fly",
+    "cr": 0,
+    "type": "beast",
+    "size": "Large",
+    "summary": ""
+  },
+  {
+    "name": "Goat",
+    "cr": 0,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Ram. Charge, Sure-Footed"
+  },
+  {
+    "name": "Hawk",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Talons. Keen Sight"
+  },
+  {
+    "name": "Homunculus",
+    "cr": 0,
+    "type": "construct",
+    "size": "Tiny",
+    "summary": "Bite. Telepathic Bond"
+  },
+  {
+    "name": "Hyena",
+    "cr": 0,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite. Pack Tactics"
+  },
+  {
+    "name": "Jackal",
+    "cr": 0,
+    "type": "beast",
+    "size": "Small",
+    "summary": "Bite. Keen Hearing and Smell, Pack Tactics"
+  },
+  {
+    "name": "Lemure",
+    "cr": 0,
+    "type": "fiend",
+    "size": "Medium",
+    "summary": "Fist. Devil's Sight, Hellish Rejuvenation"
+  },
+  {
+    "name": "Lizard",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Bite"
+  },
+  {
+    "name": "Octopus",
+    "cr": 0,
+    "type": "beast",
+    "size": "Small",
+    "summary": "Tentacles. Hold Breath, Underwater Camouflage, Water Breathing, Ink Cloud"
+  },
+  {
+    "name": "Owl",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Talons. Flyby, Keen Hearing and Sight"
+  },
+  {
+    "name": "Quipper",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Bite. Blood Frenzy, Water Breathing"
+  },
+  {
+    "name": "Rat",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Bite. Keen Smell"
+  },
+  {
+    "name": "Raven",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Beak. Mimicry"
+  },
+  {
+    "name": "Scorpion",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Sting"
+  },
+  {
+    "name": "Sea Horse",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Water Breathing"
+  },
+  {
+    "name": "Shrieker",
+    "cr": 0,
+    "type": "plant",
+    "size": "Medium",
+    "summary": "Shriek, False Appearance"
+  },
+  {
+    "name": "Spider",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Bite. Spider Climb, Web Sense, Web Walker"
+  },
+  {
+    "name": "Vulture",
+    "cr": 0,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Beak. Keen Sight and Smell, Pack Tactics"
+  },
+  {
+    "name": "Weasel",
+    "cr": 0,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Bite. Keen Hearing and Smell"
+  },
+  {
+    "name": "Bandit",
+    "cr": 0.125,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Scimitar, Light Crossbow, Leather Armor"
+  },
+  {
+    "name": "Blood Hawk",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Small",
+    "summary": "Beak. Keen Sight, Pack Tactics"
+  },
+  {
+    "name": "Camel",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite"
+  },
+  {
+    "name": "Cultist",
+    "cr": 0.125,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Leather Armor, Scimitar. Dark Devotion"
+  },
+  {
+    "name": "Flying Snake",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Bite. Flyby"
+  },
+  {
+    "name": "Giant Crab",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Claw. Amphibious"
+  },
+  {
+    "name": "Giant Rat",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Small",
+    "summary": "Bite. Keen Smell, Pack Tactics"
+  },
+  {
+    "name": "Giant Rat (Diseased)",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Small",
+    "summary": "Bite. Keen Smell, Pack Tactics"
+  },
+  {
+    "name": "Giant Weasel",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite. Keen Hearing and Smell"
+  },
+  {
+    "name": "Guard",
+    "cr": 0.125,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Chain Shirt, Shield, Spear"
+  },
+  {
+    "name": "Kobold",
+    "cr": 0.125,
+    "type": "humanoid",
+    "size": "Small",
+    "summary": "Dagger, Sling. Sunlight Sensitivity, Pack Tactics"
+  },
+  {
+    "name": "Mastiff",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite. Keen Hearing and Smell"
+  },
+  {
+    "name": "Merfolk",
+    "cr": 0.125,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Spear. Amphibious"
+  },
+  {
+    "name": "Mule",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Hooves. Beast of Burden, Sure-Footed"
+  },
+  {
+    "name": "Noble",
+    "cr": 0.125,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Breastplate, Rapier. Parry"
+  },
+  {
+    "name": "Poisonous Snake",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Bite"
+  },
+  {
+    "name": "Pony",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Hooves"
+  },
+  {
+    "name": "Stirge",
+    "cr": 0.125,
+    "type": "beast",
+    "size": "Tiny",
+    "summary": "Blood Drain"
+  },
+  {
+    "name": "Tribal Warrior",
+    "cr": 0.125,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Hide Armor, Spear. Pack Tactics"
+  },
+  {
+    "name": "Acolyte",
+    "cr": 0.25,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Club. Spellcasting. 6 spells"
+  },
+  {
+    "name": "Axe Beak",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Beak"
+  },
+  {
+    "name": "Blink Dog",
+    "cr": 0.25,
+    "type": "fey",
+    "size": "Medium",
+    "summary": "Bite. Keen Hearing and Smell, Teleport"
+  },
+  {
+    "name": "Boar",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Tusk. Charge, Relentless"
+  },
+  {
+    "name": "Constrictor Snake",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite, Constrict"
+  },
+  {
+    "name": "Draft Horse",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Hooves"
+  },
+  {
+    "name": "Dretch",
+    "cr": 0.25,
+    "type": "fiend",
+    "size": "Small",
+    "summary": "Bite, Claws. Multiattack, Fetid Cloud"
+  },
+  {
+    "name": "Drow",
+    "cr": 0.25,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Shortsword, Hand Crossbow, Chain Shirt. Fey Ancestry, Innate Spellcasting, Sunlight Sensitivity. 3 spells"
+  },
+  {
+    "name": "Elk",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Ram, Hooves. Charge"
+  },
+  {
+    "name": "Flying Sword",
+    "cr": 0.25,
+    "type": "construct",
+    "size": "Small",
+    "summary": "Longsword. Antimagic Susceptibility, False Appearance"
+  },
+  {
+    "name": "Giant Badger",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite, Claws. Keen Smell, Multiattack"
+  },
+  {
+    "name": "Giant Bat",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite. Echolocation, Keen Hearing"
+  },
+  {
+    "name": "Giant Centipede",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Small",
+    "summary": "Bite"
+  },
+  {
+    "name": "Giant Frog",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite. Amphibious, Standing Leap, Swallow"
+  },
+  {
+    "name": "Giant Lizard",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite"
+  },
+  {
+    "name": "Giant Owl",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Talons. Flyby, Keen Hearing and Sight"
+  },
+  {
+    "name": "Giant Poisonous Snake",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite"
+  },
+  {
+    "name": "Giant Wolf Spider",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite. Spider Climb, Web Sense, Web Walker"
+  },
+  {
+    "name": "Goblin",
+    "cr": 0.25,
+    "type": "humanoid",
+    "size": "Small",
+    "summary": "Leather Armor, Shield, Scimitar, Shortbow. Nimble Escape"
+  },
+  {
+    "name": "Grimlock",
+    "cr": 0.25,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Spiked Bone Club. Blind Senses, Keen Hearing and Smell, Stone Camouflage"
+  },
+  {
+    "name": "Panther",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite, Claw. Keen Smell, Pounce"
+  },
+  {
+    "name": "Pseudodragon",
+    "cr": 0.25,
+    "type": "dragon",
+    "size": "Tiny",
+    "summary": "Bite, Sting. Keen Senses, Magic Resistance, Limited Telepathy"
+  },
+  {
+    "name": "Riding Horse",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Hooves"
+  },
+  {
+    "name": "Skeleton",
+    "cr": 0.25,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Shortbow, Shortsword"
+  },
+  {
+    "name": "Sprite",
+    "cr": 0.25,
+    "type": "fey",
+    "size": "Tiny",
+    "summary": "Leather Armor (tiny), Shortbow, Longsword. Invisibility, Heart Sight"
+  },
+  {
+    "name": "Steam Mephit",
+    "cr": 0.25,
+    "type": "elemental",
+    "size": "Small",
+    "summary": "Claws. Death Burst, Innate Spellcasting, Steam Breath. 1 spells"
+  },
+  {
+    "name": "Swarm of Bats",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bites. Swarm, Keen Hearing, Echolocation"
+  },
+  {
+    "name": "Swarm of Rats",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bites. Keen Smell, Swarm"
+  },
+  {
+    "name": "Swarm of Ravens",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Beaks. Swarm"
+  },
+  {
+    "name": "Violet Fungus",
+    "cr": 0.25,
+    "type": "plant",
+    "size": "Medium",
+    "summary": "Rotting Touch. Multiattack, False Appearance"
+  },
+  {
+    "name": "Wolf",
+    "cr": 0.25,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite. Keen Hearing and Smell, Pack Tactics"
+  },
+  {
+    "name": "Zombie",
+    "cr": 0.25,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Slam. Undead Fortitude"
+  },
+  {
+    "name": "Ape",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Fist, Rock. Multiattack"
+  },
+  {
+    "name": "Black Bear",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite, Claws. Keen Smell, Multiattack"
+  },
+  {
+    "name": "Cockatrice",
+    "cr": 0.5,
+    "type": "monstrosity",
+    "size": "Small",
+    "summary": "Bite"
+  },
+  {
+    "name": "Crocodile",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite. Hold Breath"
+  },
+  {
+    "name": "Darkmantle",
+    "cr": 0.5,
+    "type": "monstrosity",
+    "size": "Small",
+    "summary": "Crush. Echolocation, False Appearance, Darkness Aura"
+  },
+  {
+    "name": "Deep Gnome",
+    "cr": 0.5,
+    "type": "humanoid",
+    "size": "Small",
+    "summary": "Chain Shirt, War Pick, Poisoned Dart. Stone Camouflage, Gnome Cunning, Innate Spellcasting. 4 spells"
+  },
+  {
+    "name": "Dust Mephit",
+    "cr": 0.5,
+    "type": "elemental",
+    "size": "Small",
+    "summary": "Claws. Death Burst, Innate Spellcasting, Blinding Breath. 1 spells"
+  },
+  {
+    "name": "Giant Goat",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Ram. Charge, Sure-Footed"
+  },
+  {
+    "name": "Giant Sea Horse",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Ram. Charge, Water Breathing"
+  },
+  {
+    "name": "Giant Wasp",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Sting"
+  },
+  {
+    "name": "Gnoll",
+    "cr": 0.5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Hide Armor, Shield, Bite, Spear, Longbow. Rampage"
+  },
+  {
+    "name": "Gray Ooze",
+    "cr": 0.5,
+    "type": "ooze",
+    "size": "Medium",
+    "summary": "Pseudopod. Amorphous, Corrode Metal, False Appearance"
+  },
+  {
+    "name": "Hobgoblin",
+    "cr": 0.5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Longsword, Longbow, Chain Mail, Shield. Martial Advantage"
+  },
+  {
+    "name": "Ice Mephit",
+    "cr": 0.5,
+    "type": "elemental",
+    "size": "Small",
+    "summary": "Claws. Death Burst, False Appearance, Innate Spellcasting, Frost Breath. 1 spells"
+  },
+  {
+    "name": "Lizardfolk",
+    "cr": 0.5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Bite, Heavy Club, Javelin, Spiked Shield, Shield. Hold Breath, Multiattack"
+  },
+  {
+    "name": "Magma Mephit",
+    "cr": 0.5,
+    "type": "elemental",
+    "size": "Small",
+    "summary": "Claws. Innate Spellcasting, Death Burst, False Appearance, Fire Breath. 1 spells"
+  },
+  {
+    "name": "Magmin",
+    "cr": 0.5,
+    "type": "elemental",
+    "size": "Small",
+    "summary": "Touch. Death Burst, Ignited Illumination"
+  },
+  {
+    "name": "Orc",
+    "cr": 0.5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Hide Armor, Greataxe, Javelin. Aggressive"
+  },
+  {
+    "name": "Reef Shark",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bite. Pack Tactics, Water Breathing"
+  },
+  {
+    "name": "Rust Monster",
+    "cr": 0.5,
+    "type": "monstrosity",
+    "size": "Medium",
+    "summary": "Bite. Iron Scent, Rust Metal, Antennae"
+  },
+  {
+    "name": "Sahuagin",
+    "cr": 0.5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Spear, Bite, Claws. Blood Frenzy, Limited Amphibiousness, Multiattack, Shark Telepathy"
+  },
+  {
+    "name": "Satyr",
+    "cr": 0.5,
+    "type": "fey",
+    "size": "Medium",
+    "summary": "Shortbow, Shortsword, Leather Armor, Ram. Magic Resistance"
+  },
+  {
+    "name": "Scout",
+    "cr": 0.5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Leather Armor, Shortsword, Longbow. Keen Hearing and Sight, Multiattack"
+  },
+  {
+    "name": "Shadow",
+    "cr": 0.5,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Strength Drain. Amorphous, Shadow Stealth, Sunlight Weakness"
+  },
+  {
+    "name": "Swarm of Beetles",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bites. Swarm"
+  },
+  {
+    "name": "Swarm of Centipedes",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bites. Swarm"
+  },
+  {
+    "name": "Swarm of Insects",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bites. Swarm"
+  },
+  {
+    "name": "Swarm of Spiders",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bites. Swarm, Spider Climb, Web Sense, Web Walker"
+  },
+  {
+    "name": "Swarm of Wasps",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bites. Swarm"
+  },
+  {
+    "name": "Thug",
+    "cr": 0.5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Leather Armor, Heavy Crossbow, Mace. Pack Tactics, Multiattack"
+  },
+  {
+    "name": "Warhorse",
+    "cr": 0.5,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Hooves. Trampling Charge"
+  },
+  {
+    "name": "Warhorse Skeleton",
+    "cr": 0.5,
+    "type": "undead",
+    "size": "Large",
+    "summary": "Hooves"
+  },
+  {
+    "name": "Worg",
+    "cr": 0.5,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite. Keen Hearing and Smell"
+  },
+  {
+    "name": "Animated Armor",
+    "cr": 1,
+    "type": "construct",
+    "size": "Medium",
+    "summary": "Slam. Antimagic Susceptibility, False Appearance, Multiattack"
+  },
+  {
+    "name": "Brass Dragon Wyrmling",
+    "cr": 1,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Breath Weapons"
+  },
+  {
+    "name": "Brown Bear",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite, Claws. Keen Smell, Multiattack"
+  },
+  {
+    "name": "Bugbear",
+    "cr": 1,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Morningstar, Hide Armor, Shield, Javelin. Surprise Attack, Brute"
+  },
+  {
+    "name": "Copper Dragon Wyrmling",
+    "cr": 1,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Breath Weapons"
+  },
+  {
+    "name": "Death Dog",
+    "cr": 1,
+    "type": "monstrosity",
+    "size": "Medium",
+    "summary": "Bite. Two-Headed, Multiattack"
+  },
+  {
+    "name": "Dire Wolf",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite. Keen Hearing and Smell, Pack Tactics"
+  },
+  {
+    "name": "Dryad",
+    "cr": 1,
+    "type": "fey",
+    "size": "Medium",
+    "summary": "Club. Innate Spellcasting, Magic Resistance, Speak with Beasts and Plants, Tree Stride, Fey Charm. 6 spells"
+  },
+  {
+    "name": "Duergar",
+    "cr": 1,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Scale Mail, Shield, War Pick, Javelin. Duergar Resilience, Sunlight Sensitivity, Enlarge, Invisibility"
+  },
+  {
+    "name": "Ghoul",
+    "cr": 1,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Bite, Claws"
+  },
+  {
+    "name": "Giant Eagle",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Beak, Talons. Keen Sight, Multiattack"
+  },
+  {
+    "name": "Giant Hyena",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite. Rampage"
+  },
+  {
+    "name": "Giant Octopus",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Tentacles. Hold Breath, Underwater Camouflage, Water Breathing, Ink Cloud"
+  },
+  {
+    "name": "Giant Spider",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite. Spider Climb, Web Sense, Web Walker, Web"
+  },
+  {
+    "name": "Giant Toad",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite. Amphibious, Standing Leap, Swallow"
+  },
+  {
+    "name": "Giant Vulture",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Beak, Talons. Keen Sight and Smell, Pack Tactics, Multiattack"
+  },
+  {
+    "name": "Harpy",
+    "cr": 1,
+    "type": "monstrosity",
+    "size": "Medium",
+    "summary": "Claws, Club. Multiattack, Luring Song"
+  },
+  {
+    "name": "Hippogriff",
+    "cr": 1,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Beak, Claws. Keen Sight, Multiattack"
+  },
+  {
+    "name": "Imp",
+    "cr": 1,
+    "type": "fiend",
+    "size": "Tiny",
+    "summary": "Sting (Bite in Beast Form). Shapechanger, Devil's Sight, Magic Resistance, Invisibility"
+  },
+  {
+    "name": "Lion",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite, Claw. Keen Smell, Pack Tactics, Pounce, Running Leap"
+  },
+  {
+    "name": "Quasit",
+    "cr": 1,
+    "type": "fiend",
+    "size": "Tiny",
+    "summary": "Claw (Bite in Beast Form). Invisibility, Shapechanger, Magic Resistance, Scare"
+  },
+  {
+    "name": "Specter",
+    "cr": 1,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Life Drain. Incorporeal Movement, Sunlight Sensitivity"
+  },
+  {
+    "name": "Spy",
+    "cr": 1,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Shortsword, Hand Crossbow. Cunning Action, Sneak Attack, Multiattack"
+  },
+  {
+    "name": "Swarm of Quippers",
+    "cr": 1,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bites. Blood Frenzy, Swarm, Water Breathing"
+  },
+  {
+    "name": "Tiger",
+    "cr": 1,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite, Claw. Keen Smell, Pounce"
+  },
+  {
+    "name": "Ankheg",
+    "cr": 2,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite. Acid Spray"
+  },
+  {
+    "name": "Awakened Tree",
+    "cr": 2,
+    "type": "plant",
+    "size": "Huge",
+    "summary": "Slam. False Appearance"
+  },
+  {
+    "name": "Azer",
+    "cr": 2,
+    "type": "elemental",
+    "size": "Medium",
+    "summary": "Shield, Warhammer. Heated Body, Heated Weapons, Illumination"
+  },
+  {
+    "name": "Bandit Captain",
+    "cr": 2,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Studded Leather Armor, Scimitar, Dagger. Multiattack, Parry"
+  },
+  {
+    "name": "Berserker",
+    "cr": 2,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Hide Armor, Greataxe. Reckless"
+  },
+  {
+    "name": "Black Dragon Wyrmling",
+    "cr": 2,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Acid Breath, Amphibious"
+  },
+  {
+    "name": "Bronze Dragon Wyrmling",
+    "cr": 2,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Amphibious, Breath Weapons"
+  },
+  {
+    "name": "Centaur",
+    "cr": 2,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Pike, Hooves, Longbow. Multiattack, Charge"
+  },
+  {
+    "name": "Cult Fanatic",
+    "cr": 2,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Leather Armor, Dagger. Dark Devotion, Spellcasting, Multiattack. 8 spells"
+  },
+  {
+    "name": "Druid",
+    "cr": 2,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Quarterstaff. Spellcasting. 9 spells"
+  },
+  {
+    "name": "Ettercap",
+    "cr": 2,
+    "type": "monstrosity",
+    "size": "Medium",
+    "summary": "Bite, Claws. Spider Climb, Web Sense, Web Walker, Multiattack, Web"
+  },
+  {
+    "name": "Gargoyle",
+    "cr": 2,
+    "type": "elemental",
+    "size": "Medium",
+    "summary": "Bite, Claws. False Appearance, Multiattack"
+  },
+  {
+    "name": "Gelatinous Cube",
+    "cr": 2,
+    "type": "ooze",
+    "size": "Large",
+    "summary": "Pseudopod. Ooze Cube, Transparent, Engulf"
+  },
+  {
+    "name": "Ghast",
+    "cr": 2,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Bite, Claws. Stench, Turn Defiance"
+  },
+  {
+    "name": "Giant Boar",
+    "cr": 2,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Tusk. Charge, Relentless"
+  },
+  {
+    "name": "Giant Constrictor Snake",
+    "cr": 2,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Bite, Constrict"
+  },
+  {
+    "name": "Giant Elk",
+    "cr": 2,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Hooves, Ram. Charge"
+  },
+  {
+    "name": "Gibbering Mouther",
+    "cr": 2,
+    "type": "aberration",
+    "size": "Medium",
+    "summary": "Bites. Aberrant Ground, Gibbering, Multiattack, Blinding Spittle"
+  },
+  {
+    "name": "Green Dragon Wyrmling",
+    "cr": 2,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Poison Breath, Amphibious"
+  },
+  {
+    "name": "Grick",
+    "cr": 2,
+    "type": "monstrosity",
+    "size": "Medium",
+    "summary": "Tentacles, Beak. Stone Camouflage, Multiattack"
+  },
+  {
+    "name": "Griffon",
+    "cr": 2,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Beak, Claws. Keen Sight, Multiattack"
+  },
+  {
+    "name": "Hunter Shark",
+    "cr": 2,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite. Blood Frenzy, Water Breathing"
+  },
+  {
+    "name": "Merrow",
+    "cr": 2,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite, Claws, Harpoon. Amphibious, Multiattack"
+  },
+  {
+    "name": "Mimic",
+    "cr": 2,
+    "type": "monstrosity",
+    "size": "Medium",
+    "summary": "Pseudopod, Bite. Shapechanger, Adhesive (Object Form Only), False Appearance (Object Form Only), Grappler"
+  },
+  {
+    "name": "Minotaur Skeleton",
+    "cr": 2,
+    "type": "undead",
+    "size": "Large",
+    "summary": "Greataxe, Gore. Charge"
+  },
+  {
+    "name": "Ochre Jelly",
+    "cr": 2,
+    "type": "ooze",
+    "size": "Large",
+    "summary": "Pseudopod. Amorphous, Spider Climb, Split"
+  },
+  {
+    "name": "Ogre",
+    "cr": 2,
+    "type": "giant",
+    "size": "Large",
+    "summary": "Greatclub, Javelin, Hide Armor"
+  },
+  {
+    "name": "Ogre Zombie",
+    "cr": 2,
+    "type": "undead",
+    "size": "Large",
+    "summary": "Morningstar. Undead Fortitude"
+  },
+  {
+    "name": "Pegasus",
+    "cr": 2,
+    "type": "celestial",
+    "size": "Large",
+    "summary": "Hooves"
+  },
+  {
+    "name": "Plesiosaurus",
+    "cr": 2,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite. Hold Breath"
+  },
+  {
+    "name": "Polar Bear",
+    "cr": 2,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite, Claws. Keen Smell, Multiattack"
+  },
+  {
+    "name": "Priest",
+    "cr": 2,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Mace, Chain Shirt. Spellcasting, Divine Eminence. 10 spells"
+  },
+  {
+    "name": "Rhinoceros",
+    "cr": 2,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Gore. Charge"
+  },
+  {
+    "name": "Rug of Smothering",
+    "cr": 2,
+    "type": "construct",
+    "size": "Large",
+    "summary": "Smother. Antimagic Susceptibility, Damage Transfer, False Appearance"
+  },
+  {
+    "name": "Saber-Toothed Tiger",
+    "cr": 2,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Bite, Claw. Keen Smell, Pounce"
+  },
+  {
+    "name": "Sea Hag",
+    "cr": 2,
+    "type": "fey",
+    "size": "Medium",
+    "summary": "Claws. Amphibious, Horrific Appearance, Death Glare, Illusory Appearance"
+  },
+  {
+    "name": "Silver Dragon Wyrmling",
+    "cr": 2,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Breath Weapons"
+  },
+  {
+    "name": "Swarm of Poisonous Snakes",
+    "cr": 2,
+    "type": "beast",
+    "size": "Medium",
+    "summary": "Bites. Swarm"
+  },
+  {
+    "name": "Wererat",
+    "cr": 2,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Bite (Rat or Hybrid Form Only), Hand Crossbow (Humanoid or Hybrid Form Only), Shortsword (Humanoid or Hybrid Form Only). Shapechanger, Keen Smell, Multiattack (Humanoid or Hybrid Form Only)"
+  },
+  {
+    "name": "White Dragon Wyrmling",
+    "cr": 2,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Cold Breath"
+  },
+  {
+    "name": "Will-o'-Wisp",
+    "cr": 2,
+    "type": "undead",
+    "size": "Tiny",
+    "summary": "Shock. Consume Life, Ephemeral, Incorporeal Movement, Variable Illumination, Invisibility"
+  },
+  {
+    "name": "Basilisk",
+    "cr": 3,
+    "type": "monstrosity",
+    "size": "Medium",
+    "summary": "Bite. Petrifying Gaze"
+  },
+  {
+    "name": "Bearded Devil",
+    "cr": 3,
+    "type": "fiend",
+    "size": "Medium",
+    "summary": "Beard, Glaive. Devil's Sight, Magic Resistance, Steadfast, Multiattack"
+  },
+  {
+    "name": "Blue Dragon Wyrmling",
+    "cr": 3,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Lightning Breath"
+  },
+  {
+    "name": "Doppelganger",
+    "cr": 3,
+    "type": "monstrosity",
+    "size": "Medium",
+    "summary": "Slam. Ambusher, Surprise Attack, Multiattack, Read Thoughts, Shapechanger"
+  },
+  {
+    "name": "Giant Scorpion",
+    "cr": 3,
+    "type": "beast",
+    "size": "Large",
+    "summary": "Claw, Sting. Multiattack"
+  },
+  {
+    "name": "Gold Dragon Wyrmling",
+    "cr": 3,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Amphibious, Breath Weapons"
+  },
+  {
+    "name": "Green Hag",
+    "cr": 3,
+    "type": "fey",
+    "size": "Medium",
+    "summary": "Claws. Amphibious, Innate Spellcasting, Mimicry, Illusory Appearance, Invisible Passage. 3 spells"
+  },
+  {
+    "name": "Hell Hound",
+    "cr": 3,
+    "type": "fiend",
+    "size": "Medium",
+    "summary": "Bite. Keen Hearing and Smell, Pack Tactics, Fire Breath"
+  },
+  {
+    "name": "Killer Whale",
+    "cr": 3,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Bite. Echolocation, Hold Breath, Keen Hearing"
+  },
+  {
+    "name": "Knight",
+    "cr": 3,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Plate Armor, Greatsword, Heavy Crossbow. Multiattack, Leadership, Parry, Brave"
+  },
+  {
+    "name": "Manticore",
+    "cr": 3,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite, Claw, Tail Spike. Tail Spike Regrowth, Multiattack"
+  },
+  {
+    "name": "Minotaur",
+    "cr": 3,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Greataxe, Gore. Charge, Labyrinthine Recall, Reckless"
+  },
+  {
+    "name": "Mummy",
+    "cr": 3,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Rotting Fist. Multiattack, Dreadful Glare"
+  },
+  {
+    "name": "Nightmare",
+    "cr": 3,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Hooves. Confer Fire Resistance, Illumination, Ethereal Stride"
+  },
+  {
+    "name": "Owlbear",
+    "cr": 3,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Beak, Claws. Keen Sight and Smell, Multiattack"
+  },
+  {
+    "name": "Phase Spider",
+    "cr": 3,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite. Ethereal Jaunt, Spider Climb, Web Walker"
+  },
+  {
+    "name": "Veteran",
+    "cr": 3,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Splint Armor, Longsword, Shortsword, Heavy Crossbow. Multiattack"
+  },
+  {
+    "name": "Werewolf",
+    "cr": 3,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Bite (Wolf or Hybrid Form Only), Spear (Humanoid Form Only), Claws (Hybrid Form Only). Multiattack (Humanoid or Hybrid Form Only), Shapechanger, Keen Hearing and Smell"
+  },
+  {
+    "name": "Wight",
+    "cr": 3,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Studded Leather Armor, Longbow, Longsword, Life Drain. Sunlight Sensitivity, Multiattack"
+  },
+  {
+    "name": "Winter Wolf",
+    "cr": 3,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite. Keen Hearing and Smell, Pack Tactics, Snow Camouflage, Cold Breath"
+  },
+  {
+    "name": "Black Pudding",
+    "cr": 4,
+    "type": "ooze",
+    "size": "Large",
+    "summary": "Pseudopod. Amorphous, Corrosive Form, Spider Climb, Split"
+  },
+  {
+    "name": "Chuul",
+    "cr": 4,
+    "type": "aberration",
+    "size": "Large",
+    "summary": "Pincer. Tentacles, Amphibious, Multiattack, Sense Magic"
+  },
+  {
+    "name": "Couatl",
+    "cr": 4,
+    "type": "celestial",
+    "size": "Medium",
+    "summary": "Bite, Constrict. Change Shape, Innate Spellcasting, Magic Weapons, Shielded Mind. 13 spells"
+  },
+  {
+    "name": "Elephant",
+    "cr": 4,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Gore, Stomp. Trampling Charge"
+  },
+  {
+    "name": "Ettin",
+    "cr": 4,
+    "type": "giant",
+    "size": "Large",
+    "summary": "Battleaxe, Morningstar. Two Heads, Wakeful, Multiattack"
+  },
+  {
+    "name": "Ghost",
+    "cr": 4,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Withering Touch. Ethereal Sight, Incorporeal Movement, Etherealness, Horrifying Visage, Possession"
+  },
+  {
+    "name": "Lamia",
+    "cr": 4,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Claws, Dagger. Innate Spellcasting, Multiattack, Intoxicating Touch. 7 spells"
+  },
+  {
+    "name": "Red Dragon Wyrmling",
+    "cr": 4,
+    "type": "dragon",
+    "size": "Medium",
+    "summary": "Bite. Fire Breath"
+  },
+  {
+    "name": "Succubus/Incubus",
+    "cr": 4,
+    "type": "fiend",
+    "size": "Medium",
+    "summary": "Claw (Fiend Form Only). Telepathic Bond, Shapechanger, Charm, Draining Kiss, Etherealness"
+  },
+  {
+    "name": "Wereboar",
+    "cr": 4,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Tusks (Boar or Hybrid Form Only), Maul (Humanoid or Hybrid Form Only). Charge (Boar or Hybrid Form Only), Multiattack (Humanoid or Hybrid Form Only), Relentless, Shapechanger"
+  },
+  {
+    "name": "Weretiger",
+    "cr": 4,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Bite (Tiger or Hybrid Form Only), Claw (Tiger or Hybrid Form Only), Scimitar (Humanoid or Hybrid Form Only), Longbow (Humanoid or Hybrid Form Only). Shapechanger, Keen Hearing and Smell, Pounce (Tiger or Hybrid Form Only), Multiattack (Humanoid or Hybrid Form Only)"
+  },
+  {
+    "name": "Air Elemental",
+    "cr": 5,
+    "type": "elemental",
+    "size": "Large",
+    "summary": "Slam. Air Form, Multiattack, Whirlwind"
+  },
+  {
+    "name": "Barbed Devil",
+    "cr": 5,
+    "type": "fiend",
+    "size": "Medium",
+    "summary": "Claw, Tail, Hurl Flame. Barbed Hide, Devil's Sight, Magic Resistance, Multiattack"
+  },
+  {
+    "name": "Bulette",
+    "cr": 5,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite. Standing Leap, Deadly leap"
+  },
+  {
+    "name": "Earth Elemental",
+    "cr": 5,
+    "type": "elemental",
+    "size": "Large",
+    "summary": "Slam. Earth Glide, Siege Monster, Multiattack"
+  },
+  {
+    "name": "Fire Elemental",
+    "cr": 5,
+    "type": "elemental",
+    "size": "Large",
+    "summary": "Touch. Fire Form, Illumination, Water Susceptibility, Multiattack"
+  },
+  {
+    "name": "Flesh Golem",
+    "cr": 5,
+    "type": "construct",
+    "size": "Medium",
+    "summary": "Slam. Berserk, Aversion of Fire, Immutable Form, Lightning Absorption, Magic Resistance, Magic Weapons, Multiattack"
+  },
+  {
+    "name": "Giant Crocodile",
+    "cr": 5,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Bite, Tail. Hold Breath, Multiattack"
+  },
+  {
+    "name": "Giant Shark",
+    "cr": 5,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Bite. Blood Frenzy, Water Breathing"
+  },
+  {
+    "name": "Gladiator",
+    "cr": 5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Studded Leather Armor, Shield, Spear, Shield Bash. Brave, Brute, Multiattack, Parry"
+  },
+  {
+    "name": "Gorgon",
+    "cr": 5,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Gore, Hooves. Trampling Charge, Petrifying Breath"
+  },
+  {
+    "name": "Half-Red Dragon Veteran",
+    "cr": 5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Plate Armor, Longsword, Shortsword, Heavy Crossbow. Multiattack, Fire Breath"
+  },
+  {
+    "name": "Hill Giant",
+    "cr": 5,
+    "type": "giant",
+    "size": "Huge",
+    "summary": "Greatclub, Rock. Multiattack"
+  },
+  {
+    "name": "Night Hag",
+    "cr": 5,
+    "type": "fiend",
+    "size": "Medium",
+    "summary": "Claws (Hag Form Only). Innate Spellcasting, Magic Resistance, Change Shape, Etherealness, Nightmare Haunting. 5 spells"
+  },
+  {
+    "name": "Otyugh",
+    "cr": 5,
+    "type": "aberration",
+    "size": "Large",
+    "summary": "Bite, Tentacle. Limited Telepathy, Tentacle Slam, Multiattack"
+  },
+  {
+    "name": "Roper",
+    "cr": 5,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite, Tendril. False Appearance, Grasping Tendrils, Spider Climb, Reel, Multiattack"
+  },
+  {
+    "name": "Salamander",
+    "cr": 5,
+    "type": "elemental",
+    "size": "Large",
+    "summary": "Tail, Spear. Heated Body, Heated Weapons, Multiattack"
+  },
+  {
+    "name": "Shambling Mound",
+    "cr": 5,
+    "type": "plant",
+    "size": "Large",
+    "summary": "Slam. Lightning Absorption, Multiattack, Engulf"
+  },
+  {
+    "name": "Triceratops",
+    "cr": 5,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Gore, Stomp. Trampling Charge"
+  },
+  {
+    "name": "Troll",
+    "cr": 5,
+    "type": "giant",
+    "size": "Large",
+    "summary": "Bite, Claw. Keen Smell, Multiattack, Regeneration"
+  },
+  {
+    "name": "Unicorn",
+    "cr": 5,
+    "type": "celestial",
+    "size": "Large",
+    "summary": "Hooves, Horn. Charge, Innate Spellcasting, Magic Resistance, Magic Weapons, Multiattack, Healing Touch, Teleport, Legendary Actions, Hooves, Shimmering Shield, Heal Self. 6 spells"
+  },
+  {
+    "name": "Vampire Spawn",
+    "cr": 5,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Bite, Claws. Multiattack, Regeneration, Spider Climb, Vampire Weaknesses"
+  },
+  {
+    "name": "Water Elemental",
+    "cr": 5,
+    "type": "elemental",
+    "size": "Large",
+    "summary": "Slam. Freeze, Water Form, Multiattack, Whelm"
+  },
+  {
+    "name": "Werebear",
+    "cr": 5,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Bite (Bear or Hybrid Form Only), Claw (Bear or Hybrid Form Only), Greataxe (Humanoid or Hybrid Form Only). Shapechanger, Keen Smell, Multiattack"
+  },
+  {
+    "name": "Wraith",
+    "cr": 5,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Life Drain. Create Specter, Incorporeal Movement, Sunlight Sensitivity"
+  },
+  {
+    "name": "Xorn",
+    "cr": 5,
+    "type": "elemental",
+    "size": "Medium",
+    "summary": "Bite, Claw. Earth Glide, Multiattack, Stone Camouflage, Treasure Sense"
+  },
+  {
+    "name": "Chimera",
+    "cr": 6,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite, Claws, Horns. Fire Breath, Multiattack"
+  },
+  {
+    "name": "Drider",
+    "cr": 6,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite, Longsword, Longbow. Fey Ancestry, Innate Spellcasting, Spider Climb, Sunlight Sensitivity, Web Walker, Multiattack. 3 spells"
+  },
+  {
+    "name": "Invisible Stalker",
+    "cr": 6,
+    "type": "elemental",
+    "size": "Medium",
+    "summary": "Slam. Faultless Tracker, Invisibility, Multiattack"
+  },
+  {
+    "name": "Mage",
+    "cr": 6,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Dagger. Spellcasting. 16 spells"
+  },
+  {
+    "name": "Mammoth",
+    "cr": 6,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Gore, Stomp. Trampling Charge"
+  },
+  {
+    "name": "Medusa",
+    "cr": 6,
+    "type": "monstrosity",
+    "size": "Medium",
+    "summary": "Snake Hair, Shortsword, Longbow. Petrifying Gaze, Multiattack"
+  },
+  {
+    "name": "Vrock",
+    "cr": 6,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Beak, Talons. Magic Resistance, Multiattack, Spores, Stunning Screech"
+  },
+  {
+    "name": "Wyvern",
+    "cr": 6,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claws, Stinger. Multiattack"
+  },
+  {
+    "name": "Young Brass Dragon",
+    "cr": 6,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Breath Weapons, Multiattack"
+  },
+  {
+    "name": "Young White Dragon",
+    "cr": 6,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Cold Breath, Ice Walk, Multiattack"
+  },
+  {
+    "name": "Giant Ape",
+    "cr": 7,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Fist, Rock. Multiattack"
+  },
+  {
+    "name": "Oni",
+    "cr": 7,
+    "type": "giant",
+    "size": "Large",
+    "summary": "Chain Mail, Glaive, Claw (Oni Form Only). Innate Spellcasting, Multiattack, Regeneration, Magic Weapons, Change Shape. 6 spells"
+  },
+  {
+    "name": "Shield Guardian",
+    "cr": 7,
+    "type": "construct",
+    "size": "Large",
+    "summary": "Fist. Bound, Regeneration, Spell Storing, Multiattack, Shield"
+  },
+  {
+    "name": "Stone Giant",
+    "cr": 7,
+    "type": "giant",
+    "size": "Huge",
+    "summary": "Greatclub, Rock. Multiattack, Rock Catching, Stone Camouflage"
+  },
+  {
+    "name": "Young Black Dragon",
+    "cr": 7,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Acid Breath, Amphibious, Multiattack"
+  },
+  {
+    "name": "Young Copper Dragon",
+    "cr": 7,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Multiattack, Breath Weapons"
+  },
+  {
+    "name": "Assassin",
+    "cr": 8,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Studded Leather Armor, Shortsword, Light Crossbow. Assassinate, Evasion, Sneak Attack, Multiattack"
+  },
+  {
+    "name": "Chain Devil",
+    "cr": 8,
+    "type": "fiend",
+    "size": "Medium",
+    "summary": "Chain. Unnerving Mask, Devil's Sight, Magic Resistance, Multiattack, Animate Chains"
+  },
+  {
+    "name": "Cloaker",
+    "cr": 8,
+    "type": "aberration",
+    "size": "Large",
+    "summary": "Bite, Tail. Damage Transfer, False Appearance, Light Sensitivity, Multiattack, Moan, Phantasms"
+  },
+  {
+    "name": "Frost Giant",
+    "cr": 8,
+    "type": "giant",
+    "size": "Huge",
+    "summary": "Rock, Patchwork Armor, Greataxe. Multiattack"
+  },
+  {
+    "name": "Hezrou",
+    "cr": 8,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Bite, Claws. Magic Resistance, Stench, Multiattack"
+  },
+  {
+    "name": "Hydra",
+    "cr": 8,
+    "type": "monstrosity",
+    "size": "Huge",
+    "summary": "Bite. Hold Breath, Multiple Heads, Reactive Heads, Wakeful, Multiattack"
+  },
+  {
+    "name": "Spirit Naga",
+    "cr": 8,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite. Rejuvenation, Spellcasting. 13 spells"
+  },
+  {
+    "name": "Tyrannosaurus Rex",
+    "cr": 8,
+    "type": "beast",
+    "size": "Huge",
+    "summary": "Bite, Tail. Multiattack"
+  },
+  {
+    "name": "Young Bronze Dragon",
+    "cr": 8,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Amphibious, Multiattack, Breath Weapons"
+  },
+  {
+    "name": "Young Green Dragon",
+    "cr": 8,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Amphibious, Multiattack, Poison Breath"
+  },
+  {
+    "name": "Bone Devil",
+    "cr": 9,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Claw, Sting. Devil Sight, Magic Resistance, Multiattack"
+  },
+  {
+    "name": "Clay Golem",
+    "cr": 9,
+    "type": "construct",
+    "size": "Large",
+    "summary": "Slam. Haste, Magic Resistance, Berserk, Immutable Form, Magic Weapons, Acid Absorption, Multiattack"
+  },
+  {
+    "name": "Cloud Giant",
+    "cr": 9,
+    "type": "giant",
+    "size": "Huge",
+    "summary": "Morningstar, Rock. Keen Smell, Innate Spellcasting, Multiattack. 9 spells"
+  },
+  {
+    "name": "Fire Giant",
+    "cr": 9,
+    "type": "giant",
+    "size": "Huge",
+    "summary": "Plate Armor, Greatsword, Rock. Multiattack"
+  },
+  {
+    "name": "Glabrezu",
+    "cr": 9,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Pincer, Fist. Innate Spellcasting, Magic Resistance, Multiattack. 6 spells"
+  },
+  {
+    "name": "Treant",
+    "cr": 9,
+    "type": "plant",
+    "size": "Huge",
+    "summary": "Rock, Slam. Animate Trees, False Appearance, Multiattack, Siege Monster"
+  },
+  {
+    "name": "Young Blue Dragon",
+    "cr": 9,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Lightning Breath, Multiattack"
+  },
+  {
+    "name": "Young Silver Dragon",
+    "cr": 9,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Multiattack, Breath Weapons"
+  },
+  {
+    "name": "Aboleth",
+    "cr": 10,
+    "type": "aberration",
+    "size": "Large",
+    "summary": "Tentacle, Tail. Enslave, Detect, Tail Swipe, Psychic Drain, Mucous Cloud, Probing Telepathy, Amphibious, Multiattack, Legendary Actions"
+  },
+  {
+    "name": "Deva",
+    "cr": 10,
+    "type": "celestial",
+    "size": "Medium",
+    "summary": "Mace. Angelic Weapons, Change Shape, Healing Touch, Innate Spellcasting, Magic Resistance, Multiattack. 3 spells"
+  },
+  {
+    "name": "Guardian Naga",
+    "cr": 10,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Bite, Spit Poison. Rejuvenation, Spellcasting. 15 spells"
+  },
+  {
+    "name": "Stone Golem",
+    "cr": 10,
+    "type": "construct",
+    "size": "Large",
+    "summary": "Slam. Immutable Form, Magic Resistance, Magic Weapons, Multiattack, Slow"
+  },
+  {
+    "name": "Young Gold Dragon",
+    "cr": 10,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Amphibious, Multiattack, Breath Weapons"
+  },
+  {
+    "name": "Young Red Dragon",
+    "cr": 10,
+    "type": "dragon",
+    "size": "Large",
+    "summary": "Bite, Claw. Fire Breath, Multiattack"
+  },
+  {
+    "name": "Behir",
+    "cr": 11,
+    "type": "monstrosity",
+    "size": "Huge",
+    "summary": "Bite, Constrict. Multiattack, Lightning Breath, Swallow"
+  },
+  {
+    "name": "Djinni",
+    "cr": 11,
+    "type": "elemental",
+    "size": "Large",
+    "summary": "Scimitar. Elemental Demise, Innate Spellcasting, Multiattack, Create Whirlwind. 12 spells"
+  },
+  {
+    "name": "Efreeti",
+    "cr": 11,
+    "type": "elemental",
+    "size": "Large",
+    "summary": "Scimitar, Hurl Flame. Elemental Demise, Innate Spellcasting, Multiattack. 9 spells"
+  },
+  {
+    "name": "Gynosphinx",
+    "cr": 11,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Claw. Inscrutable, Magic Weapons, Spellcasting, Multiattack, Claw Attack, Teleport, Cast a Spell. 15 spells"
+  },
+  {
+    "name": "Horned Devil",
+    "cr": 11,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Fork, Tail, Hurl Flame. Devil's Sight, Magic Resistance, Multiattack"
+  },
+  {
+    "name": "Remorhaz",
+    "cr": 11,
+    "type": "monstrosity",
+    "size": "Huge",
+    "summary": "Bite, Swallow. Heated Body"
+  },
+  {
+    "name": "Roc",
+    "cr": 11,
+    "type": "monstrosity",
+    "size": "Gargantuan",
+    "summary": "Beak, Talons. Keen Sight, Multiattack"
+  },
+  {
+    "name": "Archmage",
+    "cr": 12,
+    "type": "humanoid",
+    "size": "Medium",
+    "summary": "Dagger. Spellcasting, Magic Resistance. 27 spells"
+  },
+  {
+    "name": "Erinyes",
+    "cr": 12,
+    "type": "fiend",
+    "size": "Medium",
+    "summary": "Longsword, Plate Armor, Longbow. Hellish Weapons, Parry, Magic Resistance, Multiattack"
+  },
+  {
+    "name": "Adult Brass Dragon",
+    "cr": 13,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Detect, Frightful Presence, Legendary Actions, Legendary Resistance, Multiattack, Breath Weapons"
+  },
+  {
+    "name": "Adult White Dragon",
+    "cr": 13,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Cold Breath, Detect, Frightful Presence, Ice Walk, Legendary Actions, Legendary Resistance, Multiattack"
+  },
+  {
+    "name": "Nalfeshnee",
+    "cr": 13,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Bite, Claw. Magic Resistance, Multiattack, Horror Nimbus, Teleport"
+  },
+  {
+    "name": "Rakshasa",
+    "cr": 13,
+    "type": "fiend",
+    "size": "Medium",
+    "summary": "Claw. Limited Magic Immunity, Innate Spellcasting, Multiattack. 13 spells"
+  },
+  {
+    "name": "Storm Giant",
+    "cr": 13,
+    "type": "giant",
+    "size": "Huge",
+    "summary": "Scale Mail, Greatsword, Lightning Strike, Rock. Amphibious, Innate Spellcasting, Multiattack. 6 spells"
+  },
+  {
+    "name": "Vampire",
+    "cr": 13,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Unarmed Strike (Vampire Form Only), Bite (Bat or Vampire Form Only). Shapechanger, Legendary Resistance, Misty Escape, Regeneration, Spider Climb, Vampire Weaknesses, Multiattack (Vampire Form Only), Charm, Children of the Night, Legendary Actions, Move, Unarmed Strike, Bite"
+  },
+  {
+    "name": "Adult Black Dragon",
+    "cr": 14,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Multiattack, Frightful Presence, Amphibious, Legendary Resistance, Acid Breath, Legendary Actions, Detect"
+  },
+  {
+    "name": "Adult Copper Dragon",
+    "cr": 14,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Legendary Actions, Detect, Breath Weapons"
+  },
+  {
+    "name": "Ice Devil",
+    "cr": 14,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Bite, Tail, Claws. Devil's Sight, Magic Resistance, Wall of Ice, Multiattack"
+  },
+  {
+    "name": "Adult Bronze Dragon",
+    "cr": 15,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Change Shape, Legendary Actions, Detect, Breath Weapons"
+  },
+  {
+    "name": "Adult Green Dragon",
+    "cr": 15,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Poison Breath, Legendary Actions, Detect"
+  },
+  {
+    "name": "Mummy Lord",
+    "cr": 15,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Rotting Fist. Blinding Dust, Blasphemous Word, Channel Negative Energy, Magic Resistance, Rejuvenation, Spellcasting, Multiattack, Dreadful Glare, Legendary Actions, Attack, Whirlwind of Sand. 15 spells"
+  },
+  {
+    "name": "Purple Worm",
+    "cr": 15,
+    "type": "monstrosity",
+    "size": "Gargantuan",
+    "summary": "Bite, Tail Stinger. Tunneler, Multiattack"
+  },
+  {
+    "name": "Adult Blue Dragon",
+    "cr": 16,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Detect, Frightful Presence, Legendary Actions, Legendary Resistance, Lightning Breath, Multiattack"
+  },
+  {
+    "name": "Adult Silver Dragon",
+    "cr": 16,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Change Shape, Legendary Actions, Detect, Breath Weapons"
+  },
+  {
+    "name": "Iron Golem",
+    "cr": 16,
+    "type": "construct",
+    "size": "Large",
+    "summary": "Slam, Sword. Fire Absorption, Immutable Form, Magic Resistance, Magic Weapons, Multiattack, Poison Breath"
+  },
+  {
+    "name": "Marilith",
+    "cr": 16,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Longsword, Tail. Magic Resistance, Magic Weapons, Reactive, Multiattack, Teleport, Parry"
+  },
+  {
+    "name": "Planetar",
+    "cr": 16,
+    "type": "celestial",
+    "size": "Large",
+    "summary": "Greatsword. Angelic Weapons, Divine Awareness, Innate Spellcasting, Magic Resistance, Multiattack, Healing Touch. 9 spells"
+  },
+  {
+    "name": "Adult Gold Dragon",
+    "cr": 17,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Change Shape, Legendary Actions, Detect, Breath Weapons"
+  },
+  {
+    "name": "Adult Red Dragon",
+    "cr": 17,
+    "type": "dragon",
+    "size": "Huge",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Fire Breath, Legendary Actions, Detect"
+  },
+  {
+    "name": "Androsphinx",
+    "cr": 17,
+    "type": "monstrosity",
+    "size": "Large",
+    "summary": "Claw. Inscrutable, Magic Weapons, Spellcasting, Multiattack, Roar, Claw Attack, Teleport, Cast a Spell. 15 spells"
+  },
+  {
+    "name": "Dragon Turtle",
+    "cr": 17,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail. Amphibious, Multiattack, Steam Breath"
+  },
+  {
+    "name": "Balor",
+    "cr": 19,
+    "type": "fiend",
+    "size": "Huge",
+    "summary": "Longsword, Whip. Death Throes, Fire Aura, Magic Resistance, Magic Weapons, Multiattack, Teleport"
+  },
+  {
+    "name": "Ancient Brass Dragon",
+    "cr": 20,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Breath Weapons, Change Shape, Legendary Actions, Detect"
+  },
+  {
+    "name": "Ancient White Dragon",
+    "cr": 20,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Cold Breath, Detect, Frightful Presence, Ice Walk, Legendary Actions, Legendary Resistance, Multiattack"
+  },
+  {
+    "name": "Pit Fiend",
+    "cr": 20,
+    "type": "fiend",
+    "size": "Large",
+    "summary": "Bite, Claw, Mace, Tail. Fear Aura, Magic Resistance, Magic Weapons, Innate Spellcasting, Multiattack. 4 spells"
+  },
+  {
+    "name": "Ancient Black Dragon",
+    "cr": 21,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Acid Breath, Legendary Actions, Detect"
+  },
+  {
+    "name": "Ancient Copper Dragon",
+    "cr": 21,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Actions, Legendary Resistance, Frightful Presence, Change Shape, Multiattack, Detect, Breath Weapons"
+  },
+  {
+    "name": "Lich",
+    "cr": 21,
+    "type": "undead",
+    "size": "Medium",
+    "summary": "Paralyzing Touch. Cantrip, Paralyzing Touch, Frightening Gaze, Disrupt Life, Legendary Resistance, Rejuvenation, Spellcasting, Turn Resistance, Legendary Actions. 26 spells"
+  },
+  {
+    "name": "Solar",
+    "cr": 21,
+    "type": "celestial",
+    "size": "Large",
+    "summary": "Greatsword, Slaying Longbow. Angelic Weapons, Divine Awareness, Flying Sword, Healing Touch, Innate Spellcasting, Magic Resistance, Multiattack, Legendary Actions, Teleport, Searing Burst, Blinding Gaze. 7 spells"
+  },
+  {
+    "name": "Ancient Bronze Dragon",
+    "cr": 22,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Breath Weapons, Change Shape, Legendary Actions, Detect"
+  },
+  {
+    "name": "Ancient Green Dragon",
+    "cr": 22,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Poison Breath, Legendary Actions, Detect"
+  },
+  {
+    "name": "Ancient Blue Dragon",
+    "cr": 23,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Legendary Actions, Detect, Frightful Presence, Lightning Breath"
+  },
+  {
+    "name": "Ancient Silver Dragon",
+    "cr": 23,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Legendary Resistance, Multiattack, Frightful Presence, Breath Weapons, Change Shape, Legendary Actions, Detect"
+  },
+  {
+    "name": "Kraken",
+    "cr": 23,
+    "type": "monstrosity",
+    "size": "Gargantuan",
+    "summary": "Bite, Tentacle. Amphibious, Freedom of Movement, Siege Monster, Multiattack, Fling, Lightning Storm, Legendary Actions, Tentacle Attack or Fling, Lightning Storm, Ink Cloud"
+  },
+  {
+    "name": "Ancient Gold Dragon",
+    "cr": 24,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Amphibious, Legendary Resistance, Multiattack, Frightful Presence, Breath Weapons, Legendary Actions, Detect, Change Shape"
+  },
+  {
+    "name": "Ancient Red Dragon",
+    "cr": 24,
+    "type": "dragon",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Tail, Tail Attack, Wing Attack. Frightful Presence, Fire Breath, Legendary Resistance, Multiattack, Legendary Actions, Detect"
+  },
+  {
+    "name": "Tarrasque",
+    "cr": 30,
+    "type": "monstrosity",
+    "size": "Gargantuan",
+    "summary": "Bite, Claw, Horns, Tail, Swallow. Legendary Resistance, Magic Resistance, Reflective Carapace, Siege Monster, Multiattack, Frightful Presence, Legendary Actions, Attack, Move, Chomp"
+  }
+]
