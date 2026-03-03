@@ -17,6 +17,12 @@ const PATH_LABELS = {
   "system.mastery":                   "Weapon Mastery",
   "system.description.value":         "Description",
   "system.details.biography.value":   "Biography",
+  "system.details.type.value":        "Creature Type",
+  "system.details.type.subtype":      "Subtype",
+  "system.details.cr":                "CR",
+  "system.details.xp.value":          "XP",
+  "system.details.alignment":         "Alignment",
+  "system.details.environment":       "Environment",
   "system.damage.base.formula":       "Damage",
   "system.damage.base.types":         "Damage Types",
   "system.damage.versatile.formula":  "Versatile Damage",
@@ -29,7 +35,144 @@ const PATH_LABELS = {
   "system.price.value":               "Price",
   "system.price.denomination":        "Currency",
   "system.weight.value":              "Weight",
+  // Abilities
+  "system.abilities.str.value":       "STR",
+  "system.abilities.dex.value":       "DEX",
+  "system.abilities.con.value":       "CON",
+  "system.abilities.int.value":       "INT",
+  "system.abilities.wis.value":       "WIS",
+  "system.abilities.cha.value":       "CHA",
+  // Common nested fields
+  "system.attributes.hp.value":       "HP",
+  "system.attributes.hp.max":         "HP Max",
+  "system.attributes.hp.formula":     "HP Formula",
+  "system.attributes.ac.value":       "AC",
+  "system.attributes.ac.flat":        "AC (flat)",
+  "system.attributes.movement.walk":  "Speed (walk)",
+  "system.attributes.movement.fly":   "Speed (fly)",
+  "system.attributes.movement.swim":  "Speed (swim)",
+  "system.attributes.movement.burrow":"Speed (burrow)",
+  "system.attributes.movement.climb": "Speed (climb)",
+  "system.attributes.senses.darkvision":    "Darkvision",
+  "system.attributes.senses.blindsight":    "Blindsight",
+  "system.attributes.senses.tremorsense":   "Tremorsense",
+  "system.attributes.senses.truesight":     "Truesight",
+  "system.attributes.senses.special":       "Special Senses",
 };
+
+/**
+ * Derive a short human-readable label from a dotted path.
+ * Uses PATH_LABELS for known paths, otherwise extracts the last
+ * meaningful segment(s) and title-cases them.
+ */
+function pathLabel(path) {
+  if (PATH_LABELS[path]) return PATH_LABELS[path];
+  // Take last 1-2 segments, skip generic ones like "value"
+  const parts = path.split(".");
+  const skip = new Set(["system", "value", "values", "max", "min"]);
+  const meaningful = parts.filter(p => !skip.has(p));
+  const tail = meaningful.slice(-2).join(" ");
+  return tail.charAt(0).toUpperCase() + tail.slice(1);
+}
+
+/**
+ * Semantic groups for organising actor-change fields.
+ * Each entry: { label, paths[] }.  Paths are matched as prefixes so
+ * "system.attributes" catches "system.attributes.hp.max" etc.
+ * Fields that don't match any group fall into "Other".
+ */
+const FIELD_GROUPS = [
+  {
+    key: "identity",
+    label: "Identity",
+    paths: [
+      "name", "system.rarity", "system.type", "system.attunement",
+      "system.mastery", "system.description", "system.details.biography",
+      "system.details.type",
+    ],
+  },
+  {
+    key: "stats",
+    label: "Base Stats",
+    paths: [
+      "system.abilities",
+    ],
+  },
+  {
+    key: "combat",
+    label: "Combat",
+    paths: [
+      "system.attributes.hp", "system.attributes.ac",
+      "system.attributes.movement", "system.attributes.init",
+      "system.damage", "system.armor", "system.strength",
+      "system.properties", "system.bonuses",
+    ],
+  },
+  {
+    key: "skills",
+    label: "Skills & Senses",
+    paths: [
+      "system.skills", "system.attributes.senses",
+      "system.tools", "system.traits",
+    ],
+  },
+  {
+    key: "details",
+    label: "Details",
+    paths: [
+      "system.details.cr", "system.details.xp",
+      "system.details.environment", "system.details.alignment",
+      "system.details.source",
+    ],
+  },
+  {
+    key: "physical",
+    label: "Physical",
+    paths: [
+      "system.price", "system.weight", "system.uses",
+    ],
+  },
+];
+
+/**
+ * Assign a flat field entry to a semantic group.
+ * Returns the group key, or "other" if no group matches.
+ */
+function fieldGroup(path) {
+  for (const g of FIELD_GROUPS) {
+    if (g.paths.some(p => path === p || path.startsWith(p + "."))) return g.key;
+  }
+  return "other";
+}
+
+/**
+ * Resolve a dotted path against an object, returning undefined if missing.
+ */
+function resolvePath(obj, path) {
+  let cur = obj;
+  for (const p of path.split(".")) {
+    if (cur == null) return undefined;
+    cur = cur[p];
+  }
+  return cur;
+}
+
+/**
+ * Check whether two values are deeply equal (good enough for JSON-safe data).
+ */
+function deepEqual(a, b) {
+  if (a === b) return true;
+  if (a == null || b == null) return false;
+  if (typeof a !== typeof b) return false;
+  if (Array.isArray(a)) {
+    return Array.isArray(b) && a.length === b.length && a.every((v, i) => deepEqual(v, b[i]));
+  }
+  if (typeof a === "object") {
+    const ka = Object.keys(a), kb = Object.keys(b);
+    return ka.length === kb.length && ka.every(k => deepEqual(a[k], b[k]));
+  }
+  return false;
+}
 
 /**
  * Flatten a nested object into an array of { path, value } entries.
@@ -465,14 +608,6 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     await this.document.createEmbeddedDocuments("Item", [flagged]);
   }
 
-  /**
-   * Apply all actor-level changes (but not embedded items).
-   */
-  async _onApplyGroup() {
-    if (!this.lastResult || !Object.keys(this.lastResult).length) return;
-    await this.document.update(this.lastResult);
-  }
-
   _setStatus(label, semanticState = "generating") {
     const el = this.element?.querySelector(".simsala-status");
     if (!el) return;
@@ -570,75 +705,99 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
   _renderResult(container, data) {
     const { actorUpdate, embeddedItems } = data;
 
-    // --- Actor changes (collapsible) ---
+    // --- Actor changes (grouped, filtered) ---
     if (actorUpdate && Object.keys(actorUpdate).length) {
-      const details = document.createElement("details");
-      details.className = "simsala-result-group";
-
-      const summary = document.createElement("summary");
-      const summaryLabel = document.createElement("span");
-      summaryLabel.textContent = "Actor Changes";
-      summary.appendChild(summaryLabel);
-
-      const applyAll = document.createElement("button");
-      applyAll.type = "button";
-      applyAll.className = "simsala-apply-group";
-      applyAll.textContent = "Apply All";
-      applyAll.addEventListener("click", async (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        await this._onApplyGroup();
-        details.classList.add("simsala-result-applied");
-        applyAll.disabled = true;
-        applyAll.textContent = "Applied";
-        // Also mark all field buttons as applied
-        for (const btn of details.querySelectorAll(".simsala-apply-field")) {
-          btn.disabled = true;
-          btn.textContent = "Applied";
-        }
+      // Flatten and filter out fields unchanged from current document
+      const currentData = this.document.toObject();
+      const allFields = flattenObject(actorUpdate).filter(({ path, value }) => {
+        const current = resolvePath(currentData, path);
+        return !deepEqual(current, value);
       });
-      summary.appendChild(applyAll);
-      details.appendChild(summary);
 
-      const fields = document.createElement("div");
-      fields.className = "simsala-result-fields";
-
-      for (const { path, value } of flattenObject(actorUpdate)) {
-        const row = document.createElement("div");
-        row.className = "simsala-result-row";
-
-        const label = document.createElement("span");
-        label.className = "simsala-field-label";
-        label.textContent = PATH_LABELS[path] ?? path;
-        row.appendChild(label);
-
-        const val = document.createElement("span");
-        val.className = "simsala-field-value";
-        val.textContent = formatValue(value);
-        const full = fullText(value);
-        if (full.length > 80) {
-          val.dataset.tooltip = full;
-          val.dataset.tooltipDirection = "DOWN";
-        }
-        row.appendChild(val);
-
-        const btn = document.createElement("button");
-        btn.type = "button";
-        btn.className = "simsala-apply-field";
-        btn.textContent = "Apply";
-        btn.addEventListener("click", async () => {
-          await this._onApplyField(path);
-          row.classList.add("simsala-result-applied");
-          btn.disabled = true;
-          btn.textContent = "Applied";
-        });
-        row.appendChild(btn);
-
-        fields.appendChild(row);
+      // Bucket into semantic groups
+      const buckets = new Map();
+      for (const entry of allFields) {
+        const key = fieldGroup(entry.path);
+        if (!buckets.has(key)) buckets.set(key, []);
+        buckets.get(key).push(entry);
       }
 
-      details.appendChild(fields);
-      container.appendChild(details);
+      // Render each non-empty group as a collapsible <details>
+      const groupDefs = [...FIELD_GROUPS, { key: "other", label: "Other", paths: [] }];
+      for (const gDef of groupDefs) {
+        const entries = buckets.get(gDef.key);
+        if (!entries?.length) continue;
+
+        const details = document.createElement("details");
+        details.className = "simsala-result-group";
+
+        const summary = document.createElement("summary");
+        const summaryLabel = document.createElement("span");
+        summaryLabel.textContent = `${gDef.label} (${entries.length})`;
+        summary.appendChild(summaryLabel);
+
+        const applyGroupBtn = document.createElement("button");
+        applyGroupBtn.type = "button";
+        applyGroupBtn.className = "simsala-apply-group";
+        applyGroupBtn.textContent = "Apply";
+        const groupPaths = entries.map(e => e.path);
+        applyGroupBtn.addEventListener("click", async (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+          for (const path of groupPaths) {
+            await this._onApplyField(path);
+          }
+          details.classList.add("simsala-result-applied");
+          applyGroupBtn.disabled = true;
+          applyGroupBtn.textContent = "Applied";
+          for (const btn of details.querySelectorAll(".simsala-apply-field")) {
+            btn.disabled = true;
+            btn.textContent = "Applied";
+          }
+        });
+        summary.appendChild(applyGroupBtn);
+        details.appendChild(summary);
+
+        const fields = document.createElement("div");
+        fields.className = "simsala-result-fields";
+
+        for (const { path, value } of entries) {
+          const row = document.createElement("div");
+          row.className = "simsala-result-row";
+
+          const label = document.createElement("span");
+          label.className = "simsala-field-label";
+          label.textContent = pathLabel(path);
+          row.appendChild(label);
+
+          const val = document.createElement("span");
+          val.className = "simsala-field-value";
+          val.textContent = formatValue(value);
+          const full = fullText(value);
+          if (full.length > 80) {
+            val.dataset.tooltip = full;
+            val.dataset.tooltipDirection = "DOWN";
+          }
+          row.appendChild(val);
+
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "simsala-apply-field";
+          btn.textContent = "Apply";
+          btn.addEventListener("click", async () => {
+            await this._onApplyField(path);
+            row.classList.add("simsala-result-applied");
+            btn.disabled = true;
+            btn.textContent = "Applied";
+          });
+          row.appendChild(btn);
+
+          fields.appendChild(row);
+        }
+
+        details.appendChild(fields);
+        container.appendChild(details);
+      }
     }
 
     // --- Embedded items ---

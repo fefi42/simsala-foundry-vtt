@@ -191,9 +191,13 @@
 
 .simsala-field-label {
   flex-shrink: 0;
-  width: 100px;
+  min-width: 90px;
+  max-width: 130px;
   font-weight: 600;
   color: #444;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .simsala-field-value {
