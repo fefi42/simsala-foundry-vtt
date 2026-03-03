@@ -168,6 +168,7 @@
   cursor: pointer;
   font-weight: bold;
   font-size: 0.82rem;
+  color: #191813;
   user-select: none;
 }
 
@@ -216,7 +217,7 @@
   cursor: default;
 }
 
-.simsala-result-item strong { flex: 1; }
+.simsala-result-item strong { flex: 1; color: #191813; }
 
 .simsala-result-type {
   display: inline-block;
@@ -237,6 +238,15 @@
   font-size: 0.72rem;
   cursor: pointer;
   border-radius: 3px;
+  background: #4b4a44;
+  color: #f0ede0;
+  border: 1px solid #3a3935;
+}
+
+.simsala-apply-group:hover,
+.simsala-apply-field:hover,
+.simsala-apply-one:hover {
+  background: #5c5b54;
 }
 
 .simsala-apply-group { margin-left: auto; }
