@@ -485,6 +485,31 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     if (btn) btn.disabled = disabled;
   }
 
+  /**
+   * Bind a rich dnd5e-style tooltip to an element using a compendium UUID.
+   * Loads the document on hover and calls richTooltip() for the formatted view.
+   */
+  _bindRichTooltip(element, uuid) {
+    element.addEventListener("pointerenter", async () => {
+      const doc = await fromUuid(uuid);
+      if (!doc) return;
+      const tip = await (doc.richTooltip?.() ?? doc.system?.richTooltip?.());
+      if (!tip?.content) return;
+      // Activate with placeholder text, then replace with rich content
+      game.tooltip.activate(element, { text: "Loading…", direction: "LEFT" });
+      const tt = game.tooltip.tooltip;
+      tt.innerHTML = tip.content;
+      tt.classList.remove("theme-dark");
+      if (tip.classes?.length) tt.classList.add(...tip.classes);
+    });
+    element.addEventListener("pointerleave", () => {
+      game.tooltip.deactivate();
+      game.tooltip.tooltip.classList.remove(
+        "dnd5e2", "dnd5e-tooltip", "item-tooltip", "themed", "theme-light",
+      );
+    });
+  }
+
   _appendMessage(role, content, note = "") {
     this.chatLog.push({ role, content, note });
     const history = this.element?.querySelector(".simsala-history");
@@ -591,7 +616,10 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
         val.className = "simsala-field-value";
         val.textContent = formatValue(value);
         const full = fullText(value);
-        if (full.length > 80) val.dataset.tooltip = full;
+        if (full.length > 80) {
+          val.dataset.tooltip = full;
+          val.dataset.tooltipDirection = "DOWN";
+        }
         row.appendChild(val);
 
         const btn = document.createElement("button");
@@ -629,10 +657,12 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
         name.textContent = item.name;
         row.appendChild(name);
 
-        // Custom tooltip with item description
-        const desc = item.system?.description?.value;
-        if (desc) {
-          row.dataset.tooltip = desc.replace(/<[^>]*>/g, "").trim();
+        // Rich tooltip for compendium items, plain text fallback for others
+        if (item._sourceUuid) {
+          this._bindRichTooltip(row, item._sourceUuid);
+        } else {
+          const desc = item.system?.description?.value;
+          if (desc) row.dataset.tooltip = desc.replace(/<[^>]*>/g, "").trim();
         }
 
         const btn = document.createElement("button");

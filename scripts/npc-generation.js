@@ -165,7 +165,18 @@ async function loadFromCompendium(creatureName) {
   }
 
   const doc = await pack.getDocument(entry._id);
-  return doc.toObject();
+  const data = doc.toObject();
+
+  // Preserve source UUIDs on embedded items so we can show rich tooltips later.
+  // toObject() strips UUIDs, but the live document's items collection has them.
+  if (data.items?.length && doc.items?.size) {
+    for (const itemData of data.items) {
+      const liveItem = doc.items.get(itemData._id);
+      if (liveItem) itemData._sourceUuid = liveItem.uuid;
+    }
+  }
+
+  return data;
 }
 
 // --- Step 3: LLM re-flavor ---

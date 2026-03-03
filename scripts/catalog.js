@@ -102,7 +102,9 @@ export class CatalogRegistry {
       const entry = index.find(e => e.name.toLowerCase() === name.toLowerCase().trim());
       if (entry) {
         const doc = await pack.getDocument(entry._id);
-        results.push(doc.toObject());
+        const obj = doc.toObject();
+        obj._sourceUuid = doc.uuid;
+        results.push(obj);
       } else {
         missing.push(name);
       }
