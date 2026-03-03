@@ -279,6 +279,7 @@ For extending the catalog with new content (future compendiums, 3rd-party module
 
 ---
 
+
 ## 9. Verification
 
 - Generate a dragon-type NPC → expect: multiattack, bite/claw/tail attacks (generated), breath weapon + frightful presence + legendary actions (from catalog), appropriate spells if any

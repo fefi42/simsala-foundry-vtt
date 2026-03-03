@@ -27,6 +27,15 @@ export function registerSettings() {
     type: String,
     default: "",
   });
+
+  game.settings.register(MODULE_ID, "jsonOutputInChat", {
+    name: "Developer: JSON output in chat",
+    hint: "Show raw JSON instead of the friendly card view.",
+    scope: "world",
+    config: true,
+    type: Boolean,
+    default: false,
+  });
 }
 
 export function getSettings() {
@@ -34,5 +43,6 @@ export function getSettings() {
     ollamaUrl: game.settings.get(MODULE_ID, "ollamaUrl"),
     modelName: game.settings.get(MODULE_ID, "modelName"),
     systemPromptOverride: game.settings.get(MODULE_ID, "systemPromptOverride"),
+    jsonOutputInChat: game.settings.get(MODULE_ID, "jsonOutputInChat"),
   };
 }

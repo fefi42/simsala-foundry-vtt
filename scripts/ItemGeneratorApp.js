@@ -6,6 +6,91 @@ import { generateNpc } from "./npc-generation.js";
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
 /**
+ * Human-readable labels for known JSON paths in generation results.
+ * Paths not listed here fall back to showing the dotted path itself.
+ */
+const PATH_LABELS = {
+  "name":                             "Name",
+  "system.rarity":                    "Rarity",
+  "system.type.value":                "Type",
+  "system.attunement":                "Attunement",
+  "system.mastery":                   "Weapon Mastery",
+  "system.description.value":         "Description",
+  "system.details.biography.value":   "Biography",
+  "system.damage.base.formula":       "Damage",
+  "system.damage.base.types":         "Damage Types",
+  "system.damage.versatile.formula":  "Versatile Damage",
+  "system.damage.versatile.types":    "Versatile Types",
+  "system.armor.value":               "AC",
+  "system.strength":                  "Strength Req.",
+  "system.properties":                "Properties",
+  "system.uses.max":                  "Max Uses",
+  "system.uses.per":                  "Uses Per",
+  "system.price.value":               "Price",
+  "system.price.denomination":        "Currency",
+  "system.weight.value":              "Weight",
+};
+
+/**
+ * Flatten a nested object into an array of { path, value } entries.
+ * Stops recursing at leaf values, arrays, and HTML strings.
+ */
+function flattenObject(obj, prefix = "") {
+  const entries = [];
+  for (const [k, v] of Object.entries(obj)) {
+    const path = prefix ? `${prefix}.${k}` : k;
+    if (Array.isArray(v)) {
+      entries.push({ path, value: v });
+    } else if (v !== null && typeof v === "object") {
+      entries.push(...flattenObject(v, path));
+    } else {
+      entries.push({ path, value: v });
+    }
+  }
+  return entries;
+}
+
+/**
+ * Format a value for display in the friendly result view.
+ * Long HTML strings are stripped and truncated.
+ */
+function formatValue(value) {
+  if (Array.isArray(value)) return value.join(", ");
+  if (typeof value === "string" && value.includes("<")) {
+    const stripped = value.replace(/<[^>]*>/g, "").trim();
+    return stripped.length > 80 ? stripped.slice(0, 80) + "…" : stripped;
+  }
+  return String(value);
+}
+
+/**
+ * Get the full unformatted text of a value (for tooltips).
+ */
+function fullText(value) {
+  if (Array.isArray(value)) return value.join(", ");
+  if (typeof value === "string" && value.includes("<")) {
+    return value.replace(/<[^>]*>/g, "").trim();
+  }
+  return String(value);
+}
+
+/**
+ * Build a nested update object from a dotted path and value.
+ * e.g. ("system.damage.base.formula", "2d6") → { system: { damage: { base: { formula: "2d6" } } } }
+ */
+function buildUpdate(path, value) {
+  const parts = path.split(".");
+  let obj = {};
+  let cursor = obj;
+  for (let i = 0; i < parts.length - 1; i++) {
+    cursor[parts[i]] = {};
+    cursor = cursor[parts[i]];
+  }
+  cursor[parts[parts.length - 1]] = value;
+  return obj;
+}
+
+/**
  * Deep merge — arrays are always replaced, not merged by index.
  * Array replacement is intentional: merging by index produces nonsensical
  * results for fields like damage types or language lists where the full
@@ -253,11 +338,7 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     this.lastResult = merged;
     this.lastEmbeddedItems = embeddedItems;
 
-    this._appendMessage("assistant", JSON.stringify(merged, null, 2));
-    if (embeddedItems.length) {
-      const listing = embeddedItems.map(i => `  ${i.name} (${i.type})`).join("\n");
-      this._appendMessage("note", `Abilities:\n${listing}`);
-    }
+    this._displayResult({ actorUpdate: merged, embeddedItems });
     this.element.querySelector(".simsala-apply").disabled = false;
   }
 
@@ -277,12 +358,30 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     // Display summary
     const summary = `Based on: ${result.baseName}\n${result.reason ?? ""}`;
     this._appendMessage("note", summary);
-    this._appendMessage("assistant", JSON.stringify(result.actorUpdate, null, 2));
-    if (result.embeddedItems.length) {
-      const listing = result.embeddedItems.map(i => `  ${i.name} (${i.type})`).join("\n");
-      this._appendMessage("note", `Items:\n${listing}`);
-    }
+
+    this._displayResult({
+      actorUpdate: result.actorUpdate,
+      embeddedItems: result.embeddedItems,
+    });
     this.element.querySelector(".simsala-apply").disabled = false;
+  }
+
+  /**
+   * Show generation results — either as raw JSON (developer mode) or
+   * as a friendly card view with per-item apply buttons.
+   */
+  _displayResult(data) {
+    const jsonMode = game.settings.get("simsala", "jsonOutputInChat");
+
+    if (jsonMode) {
+      this._appendMessage("assistant", JSON.stringify(data.actorUpdate, null, 2));
+      if (data.embeddedItems.length) {
+        const listing = data.embeddedItems.map(i => `  ${i.name} (${i.type})`).join("\n");
+        this._appendMessage("note", `Items:\n${listing}`);
+      }
+    } else {
+      this._appendMessage("result", data);
+    }
   }
 
   _validateProperties(parsed) {
@@ -333,6 +432,47 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     this._appendMessage("note", `✓ Applied to ${label}.`);
   }
 
+  /**
+   * Apply a single field from lastResult to the document.
+   */
+  async _onApplyField(path) {
+    if (!this.lastResult) return;
+
+    // Resolve the value from lastResult using the dotted path
+    const parts = path.split(".");
+    let value = this.lastResult;
+    for (const p of parts) {
+      if (value == null) return;
+      value = value[p];
+    }
+    if (value === undefined) return;
+
+    const update = buildUpdate(path, value);
+    await this.document.update(update);
+  }
+
+  /**
+   * Apply a single embedded item to the document.
+   */
+  async _onApplyOneItem(index) {
+    const item = this.lastEmbeddedItems[index];
+    if (!item) return;
+
+    const flagged = {
+      ...item,
+      flags: { ...item.flags, simsala: { generated: true } },
+    };
+    await this.document.createEmbeddedDocuments("Item", [flagged]);
+  }
+
+  /**
+   * Apply all actor-level changes (but not embedded items).
+   */
+  async _onApplyGroup() {
+    if (!this.lastResult || !Object.keys(this.lastResult).length) return;
+    await this.document.update(this.lastResult);
+  }
+
   _setStatus(label, semanticState = "generating") {
     const el = this.element?.querySelector(".simsala-status");
     if (!el) return;
@@ -357,7 +497,9 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     const msg = document.createElement("div");
     msg.className = `simsala-message simsala-message--${role}`;
 
-    if (role === "assistant") {
+    if (role === "result") {
+      this._renderResult(msg, content);
+    } else if (role === "assistant") {
       const pre = document.createElement("pre");
       pre.textContent = content;
       msg.appendChild(pre);
@@ -387,5 +529,119 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     }
 
     history.appendChild(msg);
+  }
+
+  /**
+   * Build the friendly result card DOM inside a container element.
+   * Shows a collapsible actor-changes block and per-item cards.
+   */
+  _renderResult(container, data) {
+    const { actorUpdate, embeddedItems } = data;
+
+    // --- Actor changes (collapsible) ---
+    if (actorUpdate && Object.keys(actorUpdate).length) {
+      const details = document.createElement("details");
+      details.className = "simsala-result-group";
+
+      const summary = document.createElement("summary");
+      const summaryLabel = document.createElement("span");
+      summaryLabel.textContent = "Actor Changes";
+      summary.appendChild(summaryLabel);
+
+      const applyAll = document.createElement("button");
+      applyAll.type = "button";
+      applyAll.className = "simsala-apply-group";
+      applyAll.textContent = "Apply All";
+      applyAll.addEventListener("click", async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        await this._onApplyGroup();
+        details.classList.add("simsala-result-applied");
+        applyAll.disabled = true;
+        applyAll.textContent = "Applied";
+        // Also mark all field buttons as applied
+        for (const btn of details.querySelectorAll(".simsala-apply-field")) {
+          btn.disabled = true;
+          btn.textContent = "Applied";
+        }
+      });
+      summary.appendChild(applyAll);
+      details.appendChild(summary);
+
+      const fields = document.createElement("div");
+      fields.className = "simsala-result-fields";
+
+      for (const { path, value } of flattenObject(actorUpdate)) {
+        const row = document.createElement("div");
+        row.className = "simsala-result-row";
+
+        const label = document.createElement("span");
+        label.className = "simsala-field-label";
+        label.textContent = PATH_LABELS[path] ?? path;
+        row.appendChild(label);
+
+        const val = document.createElement("span");
+        val.className = "simsala-field-value";
+        val.textContent = formatValue(value);
+        const full = fullText(value);
+        if (full.length > 80) val.title = full;
+        row.appendChild(val);
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "simsala-apply-field";
+        btn.textContent = "Apply";
+        btn.addEventListener("click", async () => {
+          await this._onApplyField(path);
+          row.classList.add("simsala-result-applied");
+          btn.disabled = true;
+          btn.textContent = "Applied";
+        });
+        row.appendChild(btn);
+
+        fields.appendChild(row);
+      }
+
+      details.appendChild(fields);
+      container.appendChild(details);
+    }
+
+    // --- Embedded items ---
+    if (embeddedItems?.length) {
+      for (let i = 0; i < embeddedItems.length; i++) {
+        const item = embeddedItems[i];
+        const row = document.createElement("div");
+        row.className = "simsala-result-item";
+
+        const typeBadge = document.createElement("span");
+        typeBadge.className = "simsala-result-type";
+        typeBadge.textContent = item.type;
+        row.appendChild(typeBadge);
+
+        const name = document.createElement("strong");
+        name.textContent = item.name;
+        row.appendChild(name);
+
+        // Tooltip with item description
+        const desc = item.system?.description?.value;
+        if (desc) {
+          row.title = desc.replace(/<[^>]*>/g, "").trim();
+        }
+
+        const btn = document.createElement("button");
+        btn.type = "button";
+        btn.className = "simsala-apply-one";
+        btn.textContent = "Apply";
+        btn.addEventListener("click", async () => {
+          await this._onApplyOneItem(i);
+          row.classList.add("simsala-result-applied");
+          btn.disabled = true;
+          btn.textContent = "Applied";
+        });
+        row.appendChild(btn);
+
+        container.appendChild(row);
+      }
+    }
   }
 }

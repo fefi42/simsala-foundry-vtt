@@ -142,6 +142,116 @@
   align-self: flex-end;
 }
 
+/* ── Result cards (friendly view) ── */
+
+.simsala-message--result {
+  align-self: stretch;
+  max-width: 100%;
+  padding: 6px 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Collapsible actor-changes group */
+.simsala-result-group {
+  border: 1px solid #c9c7b8;
+  border-radius: 4px;
+  background: #f5f0e8;
+}
+
+.simsala-result-group summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 0.82rem;
+  user-select: none;
+}
+
+.simsala-result-group summary::-webkit-details-marker { font-size: 0.7rem; }
+
+.simsala-result-fields {
+  padding: 2px 8px 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.simsala-result-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  font-size: 0.8rem;
+  line-height: 1.3;
+}
+
+.simsala-field-label {
+  flex-shrink: 0;
+  width: 100px;
+  font-weight: 600;
+  color: #444;
+}
+
+.simsala-field-value {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #191813;
+}
+
+/* Embedded item row */
+.simsala-result-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 8px;
+  border: 1px solid #c9c7b8;
+  border-radius: 4px;
+  background: #f5f0e8;
+  font-size: 0.82rem;
+  cursor: default;
+}
+
+.simsala-result-item strong { flex: 1; }
+
+.simsala-result-type {
+  display: inline-block;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: #4b4a44;
+  color: #f0ede0;
+  font-size: 0.7rem;
+  text-transform: lowercase;
+}
+
+/* Inline apply buttons */
+.simsala-apply-group,
+.simsala-apply-field,
+.simsala-apply-one {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.simsala-apply-group { margin-left: auto; }
+
+/* Applied state */
+.simsala-result-applied {
+  opacity: 0.5;
+}
+
+.simsala-result-applied .simsala-apply-field,
+.simsala-result-applied .simsala-apply-one,
+.simsala-result-applied .simsala-apply-group {
+  cursor: default;
+}
+
 /* Footer */
 .simsala-footer {
   display: flex;
