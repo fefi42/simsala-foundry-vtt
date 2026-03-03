@@ -215,6 +215,31 @@
   background: #f5f0e8;
   font-size: 0.82rem;
   cursor: default;
+  position: relative;
+}
+
+/* Custom tooltip (opaque background) */
+[data-tooltip] { position: relative; }
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 0;
+  top: 100%;
+  z-index: 100;
+  max-width: 350px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  background: #2b2a25;
+  color: #f0ede0;
+  font-size: 0.78rem;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1.4;
+  white-space: pre-wrap;
+  word-break: break-word;
+  pointer-events: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
 .simsala-result-item strong { flex: 1; color: #191813; }

@@ -429,7 +429,7 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     }
 
     const label = this.document.type === "npc" ? "NPC" : "item";
-    this._appendMessage("note", `✓ Applied to ${label}.`);
+    this._appendMessage("note", `✓ Applied all to ${label}.`);
   }
 
   /**
@@ -489,8 +489,14 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     this.chatLog.push({ role, content, note });
     const history = this.element?.querySelector(".simsala-history");
     if (!history) return;
-    this._appendToHistory(history, role, content, note);
-    history.scrollTop = history.scrollHeight;
+    const msg = this._appendToHistory(history, role, content, note);
+    // For result cards, scroll so the first result is visible at the top.
+    // For everything else, scroll to the bottom as usual.
+    if (role === "result") {
+      msg.scrollIntoView({ block: "start", behavior: "smooth" });
+    } else {
+      history.scrollTop = history.scrollHeight;
+    }
   }
 
   _appendToHistory(history, role, content, note = "") {
@@ -529,6 +535,7 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
     }
 
     history.appendChild(msg);
+    return msg;
   }
 
   /**
@@ -584,7 +591,7 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
         val.className = "simsala-field-value";
         val.textContent = formatValue(value);
         const full = fullText(value);
-        if (full.length > 80) val.title = full;
+        if (full.length > 80) val.dataset.tooltip = full;
         row.appendChild(val);
 
         const btn = document.createElement("button");
@@ -622,10 +629,10 @@ export class ItemGeneratorApp extends HandlebarsApplicationMixin(ApplicationV2) 
         name.textContent = item.name;
         row.appendChild(name);
 
-        // Tooltip with item description
+        // Custom tooltip with item description
         const desc = item.system?.description?.value;
         if (desc) {
-          row.title = desc.replace(/<[^>]*>/g, "").trim();
+          row.dataset.tooltip = desc.replace(/<[^>]*>/g, "").trim();
         }
 
         const btn = document.createElement("button");
